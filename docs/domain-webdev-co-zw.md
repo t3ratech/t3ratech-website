@@ -58,6 +58,30 @@ At webdev.co.zw, add it as:
 |---|---|---|
 | `TXT` | `@` | `google-site-verification=...` |
 
+Keep this TXT record after verification. It proves ownership of
+`t3ratech.co.zw` and should cover `www`, `connekt`, `bantora`, and `t3rnel`.
+
+You can also prepare the Cloud Run routing records in the same DNS zone:
+
+| Type | Host/Name | Value |
+|---|---|---|
+| `A` | `@` | `216.239.32.21` |
+| `A` | `@` | `216.239.34.21` |
+| `A` | `@` | `216.239.36.21` |
+| `A` | `@` | `216.239.38.21` |
+| `AAAA` | `@` | `2001:4860:4802:32::15` |
+| `AAAA` | `@` | `2001:4860:4802:34::15` |
+| `AAAA` | `@` | `2001:4860:4802:36::15` |
+| `AAAA` | `@` | `2001:4860:4802:38::15` |
+| `CNAME` | `www` | `ghs.googlehosted.com` |
+| `CNAME` | `connekt` | `ghs.googlehosted.com` |
+| `CNAME` | `bantora` | `ghs.googlehosted.com` |
+| `CNAME` | `t3rnel` | `ghs.googlehosted.com` |
+
+Only the apex and `www` mappings are managed by the current website Terraform
+stack. The product subdomains can exist in DNS now, but they will not serve the
+right product until each product has its own Cloud Run domain mapping.
+
 After Google verifies ownership, rerun the deploy with domain replacement:
 
 ```bash
