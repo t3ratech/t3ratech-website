@@ -1,4 +1,4 @@
-# Point `t3ratech.co.za` to the Cloud Run Website
+# Point `t3ratech.co.zw` to the Cloud Run Website
 
 ## Chosen Path
 
@@ -15,7 +15,7 @@ Why:
 Prerequisites:
 
 - Billing is linked to project `t3ratech-solutions`.
-- `t3ratech.co.za` must be verified for the active Google account or a service account owner in Google Search Console.
+- `t3ratech.co.zw` must be verified for the active Google account or a service account owner in Google Search Console.
 - Docker must be running locally.
 - Terraform and `gcloud` must be authenticated.
 
@@ -33,17 +33,17 @@ The script:
 - Creates Artifact Registry.
 - Builds and pushes the website Docker image.
 - Creates/updates the public Cloud Run service.
-- Creates Cloud Run domain mappings for `t3ratech.co.za` and `www.t3ratech.co.za`.
+- Creates Cloud Run domain mappings for `t3ratech.co.zw` and `www.t3ratech.co.zw`.
 - Outputs the DNS records to add at webdev.co.zw.
 
 ## DNS at webdev.co.zw
 
-Log in to the webdev.co.zw client area and open DNS management for `t3ratech.co.za`.
+Log in to the webdev.co.zw client area and open DNS management for `t3ratech.co.zw`.
 
 First add the Google Search Console verification record. Generate it with:
 
 ```bash
-gcloud domains verify t3ratech.co.za
+gcloud domains verify t3ratech.co.zw
 ```
 
 Google Search Console will show a TXT value like:
@@ -75,8 +75,8 @@ bash scripts/terraform-dns-records.sh
 
 Terraform prints the `resource_records` returned by Cloud Run domain mapping. At webdev.co.zw:
 
-- Use `@` for the apex domain `t3ratech.co.za`.
-- Use `www` for `www.t3ratech.co.za`.
+- Use `@` for the apex domain `t3ratech.co.zw`.
+- Use `www` for `www.t3ratech.co.zw`.
 - Add every returned `A`, `AAAA`, or `CNAME` record.
 - Do not guess the values; use the Terraform output.
 
@@ -86,9 +86,9 @@ Reserve these hostnames for the launch products:
 
 | Hostname | Target Cloud Run service | DNS host/name at webdev.co.zw |
 |---|---|---|
-| `connekt.t3ratech.co.za` | Future Connekt public app/service | `connekt` |
-| `bantora.t3ratech.co.za` | Future Bantora public web app | `bantora` |
-| `t3rnel.t3ratech.co.za` | Future T3rnel public app/service | `t3rnel` |
+| `connekt.t3ratech.co.zw` | Future Connekt public app/service | `connekt` |
+| `bantora.t3ratech.co.zw` | Future Bantora public web app | `bantora` |
+| `t3rnel.t3ratech.co.zw` | Future T3rnel public app/service | `t3rnel` |
 
 Do not add these three product subdomains to the website Terraform stack unless
 you intentionally want them to show the static T3raTech website as temporary
@@ -104,7 +104,7 @@ will usually need a CNAME record like this:
 | `CNAME` | `bantora` | Use the value returned by that product's Terraform output, commonly `ghs.googlehosted.com` |
 | `CNAME` | `t3rnel` | Use the value returned by that product's Terraform output, commonly `ghs.googlehosted.com` |
 
-Verifying the apex domain `t3ratech.co.za` in Google Search Console should cover
+Verifying the apex domain `t3ratech.co.zw` in Google Search Console should cover
 these subdomains too, so you should not need separate TXT verification records
 for `connekt`, `bantora`, or `t3rnel`.
 
@@ -125,7 +125,7 @@ If there are no CAA records, you usually do not need to add any.
 The domain must be verified in Google Search Console / Google Cloud before Terraform can create the mapping.
 
 ```bash
-gcloud domains verify t3ratech.co.za
+gcloud domains verify t3ratech.co.zw
 ```
 
 After verification, rerun `scripts/deploy-website-terraform.sh`.

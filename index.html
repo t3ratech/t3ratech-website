@@ -71,6 +71,17 @@
         ]
       }
     </script>
+    <script>
+      (() => {
+        const key = "t3ratech-theme";
+        const defaultPreference = "auto";
+        const stored = window.localStorage.getItem(key);
+        const preference = stored === "light" || stored === "dark" || stored === "auto" ? stored : defaultPreference;
+        const systemDark = window.matchMedia("(prefers-color-scheme: dark)").matches;
+        document.documentElement.dataset.theme = preference === "auto" ? (systemDark ? "dark" : "light") : preference;
+        document.documentElement.dataset.themePreference = preference;
+      })();
+    </script>
     <title>T3raTech Solutions | African Software Systems</title>
   </head>
   <body>

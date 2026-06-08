@@ -12,7 +12,7 @@ The website is deployed with Terraform-managed Google Cloud resources and a smal
 | Terraform state | GCS bucket `t3ratech-solutions-tfstate`, prefix `t3ratech-website/website` |
 | Runtime | Cloud Run service `t3ratech-website` |
 | Public access | `allUsers` -> `roles/run.invoker` on the website service |
-| Domain | Cloud Run domain mappings for `t3ratech.co.za` and `www.t3ratech.co.za` |
+| Domain | Cloud Run domain mappings for `t3ratech.co.zw` and `www.t3ratech.co.zw` |
 | TLS | Cloud Run Google-managed certificate, automatic renewal |
 
 Product subdomains are reserved but should be mapped by each product's own
@@ -20,9 +20,9 @@ Terraform stack when those Cloud Run services are deployed:
 
 | Hostname | Intended service |
 |---|---|
-| `connekt.t3ratech.co.za` | Connekt public app/service |
-| `bantora.t3ratech.co.za` | Bantora public web app |
-| `t3rnel.t3ratech.co.za` | T3rnel public app/service |
+| `connekt.t3ratech.co.zw` | Connekt public app/service |
+| `bantora.t3ratech.co.zw` | Bantora public web app |
+| `t3rnel.t3ratech.co.zw` | T3rnel public app/service |
 
 The live Cloud Run URL is:
 
@@ -75,12 +75,12 @@ The image tag defaults to the current Git commit SHA.
 
 ## Domain Verification
 
-The Cloud Run service is live, but the custom domain mappings are currently blocked until Google domain ownership verification is completed for `t3ratech.co.za`.
+The Cloud Run service is live, but the custom domain mappings are currently blocked until Google domain ownership verification is completed for `t3ratech.co.zw`.
 
 Verify the apex domain once:
 
 ```bash
-gcloud domains verify t3ratech.co.za
+gcloud domains verify t3ratech.co.zw
 ```
 
 Complete the Search Console verification flow, preferably with a DNS TXT record at webdev.co.zw.

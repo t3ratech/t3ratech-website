@@ -37,7 +37,7 @@ variable "image_tag" {
 variable "domains" {
   description = "Verified custom domains to map to the Cloud Run service."
   type        = list(string)
-  default     = ["t3ratech.co.za", "www.t3ratech.co.za"]
+  default     = ["t3ratech.co.zw", "www.t3ratech.co.zw"]
 }
 
 variable "container_port" {

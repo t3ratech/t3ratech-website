@@ -20,11 +20,11 @@ if grep -q 'Output "domain_dns_records" not found' "${error_file}"; then
 Cloud Run DNS records are not available yet.
 
 The domain mappings have not completed because Google has not verified ownership
-of t3ratech.co.za for this account/project.
+of t3ratech.co.zw for this account/project.
 
 First add the Google Search Console TXT verification record at webdev.co.zw:
 
-  gcloud domains verify t3ratech.co.za
+  gcloud domains verify t3ratech.co.zw
 
 After Google verifies the domain, recreate the Cloud Run mappings and update
 Terraform state:

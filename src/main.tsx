@@ -7,13 +7,18 @@ import {
   BrainCircuit,
   Globe2,
   Languages,
+  Menu,
   MessageSquareText,
+  Monitor,
+  Moon,
   Network,
   ShieldCheck,
   Sparkles,
+  Sun,
   UsersRound,
   Vote,
   Workflow,
+  X,
 } from "lucide-react";
 import "./styles.css";
 
@@ -36,6 +41,42 @@ type CommunityGroup = {
   description: string;
   image: string;
 };
+
+type ThemePreference = "light" | "dark" | "auto";
+
+const themeStorageKey = "t3ratech-theme";
+const defaultThemePreference: ThemePreference = "auto";
+
+const themeOptions: Array<{
+  value: ThemePreference;
+  label: string;
+  icon: React.ComponentType<{ size?: number; strokeWidth?: number }>;
+}> = [
+  { value: "light", label: "Light", icon: Sun },
+  { value: "dark", label: "Dark", icon: Moon },
+  { value: "auto", label: "Auto", icon: Monitor },
+];
+
+function isThemePreference(value: string | null): value is ThemePreference {
+  return value === "light" || value === "dark" || value === "auto";
+}
+
+function getInitialThemePreference(): ThemePreference {
+  if (typeof window === "undefined") {
+    return defaultThemePreference;
+  }
+
+  const storedPreference = window.localStorage.getItem(themeStorageKey);
+  return isThemePreference(storedPreference) ? storedPreference : defaultThemePreference;
+}
+
+function resolveTheme(preference: ThemePreference, mediaQuery: MediaQueryList): Exclude<ThemePreference, "auto"> {
+  if (preference === "auto") {
+    return mediaQuery.matches ? "dark" : "light";
+  }
+
+  return preference;
+}
 
 const products: Product[] = [
   {
@@ -190,6 +231,13 @@ const values = ["Patriotism", "Excellence", "Innovation", "Partnership"];
 
 const scitechCommunityUrl = "https://chat.whatsapp.com/JSFpsyPF2LvHYXmZRS8Y1C";
 
+const navItems = [
+  { href: "#products", label: "Systems" },
+  { href: "#mission", label: "Mission" },
+  { href: "#community", label: "Community" },
+  { href: "#technology", label: "Technology" },
+];
+
 const scitechGroups: CommunityGroup[] = [
   {
     name: "Announcements",
@@ -306,6 +354,10 @@ const scitechGroups: CommunityGroup[] = [
 ];
 
 function App() {
+  const [themePreference, setThemePreference] =
+    React.useState<ThemePreference>(getInitialThemePreference);
+  const [isMobileMenuOpen, setIsMobileMenuOpen] = React.useState(false);
+
   React.useEffect(() => {
     const targetId = window.location.hash.slice(1);
     if (!targetId) {
@@ -317,21 +369,87 @@ function App() {
     });
   }, []);
 
+  React.useEffect(() => {
+    const mediaQuery = window.matchMedia("(prefers-color-scheme: dark)");
+
+    const applyTheme = () => {
+      document.documentElement.dataset.theme = resolveTheme(themePreference, mediaQuery);
+      document.documentElement.dataset.themePreference = themePreference;
+      window.localStorage.setItem(themeStorageKey, themePreference);
+    };
+
+    applyTheme();
+    mediaQuery.addEventListener("change", applyTheme);
+
+    return () => {
+      mediaQuery.removeEventListener("change", applyTheme);
+    };
+  }, [themePreference]);
+
+  React.useEffect(() => {
+    if (!isMobileMenuOpen) {
+      return;
+    }
+
+    const closeOnEscape = (event: KeyboardEvent) => {
+      if (event.key === "Escape") {
+        setIsMobileMenuOpen(false);
+      }
+    };
+
+    window.addEventListener("keydown", closeOnEscape);
+
+    return () => {
+      window.removeEventListener("keydown", closeOnEscape);
+    };
+  }, [isMobileMenuOpen]);
+
   return (
     <>
-      <header className="site-header" aria-label="Primary">
+      <header className={`site-header ${isMobileMenuOpen ? "menu-open" : ""}`} aria-label="Primary">
         <a className="brand" href="#top" aria-label="T3raTech home">
           <span className="brand-mark" aria-hidden="true">
             <img src="/assets/t3ratech-tt-logo-visible.png" alt="" />
           </span>
           <span>T3raTech</span>
         </a>
-        <nav className="nav-links">
-          <a href="#products">Systems</a>
-          <a href="#mission">Mission</a>
-          <a href="#community">Community</a>
-          <a href="#technology">Technology</a>
-        </nav>
+        <div className="header-actions">
+          <nav className="nav-links" id="primary-navigation">
+            {navItems.map((item) => (
+              <a href={item.href} key={item.href} onClick={() => setIsMobileMenuOpen(false)}>
+                {item.label}
+              </a>
+            ))}
+          </nav>
+          <div className="theme-toggle" aria-label="Color mode">
+            {themeOptions.map((option) => {
+              const Icon = option.icon;
+              return (
+                <button
+                  aria-label={`${option.label} mode`}
+                  aria-pressed={themePreference === option.value}
+                  className={themePreference === option.value ? "active" : undefined}
+                  key={option.value}
+                  onClick={() => setThemePreference(option.value)}
+                  title={`${option.label} mode`}
+                  type="button"
+                >
+                  <Icon size={17} strokeWidth={2.2} />
+                </button>
+              );
+            })}
+          </div>
+          <button
+            aria-controls="primary-navigation"
+            aria-expanded={isMobileMenuOpen}
+            aria-label={isMobileMenuOpen ? "Close menu" : "Open menu"}
+            className="menu-toggle"
+            onClick={() => setIsMobileMenuOpen((isOpen) => !isOpen)}
+            type="button"
+          >
+            {isMobileMenuOpen ? <X size={22} strokeWidth={2.2} /> : <Menu size={22} strokeWidth={2.2} />}
+          </button>
+        </div>
       </header>
 
       <main id="top">

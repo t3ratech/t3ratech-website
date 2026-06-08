@@ -41,4 +41,6 @@ PROJECT_ID=t3ratech-solutions REGION=europe-west1 bash scripts/deploy-website-te
 ```
 
 The deployment system is documented in `docs/deployment-system.md`.
-Domain setup for `t3ratech.co.za` is documented in `docs/domain-webdev-co-zw.md`.
+Domain setup for `t3ratech.co.zw` is documented in `docs/domain-webdev-co-zw.md`.
+
+GitHub Actions deployment setup is documented in `docs/github-actions-deployment.md`.

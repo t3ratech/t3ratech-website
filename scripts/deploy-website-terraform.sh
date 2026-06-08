@@ -5,7 +5,7 @@ PROJECT_ID="${PROJECT_ID:-t3ratech-solutions}"
 REGION="${REGION:-europe-west1}"
 SERVICE_NAME="${SERVICE_NAME:-t3ratech-website}"
 REPOSITORY_ID="${REPOSITORY_ID:-t3ratech-apps}"
-DOMAINS_JSON="${DOMAINS_JSON:-[\"t3ratech.co.za\",\"www.t3ratech.co.za\"]}"
+DOMAINS_JSON="${DOMAINS_JSON:-[\"t3ratech.co.zw\",\"www.t3ratech.co.zw\"]}"
 TF_DIR="${TF_DIR:-infra/website}"
 
 if ! command -v terraform >/dev/null 2>&1; then
@@ -64,8 +64,17 @@ docker push "${IMAGE}"
 
 replace_args=()
 if [ "${REPLACE_DOMAIN_MAPPINGS:-0}" = "1" ]; then
-  replace_args+=('-replace=google_cloud_run_domain_mapping.website["t3ratech.co.za"]')
-  replace_args+=('-replace=google_cloud_run_domain_mapping.website["www.t3ratech.co.za"]')
+  while IFS= read -r domain; do
+    replace_args+=("-replace=google_cloud_run_domain_mapping.website[\"${domain}\"]")
+  done < <(
+    DOMAINS_JSON="${DOMAINS_JSON}" python3 - <<'PY'
+import json
+import os
+
+for domain in json.loads(os.environ["DOMAINS_JSON"]):
+    print(domain)
+PY
+  )
 fi
 
 terraform -chdir="${TF_DIR}" apply "${replace_args[@]}" -auto-approve

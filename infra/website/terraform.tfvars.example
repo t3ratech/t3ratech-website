@@ -4,8 +4,8 @@ service_name  = "t3ratech-website"
 repository_id = "t3ratech-apps"
 
 domains = [
-  "t3ratech.co.za",
-  "www.t3ratech.co.za",
+  "t3ratech.co.zw",
+  "www.t3ratech.co.zw",
 ]
 
 min_instances = 0

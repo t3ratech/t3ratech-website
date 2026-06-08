@@ -2,7 +2,7 @@
 
 This strategy covers only the first launch group: the static T3raTech website, Bantora, Connekt, and then T3rnel.
 
-For the website-only deployment, use `scripts/deploy-website-terraform.sh`. The current deployment system is documented in `docs/deployment-system.md`; DNS setup for `t3ratech.co.za` is documented in `docs/domain-webdev-co-zw.md`.
+For the website-only deployment, use `scripts/deploy-website-terraform.sh`. The current deployment system is documented in `docs/deployment-system.md`; DNS setup for `t3ratech.co.zw` is documented in `docs/domain-webdev-co-zw.md`.
 
 ## Guiding Choice
 
@@ -12,24 +12,24 @@ Use Cloud Run for stateless containers and managed GCP services for state. Do no
 
 | Service | Cloud Run exposure | State dependencies | First settings |
 |---|---|---|---|
-| `t3ratech-website` | Public at `t3ratech.co.za` and `www.t3ratech.co.za` | None | `min_instances=0`, `max_instances=2`, 256-512 MiB |
-| `bantora-web` | Public at `bantora.t3ratech.co.za` | Calls `bantora-api` | `min_instances=0`, 256-512 MiB |
+| `t3ratech-website` | Public at `t3ratech.co.zw` and `www.t3ratech.co.zw` | None | `min_instances=0`, `max_instances=2`, 256-512 MiB |
+| `bantora-web` | Public at `bantora.t3ratech.co.zw` | Calls `bantora-api` | `min_instances=0`, 256-512 MiB |
 | `bantora-api` | Public API, auth protected writes | Cloud SQL Postgres, Memorystore Redis, Secret Manager | Start at 1 vCPU / 1-2 GiB, cap max instances |
 | `connekt-core` | Private/internal unless public auth endpoints require direct access | Cloud SQL Postgres, object storage, secrets | Start at 1 vCPU / 1 GiB |
 | `connekt-content-api` | Public or private behind frontend/API gateway | Cloud SQL Postgres, object storage | Start at 1 vCPU / 1 GiB |
 | `connekt-administration` | Private/admin restricted | Cloud SQL Postgres | Start at 1 vCPU / 1 GiB |
-| `connekt-admin-web` | Public/admin restricted at `connekt.t3ratech.co.za` if this is the first Connekt UI | Calls admin API | `min_instances=0`, 256-512 MiB |
-| `t3rnel-api` | Public at `t3rnel.t3ratech.co.za` only when productized | Secret Manager, optional storage | Start at 0.5-1 vCPU / 512 MiB-1 GiB |
+| `connekt-admin-web` | Public/admin restricted at `connekt.t3ratech.co.zw` if this is the first Connekt UI | Calls admin API | `min_instances=0`, 256-512 MiB |
+| `t3rnel-api` | Public at `t3rnel.t3ratech.co.zw` only when productized | Secret Manager, optional storage | Start at 0.5-1 vCPU / 512 MiB-1 GiB |
 
 ## Domain Map
 
 | Hostname | Terraform owner | Notes |
 |---|---|---|
-| `t3ratech.co.za` | Website stack | Apex domain uses Cloud Run domain mapping and Google-managed TLS |
-| `www.t3ratech.co.za` | Website stack | CNAME-style subdomain for the static website |
-| `bantora.t3ratech.co.za` | Future Bantora stack | Map to `bantora-web` when Bantora is deployed |
-| `connekt.t3ratech.co.za` | Future Connekt stack | Map to the first public Connekt UI or gateway |
-| `t3rnel.t3ratech.co.za` | Future T3rnel stack | Map when T3rnel has a public service |
+| `t3ratech.co.zw` | Website stack | Apex domain uses Cloud Run domain mapping and Google-managed TLS |
+| `www.t3ratech.co.zw` | Website stack | CNAME-style subdomain for the static website |
+| `bantora.t3ratech.co.zw` | Future Bantora stack | Map to `bantora-web` when Bantora is deployed |
+| `connekt.t3ratech.co.zw` | Future Connekt stack | Map to the first public Connekt UI or gateway |
+| `t3rnel.t3ratech.co.zw` | Future T3rnel stack | Map when T3rnel has a public service |
 
 ## Shared Managed Resources
 
