@@ -1,10 +1,11 @@
 # T3raTech Website
 
-Static launch website for T3raTech Solutions, focused only on the first three product launches:
+Public website for T3raTech Solutions, focused on three public systems and the SciTech Zimbabwe community:
 
-- Bantora
-- Connekt
-- T3rnel
+- Bantora at `bantora.t3ratech.co.zw`
+- Connekt at `connekt.t3ratech.co.zw`
+- T3rnel at `t3rnel.t3ratech.co.zw`
+- SciTech Zimbabwe, a WhatsApp community for Zimbabwean science, technology, jobs, commerce, and innovation groups
 
 Source material used:
 
@@ -33,7 +34,7 @@ docker build -t t3ratech-website .
 docker run --rm -p 8080:8080 -e PORT=8080 t3ratech-website
 ```
 
-## Cloud Run
+## Operations
 
 ```bash
 PROJECT_ID=t3ratech-solutions REGION=europe-west1 bash scripts/deploy-website-terraform.sh
