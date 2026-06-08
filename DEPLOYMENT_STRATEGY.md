@@ -2,7 +2,7 @@
 
 This strategy covers only the first launch group: the static T3raTech website, Bantora, Connekt, and then T3rnel.
 
-For the website-only deployment, use `scripts/deploy-cloudrun.sh`. For `t3ratech.co.za`, use `docs/domain-webdev-co-zw.md`.
+For the website-only deployment, use `scripts/deploy-website-terraform.sh`. For `t3ratech.co.za`, use `docs/domain-webdev-co-zw.md`.
 
 ## Guiding Choice
 
@@ -57,7 +57,7 @@ Use Cloud Run for stateless containers and managed GCP services for state. Do no
 
 | Terraform area | Resources |
 |---|---|
-| APIs | Enable Cloud Run, Cloud Build, Artifact Registry, Secret Manager, Cloud SQL Admin, VPC Access/Compute as needed |
+| APIs | Enable Cloud Run, Artifact Registry, Secret Manager, Cloud SQL Admin, VPC Access/Compute as needed |
 | Registry | `google_artifact_registry_repository` |
 | Network | VPC, subnet, private service access where needed, Direct VPC egress config on Cloud Run services |
 | Database | Cloud SQL Postgres instance, databases, users, backups |
@@ -65,7 +65,7 @@ Use Cloud Run for stateless containers and managed GCP services for state. Do no
 | Secrets | Secret Manager secrets and IAM bindings for service accounts |
 | Services | `google_cloud_run_v2_service` for each stateless container |
 | IAM | Per-service service accounts with least privilege |
-| Domains | Cloud Run custom domains or external HTTPS load balancer later |
+| Domains | Cloud Run domain mappings in `europe-west1` with Google-managed certificates |
 
 ## Notes
 

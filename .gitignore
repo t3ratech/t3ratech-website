@@ -5,3 +5,10 @@ dist/
 !.env.example
 npm-debug.log*
 .DS_Store
+.terraform/
+*.tfstate
+*.tfstate.*
+*.tfvars
+!*.tfvars.example
+crash.log
+crash.*.log

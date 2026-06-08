@@ -1,0 +1,14 @@
+project_id    = "t3ratech-solutions"
+region        = "europe-west1"
+service_name  = "t3ratech-website"
+repository_id = "t3ratech-apps"
+
+domains = [
+  "t3ratech.co.za",
+  "www.t3ratech.co.za",
+]
+
+min_instances = 0
+max_instances = 3
+cpu           = "1"
+memory        = "512Mi"
