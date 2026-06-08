@@ -20,8 +20,10 @@ Set these in GitHub repository settings:
 
 | Variable | Example |
 |---|---|
-| `GCP_WORKLOAD_IDENTITY_PROVIDER` | `projects/PROJECT_NUMBER/locations/global/workloadIdentityPools/POOL_ID/providers/PROVIDER_ID` |
+| `GCP_WORKLOAD_IDENTITY_PROVIDER` | `projects/363852048361/locations/global/workloadIdentityPools/github-actions/providers/t3ratech-website` |
 | `GCP_SERVICE_ACCOUNT` | `github-actions-website@t3ratech-solutions.iam.gserviceaccount.com` |
+
+These repository variables are currently set on `t3ratech/t3ratech-website`.
 
 Optional overrides:
 

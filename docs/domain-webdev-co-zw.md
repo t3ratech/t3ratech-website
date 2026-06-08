@@ -90,17 +90,11 @@ AAAA,@,2001:4860:4802:38::15,1,,0
 AAAA,@,2001:4860:4802:36::15,1,,0
 AAAA,@,2001:4860:4802:34::15,1,,0
 AAAA,@,2001:4860:4802:32::15,1,,0
+CNAME,www,ghs.googlehosted.com,1,,0
 CNAME,bantora,ghs.googlehosted.com,1,,0
 CNAME,connekt,ghs.googlehosted.com,1,,0
 CNAME,t3rnel,ghs.googlehosted.com,1,,0
 TXT,@,google-site-verification=EzHdaax-c0iR8F9sFQeWKZn6woIn0h4hhF0R8Zt6Pxo,300,,0
-```
-
-This CSV does not include `www`. Add this record too if `www.t3ratech.co.zw`
-should serve the website:
-
-```csv
-CNAME,www,ghs.googlehosted.com,1,,0
 ```
 
 If the DNS is managed in Cloudflare, keep these records unproxied / DNS-only
