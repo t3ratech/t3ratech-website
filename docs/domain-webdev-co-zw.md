@@ -78,6 +78,35 @@ You can also prepare the Cloud Run routing records in the same DNS zone:
 | `CNAME` | `bantora` | `ghs.googlehosted.com` |
 | `CNAME` | `t3rnel` | `ghs.googlehosted.com` |
 
+The current DNS export/configured CSV is:
+
+```csv
+type,name,content,ttl,priority,proxied
+A,@,216.239.38.21,1,,0
+A,@,216.239.36.21,1,,0
+A,@,216.239.34.21,1,,0
+A,@,216.239.32.21,1,,0
+AAAA,@,2001:4860:4802:38::15,1,,0
+AAAA,@,2001:4860:4802:36::15,1,,0
+AAAA,@,2001:4860:4802:34::15,1,,0
+AAAA,@,2001:4860:4802:32::15,1,,0
+CNAME,bantora,ghs.googlehosted.com,1,,0
+CNAME,connekt,ghs.googlehosted.com,1,,0
+CNAME,t3rnel,ghs.googlehosted.com,1,,0
+TXT,@,google-site-verification=EzHdaax-c0iR8F9sFQeWKZn6woIn0h4hhF0R8Zt6Pxo,300,,0
+```
+
+This CSV does not include `www`. Add this record too if `www.t3ratech.co.zw`
+should serve the website:
+
+```csv
+CNAME,www,ghs.googlehosted.com,1,,0
+```
+
+If the DNS is managed in Cloudflare, keep these records unproxied / DNS-only
+(`proxied=0`). The Cloudflare proxy can produce 525 errors while Cloud Run's
+Google-managed certificate is not provisioned.
+
 Only the apex and `www` mappings are managed by the current website Terraform
 stack. The product subdomains can exist in DNS now, but they will not serve the
 right product until each product has its own Cloud Run domain mapping.

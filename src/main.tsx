@@ -518,8 +518,8 @@ function App() {
         <section className="products-section" id="products">
           <div className="section-inner">
             <div className="section-heading">
-              <p className="section-label">Public systems</p>
-              <h2>Three public systems, one operating philosophy.</h2>
+              <p className="section-label">Our systems</p>
+              <h2>Three systems, one operating philosophy.</h2>
             </div>
 
             <div className="product-grid">

@@ -22,7 +22,7 @@ resource "google_artifact_registry_repository" "website" {
   project       = var.project_id
   location      = var.region
   repository_id = var.repository_id
-  description   = "Docker images for T3raTech launch services"
+  description   = "Docker images for T3raTech website services"
   format        = "DOCKER"
   labels        = var.labels
 

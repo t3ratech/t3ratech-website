@@ -1,6 +1,6 @@
 # T3raTech Website
 
-Public website for T3raTech Solutions, focused on three public systems and the SciTech Zimbabwe community:
+Website for T3raTech Solutions, focused on three T3raTech systems and the SciTech Zimbabwe community:
 
 - Bantora at `bantora.t3ratech.co.zw`
 - Connekt at `connekt.t3ratech.co.zw`
@@ -40,7 +40,7 @@ docker run --rm -p 8080:8080 -e PORT=8080 t3ratech-website
 PROJECT_ID=t3ratech-solutions REGION=europe-west1 bash scripts/deploy-website-terraform.sh
 ```
 
-The deployment system is documented in `docs/deployment-system.md`.
+Website operations are documented in `docs/deployment-system.md`.
 Domain setup for `t3ratech.co.zw` is documented in `docs/domain-webdev-co-zw.md`.
 
-GitHub Actions deployment setup is documented in `docs/github-actions-deployment.md`.
+GitHub Actions publishing setup is documented in `docs/github-actions-deployment.md`.
