@@ -15,6 +15,15 @@ The website is deployed with Terraform-managed Google Cloud resources and a smal
 | Domain | Cloud Run domain mappings for `t3ratech.co.za` and `www.t3ratech.co.za` |
 | TLS | Cloud Run Google-managed certificate, automatic renewal |
 
+Product subdomains are reserved but should be mapped by each product's own
+Terraform stack when those Cloud Run services are deployed:
+
+| Hostname | Intended service |
+|---|---|
+| `connekt.t3ratech.co.za` | Connekt public app/service |
+| `bantora.t3ratech.co.za` | Bantora public web app |
+| `t3rnel.t3ratech.co.za` | T3rnel public app/service |
+
 The live Cloud Run URL is:
 
 ```text

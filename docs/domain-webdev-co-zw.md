@@ -80,6 +80,34 @@ Terraform prints the `resource_records` returned by Cloud Run domain mapping. At
 - Add every returned `A`, `AAAA`, or `CNAME` record.
 - Do not guess the values; use the Terraform output.
 
+## Product Subdomains
+
+Reserve these hostnames for the launch products:
+
+| Hostname | Target Cloud Run service | DNS host/name at webdev.co.zw |
+|---|---|---|
+| `connekt.t3ratech.co.za` | Future Connekt public app/service | `connekt` |
+| `bantora.t3ratech.co.za` | Future Bantora public web app | `bantora` |
+| `t3rnel.t3ratech.co.za` | Future T3rnel public app/service | `t3rnel` |
+
+Do not add these three product subdomains to the website Terraform stack unless
+you intentionally want them to show the static T3raTech website as temporary
+placeholders. The cleaner production setup is one Cloud Run domain mapping per
+public product service.
+
+After each product service has its own Cloud Run domain mapping, webdev.co.zw
+will usually need a CNAME record like this:
+
+| Type | Host/Name | Value |
+|---|---|---|
+| `CNAME` | `connekt` | Use the value returned by that product's Terraform output, commonly `ghs.googlehosted.com` |
+| `CNAME` | `bantora` | Use the value returned by that product's Terraform output, commonly `ghs.googlehosted.com` |
+| `CNAME` | `t3rnel` | Use the value returned by that product's Terraform output, commonly `ghs.googlehosted.com` |
+
+Verifying the apex domain `t3ratech.co.za` in Google Search Console should cover
+these subdomains too, so you should not need separate TXT verification records
+for `connekt`, `bantora`, or `t3rnel`.
+
 ## SSL and Auto Renewal
 
 Cloud Run provisions the Google-managed certificate after DNS is correct. It usually takes about 15 minutes but can take up to 24 hours.
