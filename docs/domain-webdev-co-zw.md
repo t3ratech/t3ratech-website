@@ -14,7 +14,7 @@ Why:
 
 Prerequisites:
 
-- Billing must be linked to project `t3ratech-solutions`.
+- Billing is linked to project `t3ratech-solutions`.
 - `t3ratech.co.za` must be verified for the active Google account or a service account owner in Google Search Console.
 - Docker must be running locally.
 - Terraform and `gcloud` must be authenticated.
@@ -75,17 +75,11 @@ gcloud domains verify t3ratech.co.za
 
 After verification, rerun `scripts/deploy-website-terraform.sh`.
 
-## If Terraform Stops at Billing
-
-If Terraform reports `Billing account for project ... is not found`, link billing first:
+If the previous failed domain mappings remain in Terraform state, force replacement once:
 
 ```bash
-gcloud billing accounts list
-gcloud billing projects link t3ratech-solutions --billing-account BILLING_ACCOUNT_ID
-```
-
-Then rerun:
-
-```bash
-PROJECT_ID=t3ratech-solutions REGION=europe-west1 bash scripts/deploy-website-terraform.sh
+PROJECT_ID=t3ratech-solutions \
+REGION=europe-west1 \
+REPLACE_DOMAIN_MAPPINGS=1 \
+bash scripts/deploy-website-terraform.sh
 ```

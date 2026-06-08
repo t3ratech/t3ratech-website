@@ -62,7 +62,13 @@ gcloud auth configure-docker "${REGION}-docker.pkg.dev" --quiet
 docker build --platform linux/amd64 -t "${IMAGE}" .
 docker push "${IMAGE}"
 
-terraform -chdir="${TF_DIR}" apply -auto-approve
+replace_args=()
+if [ "${REPLACE_DOMAIN_MAPPINGS:-0}" = "1" ]; then
+  replace_args+=('-replace=google_cloud_run_domain_mapping.website["t3ratech.co.za"]')
+  replace_args+=('-replace=google_cloud_run_domain_mapping.website["www.t3ratech.co.za"]')
+fi
+
+terraform -chdir="${TF_DIR}" apply "${replace_args[@]}" -auto-approve
 
 terraform -chdir="${TF_DIR}" output cloud_run_service_uri
 terraform -chdir="${TF_DIR}" output domain_dns_records

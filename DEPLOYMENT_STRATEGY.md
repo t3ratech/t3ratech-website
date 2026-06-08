@@ -2,7 +2,7 @@
 
 This strategy covers only the first launch group: the static T3raTech website, Bantora, Connekt, and then T3rnel.
 
-For the website-only deployment, use `scripts/deploy-website-terraform.sh`. For `t3ratech.co.za`, use `docs/domain-webdev-co-zw.md`.
+For the website-only deployment, use `scripts/deploy-website-terraform.sh`. The current deployment system is documented in `docs/deployment-system.md`; DNS setup for `t3ratech.co.za` is documented in `docs/domain-webdev-co-zw.md`.
 
 ## Guiding Choice
 

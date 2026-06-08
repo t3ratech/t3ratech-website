@@ -9,6 +9,6 @@ domains = [
 ]
 
 min_instances = 0
-max_instances = 3
+max_instances = 2
 cpu           = "1"
 memory        = "512Mi"

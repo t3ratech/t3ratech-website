@@ -1,5 +1,10 @@
 node_modules
 dist
 .git
+.terraform
+infra
+docs
+*.tfstate
+*.tfstate.*
 .DS_Store
 npm-debug.log

@@ -35,15 +35,9 @@ docker run --rm -p 8080:8080 -e PORT=8080 t3ratech-website
 
 ## Cloud Run
 
-Link billing first if the GCP project does not have a billing account:
-
-```bash
-PROJECT_ID=t3ratech-solutions bash scripts/link-gcp-billing.sh
-PROJECT_ID=t3ratech-solutions BILLING_ACCOUNT_ID=XXXXXX-XXXXXX-XXXXXX bash scripts/link-gcp-billing.sh
-```
-
 ```bash
 PROJECT_ID=t3ratech-solutions REGION=europe-west1 bash scripts/deploy-website-terraform.sh
 ```
 
+The deployment system is documented in `docs/deployment-system.md`.
 Domain setup for `t3ratech.co.za` is documented in `docs/domain-webdev-co-zw.md`.
