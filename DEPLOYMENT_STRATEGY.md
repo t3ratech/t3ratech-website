@@ -2,6 +2,8 @@
 
 This strategy covers only the first launch group: the static T3raTech website, Bantora, Connekt, and then T3rnel.
 
+For the website-only deployment, use `scripts/deploy-cloudrun.sh`. For `t3ratech.co.za`, use `docs/domain-webdev-co-zw.md`.
+
 ## Guiding Choice
 
 Use Cloud Run for stateless containers and managed GCP services for state. Do not try to run Postgres, Redis, Kafka, or MinIO as stateful containers on Cloud Run.

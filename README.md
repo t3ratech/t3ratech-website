@@ -32,3 +32,11 @@ npm run build
 docker build -t t3ratech-website .
 docker run --rm -p 8080:8080 -e PORT=8080 t3ratech-website
 ```
+
+## Cloud Run
+
+```bash
+PROJECT_ID=blaklizt-entertainment REGION=europe-west1 bash scripts/deploy-cloudrun.sh
+```
+
+Domain setup for `t3ratech.co.za` is documented in `docs/domain-webdev-co-zw.md`.

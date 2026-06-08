@@ -1,0 +1,15 @@
+{
+  "hosting": {
+    "public": "firebase-hosting-placeholder",
+    "ignore": ["firebase.json", "**/.*", "**/node_modules/**"],
+    "rewrites": [
+      {
+        "source": "**",
+        "run": {
+          "serviceId": "t3ratech-website",
+          "region": "europe-west1"
+        }
+      }
+    ]
+  }
+}
