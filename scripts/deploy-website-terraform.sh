@@ -62,6 +62,16 @@ gcloud auth configure-docker "${REGION}-docker.pkg.dev" --quiet
 docker build --platform linux/amd64 -t "${IMAGE}" .
 docker push "${IMAGE}"
 
+if [ "${SKIP_DOMAIN_MAPPINGS:-0}" = "1" ]; then
+  terraform -chdir="${TF_DIR}" apply \
+    -target=google_cloud_run_v2_service.website \
+    -target=google_cloud_run_v2_service_iam_member.public_invoker \
+    -auto-approve
+
+  terraform -chdir="${TF_DIR}" output cloud_run_service_uri
+  exit 0
+fi
+
 replace_args=()
 if [ "${REPLACE_DOMAIN_MAPPINGS:-0}" = "1" ]; then
   while IFS= read -r domain; do

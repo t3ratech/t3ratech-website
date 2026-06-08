@@ -19,6 +19,11 @@ on:
       - "vite.config.ts"
   workflow_dispatch:
     inputs:
+      apply_domain_mappings:
+        description: "Apply Cloud Run domain mappings after domain verification"
+        required: false
+        type: boolean
+        default: false
       replace_domain_mappings:
         description: "Force recreate Cloud Run domain mappings"
         required: false
@@ -97,5 +102,6 @@ jobs:
       - name: Deploy website
         env:
           IMAGE_TAG: ${{ github.sha }}
+          SKIP_DOMAIN_MAPPINGS: ${{ github.event_name == 'workflow_dispatch' && inputs.apply_domain_mappings && '0' || '1' }}
           REPLACE_DOMAIN_MAPPINGS: ${{ github.event_name == 'workflow_dispatch' && inputs.replace_domain_mappings && '1' || '0' }}
         run: bash scripts/deploy-website-terraform.sh

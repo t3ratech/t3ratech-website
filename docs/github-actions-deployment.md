@@ -49,7 +49,9 @@ If the service account should not enable APIs or manage IAM, run the Terraform b
 
 ## Manual Domain Mapping Replacement
 
-Run the workflow manually and set `replace_domain_mappings` to `true` after domain verification changes or when Cloud Run domain mappings need to be recreated.
+Pushes to `main` deploy the Cloud Run revision without applying custom domain mappings. This keeps production deploys working while `t3ratech.co.zw` verification is unfinished.
+
+After Google verifies the domain, run the workflow manually and set `apply_domain_mappings` to `true`. Also set `replace_domain_mappings` to `true` if Cloud Run domain mappings need to be recreated.
 
 ## Other Viable GitHub Actions Options
 
