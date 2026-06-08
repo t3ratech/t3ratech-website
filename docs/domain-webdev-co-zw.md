@@ -40,7 +40,34 @@ The script:
 
 Log in to the webdev.co.zw client area and open DNS management for `t3ratech.co.za`.
 
-Add the DNS records from Terraform:
+First add the Google Search Console verification record. Generate it with:
+
+```bash
+gcloud domains verify t3ratech.co.za
+```
+
+Google Search Console will show a TXT value like:
+
+```text
+google-site-verification=...
+```
+
+At webdev.co.zw, add it as:
+
+| Type | Host/Name | Value |
+|---|---|---|
+| `TXT` | `@` | `google-site-verification=...` |
+
+After Google verifies ownership, rerun the deploy with domain replacement:
+
+```bash
+PROJECT_ID=t3ratech-solutions \
+REGION=europe-west1 \
+REPLACE_DOMAIN_MAPPINGS=1 \
+bash scripts/deploy-website-terraform.sh
+```
+
+Then add the final Cloud Run routing records from Terraform:
 
 ```bash
 bash scripts/terraform-dns-records.sh
