@@ -810,14 +810,214 @@ h2 {
   color: #ffffff;
 }
 
+.footer-links h4 {
+  color: #ffffff;
+  font-size: 0.95rem;
+  font-weight: 800;
+  margin: 0 0 10px;
+
+}
+
+.footer-subtext {
+  font-size: 0.85rem;
+  margin-top: 8px;
+  opacity: 0.6;
+}
+
+/* NFT Section Styles */
+.nft-section {
+  background: var(--paper);
+  border-bottom: 1px solid var(--line);
+}
+
+.nft-grid {
+  display: grid;
+  gap: 24px;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+}
+
+.nft-card {
+  background: var(--page);
+  border: 1px solid var(--line);
+  border-radius: 8px;
+  display: flex;
+  flex-direction: column;
+  overflow: hidden;
+  transition: transform 0.2s ease, box-shadow 0.2s ease;
+}
+
+.nft-card:hover {
+  box-shadow: 0 10px 25px rgba(0, 0, 0, 0.08);
+  transform: translateY(-3px);
+}
+
+.nft-media {
+  aspect-ratio: 1;
+  background: var(--field);
+  overflow: hidden;
+  position: relative;
+  width: 100%;
+}
+
+.nft-media img {
+  height: 100%;
+  object-fit: cover;
+  transition: transform 0.3s ease;
+  width: 100%;
+}
+
+.nft-card:hover .nft-media img {
+  transform: scale(1.04);
+}
+
+.nft-content {
+  display: flex;
+  flex-direction: column;
+  flex-grow: 1;
+  padding: 20px;
+}
+
+.nft-series-key {
+  color: var(--gold);
+  font-size: 0.78rem;
+  font-weight: 900;
+  letter-spacing: 0.05em;
+  margin-bottom: 6px;
+  text-transform: uppercase;
+}
+
+.nft-card h3 {
+  color: var(--ink);
+  font-size: 1.35rem;
+  font-weight: 800;
+  line-height: 1.2;
+  margin-bottom: 4px;
+}
+
+.nft-tagline {
+  color: var(--green);
+  font-size: 0.88rem;
+  font-weight: 750;
+  margin-bottom: 12px;
+}
+
+.nft-description {
+  color: var(--muted);
+  font-size: 0.92rem;
+  line-height: 1.55;
+  margin-bottom: 20px;
+}
+
+.nft-button {
+  background: var(--paper);
+  border: 1px solid var(--line);
+  border-radius: 6px;
+  color: var(--ink);
+  font-size: 0.88rem;
+  margin-top: auto;
+  min-height: 42px;
+}
+
+.nft-button:hover {
+  background: var(--ink);
+  border-color: var(--ink);
+  color: var(--paper);
+}
+
+/* Presence Section Styles */
+.presence-section {
+  background: var(--page);
+  border-bottom: 1px solid var(--line);
+}
+
+.presence-grid {
+  display: grid;
+  gap: 20px;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+}
+
+.presence-card {
+  background: var(--paper);
+  border: 1px solid var(--line);
+  border-radius: 8px;
+  display: flex;
+  gap: 16px;
+  padding: 22px;
+  transition: border-color 0.2s ease, transform 0.2s ease;
+}
+
+.presence-card:hover {
+  border-color: var(--green);
+  transform: translateY(-2px);
+}
+
+.presence-icon {
+  align-items: center;
+  background: var(--chip);
+  border: 1px solid var(--line);
+  border-radius: 8px;
+  color: var(--green);
+  display: flex;
+  flex-shrink: 0;
+  height: 48px;
+  justify-content: center;
+  width: 48px;
+}
+
+.presence-content {
+  display: flex;
+  flex-direction: column;
+  flex-grow: 1;
+}
+
+.presence-category {
+  color: var(--muted);
+  font-size: 0.78rem;
+  font-weight: 800;
+  margin-bottom: 4px;
+  text-transform: uppercase;
+}
+
+.presence-card h3 {
+  color: var(--ink);
+  font-size: 1.15rem;
+  font-weight: 800;
+  margin-bottom: 4px;
+}
+
+.presence-label {
+  color: var(--muted);
+  font-size: 0.88rem;
+  margin-bottom: 14px;
+}
+
+.presence-button {
+  background: var(--field);
+  border: 1px solid var(--line);
+  border-radius: 6px;
+  color: var(--ink);
+  font-size: 0.84rem;
+  margin-top: auto;
+  min-height: 38px;
+  padding: 8px 12px;
+}
+
+.presence-button:hover {
+  background: var(--green);
+  border-color: var(--green);
+  color: #ffffff;
+}
+
 @media (max-width: 980px) {
   .product-grid,
   .technology-grid,
   .mission-grid,
   .profile-grid,
   .community-intro,
-  .impact-grid {
-    grid-template-columns: 1fr;
+  .impact-grid,
+  .nft-grid,
+  .presence-grid {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
   }
 
   .product-card {
@@ -830,6 +1030,13 @@ h2 {
 
   .community-grid {
     grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+}
+
+@media (max-width: 720px) {
+  .nft-grid,
+  .presence-grid {
+    grid-template-columns: 1fr;
   }
 }
 

@@ -5,6 +5,8 @@ import {
   ArrowUpRight,
   Bot,
   BrainCircuit,
+  ExternalLink,
+  Github,
   Globe2,
   Languages,
   Menu,
@@ -12,9 +14,12 @@ import {
   Monitor,
   Moon,
   Network,
+  Palette,
   ShieldCheck,
+  ShoppingBag,
   Sparkles,
   Sun,
+  Twitter,
   UsersRound,
   Vote,
   Workflow,
@@ -40,6 +45,23 @@ type CommunityGroup = {
   category: string;
   description: string;
   image: string;
+};
+
+type NFTSeries = {
+  name: string;
+  seriesKey: string;
+  tagline: string;
+  description: string;
+  image: string;
+  openseaUrl: string;
+};
+
+type SocialLink = {
+  name: string;
+  label: string;
+  url: string;
+  category: string;
+  icon: React.ComponentType<{ size?: number; strokeWidth?: number }>;
 };
 
 type ThemePreference = "light" | "dark" | "auto";
@@ -128,6 +150,108 @@ const products: Product[] = [
     accent: "gold",
     image: "/assets/t3ratech-tt-logo-visible.png",
     icon: Bot,
+  },
+];
+
+const nftSeriesList: NFTSeries[] = [
+  {
+    name: "Vault Warden",
+    seriesKey: "Genesis Series 01",
+    tagline: "Security & Guardrail Primitives",
+    description:
+      "Autonomous agent-generated artwork from the T3rnel Agent OS genesis series. Vault Warden represents policy enforcement and capability token security.",
+    image: "/nfts/vault-warden.jpg",
+    openseaUrl: "https://opensea.io/collection/t3rnel-genesis",
+  },
+  {
+    name: "Aurora Daemon",
+    seriesKey: "Genesis Series 02",
+    tagline: "High-Frequency Intelligence",
+    description:
+      "Autonomous agent-generated artwork from the T3rnel Agent OS genesis series. Aurora Daemon embodies reactive event handling and real-time execution.",
+    image: "/nfts/aurora-daemon.jpg",
+    openseaUrl: "https://opensea.io/collection/t3rnel-genesis",
+  },
+  {
+    name: "Glasswing Oracle",
+    seriesKey: "Genesis Series 03",
+    tagline: "Transparent Knowledge & Foresight",
+    description:
+      "Autonomous agent-generated artwork from the T3rnel Agent OS genesis series. Glasswing Oracle symbolizes verifiable analytical reasoning and market insight.",
+    image: "/nfts/glasswing-oracle.jpg",
+    openseaUrl: "https://opensea.io/collection/t3rnel-genesis",
+  },
+  {
+    name: "Verdant Archivist",
+    seriesKey: "Genesis Series 04",
+    tagline: "Long-Term Memory & State",
+    description:
+      "Autonomous agent-generated artwork from the T3rnel Agent OS genesis series. Verdant Archivist preserves persistent knowledge graphs and long-term memory.",
+    image: "/nfts/verdant-archivist.jpg",
+    openseaUrl: "https://opensea.io/collection/t3rnel-genesis",
+  },
+  {
+    name: "Tidecaller",
+    seriesKey: "Genesis Series 05",
+    tagline: "Stream Orchestration & Market Flow",
+    description:
+      "Autonomous agent-generated artwork from the T3rnel Agent OS genesis series. Tidecaller coordinates multi-channel data streams and market liquidity systems.",
+    image: "/nfts/tidecaller.jpg",
+    openseaUrl: "https://opensea.io/collection/t3rnel-genesis",
+  },
+  {
+    name: "Emberwright",
+    seriesKey: "Genesis Series 06",
+    tagline: "Core Engine & Synthesis",
+    description:
+      "Autonomous agent-generated artwork from the T3rnel Agent OS genesis series. Emberwright represents low-level kernel compilation and agent synthesis.",
+    image: "/nfts/emberwright.jpg",
+    openseaUrl: "https://opensea.io/collection/t3rnel-genesis",
+  },
+];
+
+const socialLinks: SocialLink[] = [
+  {
+    name: "Codester Page",
+    label: "Our #Codester Page",
+    url: "https://www.codester.com/t3ratech",
+    category: "Software & Templates Marketplace",
+    icon: ShoppingBag,
+  },
+  {
+    name: "Gumroad Shop",
+    label: "Our #Gumroad Digital Content Shop",
+    url: "https://t3rnel.gumroad.com/",
+    category: "Digital Products & Content",
+    icon: Globe2,
+  },
+  {
+    name: "GitHub",
+    label: "Our #GitHub",
+    url: "https://github.com/t3ratech",
+    category: "Open Source Code & Repositories",
+    icon: Github,
+  },
+  {
+    name: "Twitter / X",
+    label: "Our #Twitter / X account",
+    url: "https://x.com/t3ratech",
+    category: "Official Twitter / X Channel",
+    icon: Twitter,
+  },
+  {
+    name: "Reddit Page",
+    label: "Our #Reddit Page",
+    url: "https://www.reddit.com/user/t3ratech/",
+    category: "Reddit Community & Discussions",
+    icon: MessageSquareText,
+  },
+  {
+    name: "OpenSea NFT Marketplace",
+    label: "Our #OpenSea #NFT Marketplace",
+    url: "https://opensea.io/collection/t3rnel-genesis",
+    category: "Genesis NFT Collection",
+    icon: Palette,
   },
 ];
 
@@ -233,8 +357,10 @@ const scitechCommunityUrl = "https://chat.whatsapp.com/JSFpsyPF2LvHYXmZRS8Y1C";
 
 const navItems = [
   { href: "#products", label: "Systems" },
+  { href: "#nfts", label: "NFT Series" },
   { href: "#mission", label: "Mission" },
   { href: "#community", label: "Community" },
+  { href: "#presence", label: "Presence" },
   { href: "#technology", label: "Technology" },
 ];
 
@@ -467,50 +593,10 @@ function App() {
                 <ArrowDown size={18} strokeWidth={2.2} />
                 Explore systems
               </a>
-              <a className="button secondary" href="#technology">
-                <Sparkles size={18} strokeWidth={2.2} />
-                How we build
+              <a className="button secondary" href="#presence">
+                <Globe2 size={18} strokeWidth={2.2} />
+                Official Channels
               </a>
-            </div>
-          </div>
-        </section>
-
-        <section className="mission-strip" id="mission" aria-label="Company mission">
-          <div className="section-inner mission-grid">
-            <div>
-              <p className="section-label">Company focus</p>
-              <h2>World-class software shaped around African realities.</h2>
-            </div>
-            <p>
-              T3raTech Solutions designs, builds, and delivers practical software, technology consulting,
-              strategic partnerships, and R&D. These systems translate that focus into tools for African
-              civic participation, economic access, and high-trust automation.
-            </p>
-          </div>
-        </section>
-
-        <section className="profile-section" aria-labelledby="profile-title">
-          <div className="section-inner profile-grid">
-            <div>
-              <p className="section-label">Mission</p>
-              <h2 id="profile-title">
-                We design, build, and deliver digital solutions tailored to Africa's challenges and opportunities.
-              </h2>
-            </div>
-            <div className="profile-copy">
-              <p>
-                Our mission is to deliver world-class software while fostering local talent, investing in
-                innovation, and forming strong strategic partnerships across the continent and beyond.
-              </p>
-              <p>
-                Our vision is to be Africa's most trusted and innovative software development and consulting
-                company, championing technology that solves real problems and uplifts communities.
-              </p>
-              <div className="values-list" aria-label="T3raTech values">
-                {values.map((value) => (
-                  <span key={value}>{value}</span>
-                ))}
-              </div>
             </div>
           </div>
         </section>
@@ -562,6 +648,79 @@ function App() {
                   </article>
                 );
               })}
+            </div>
+          </div>
+        </section>
+
+        <section className="nft-section" id="nfts" aria-labelledby="nft-title">
+          <div className="section-inner">
+            <div className="section-heading">
+              <p className="section-label">Agentic Art Collection</p>
+              <h2 id="nft-title">Genesis Series NFTs</h2>
+              <p className="technology-lead">
+                Autonomous agent-generated artwork from the T3rnel Agent OS genesis collection. Each series represents a distinct core component of our autonomous agent architecture.
+              </p>
+            </div>
+
+            <div className="nft-grid">
+              {nftSeriesList.map((nft) => (
+                <article className="nft-card" key={nft.name}>
+                  <div className="nft-media">
+                    <img src={nft.image} alt={nft.name} loading="lazy" />
+                  </div>
+                  <div className="nft-content">
+                    <span className="nft-series-key">{nft.seriesKey}</span>
+                    <h3>{nft.name}</h3>
+                    <p className="nft-tagline">{nft.tagline}</p>
+                    <p className="nft-description">{nft.description}</p>
+                    <a className="button nft-button" href={nft.openseaUrl} target="_blank" rel="noreferrer">
+                      <Palette size={16} strokeWidth={2.2} />
+                      View on OpenSea
+                      <ArrowUpRight size={16} strokeWidth={2.2} />
+                    </a>
+                  </div>
+                </article>
+              ))}
+            </div>
+          </div>
+        </section>
+
+        <section className="mission-strip" id="mission" aria-label="Company mission">
+          <div className="section-inner mission-grid">
+            <div>
+              <p className="section-label">Company focus</p>
+              <h2>World-class software shaped around African realities.</h2>
+            </div>
+            <p>
+              T3raTech Solutions designs, builds, and delivers practical software, technology consulting,
+              strategic partnerships, and R&D. These systems translate that focus into tools for African
+              civic participation, economic access, and high-trust automation.
+            </p>
+          </div>
+        </section>
+
+        <section className="profile-section" aria-labelledby="profile-title">
+          <div className="section-inner profile-grid">
+            <div>
+              <p className="section-label">Mission</p>
+              <h2 id="profile-title">
+                We design, build, and deliver digital solutions tailored to Africa's challenges and opportunities.
+              </h2>
+            </div>
+            <div className="profile-copy">
+              <p>
+                Our mission is to deliver world-class software while fostering local talent, investing in
+                innovation, and forming strong strategic partnerships across the continent and beyond.
+              </p>
+              <p>
+                Our vision is to be Africa's most trusted and innovative software development and consulting
+                company, championing technology that solves real problems and uplifts communities.
+              </p>
+              <div className="values-list" aria-label="T3raTech values">
+                {values.map((value) => (
+                  <span key={value}>{value}</span>
+                ))}
+              </div>
             </div>
           </div>
         </section>
@@ -636,6 +795,40 @@ function App() {
           </div>
         </section>
 
+        <section className="presence-section" id="presence" aria-labelledby="presence-title">
+          <div className="section-inner">
+            <div className="section-heading">
+              <p className="section-label">Connect & Explore</p>
+              <h2 id="presence-title">Official Channels & Online Presence</h2>
+              <p className="technology-lead">
+                Reach T3raTech across our official software marketplaces, code repositories, social channels, and NFT storefronts.
+              </p>
+            </div>
+
+            <div className="presence-grid">
+              {socialLinks.map((link) => {
+                const Icon = link.icon;
+                return (
+                  <article className="presence-card" key={link.name}>
+                    <div className="presence-icon">
+                      <Icon size={24} strokeWidth={2} />
+                    </div>
+                    <div className="presence-content">
+                      <span className="presence-category">{link.category}</span>
+                      <h3>{link.name}</h3>
+                      <p className="presence-label">{link.label}</p>
+                      <a className="button presence-button" href={link.url} target="_blank" rel="noreferrer">
+                        Visit {link.name}
+                        <ArrowUpRight size={16} strokeWidth={2.2} />
+                      </a>
+                    </div>
+                  </article>
+                );
+              })}
+            </div>
+          </div>
+        </section>
+
         <section className="technology-section" id="technology" aria-labelledby="technology-title">
           <div className="section-inner">
             <div className="section-heading">
@@ -677,19 +870,37 @@ function App() {
               <span>T3raTech Solutions</span>
             </a>
             <p>Patriotism. Excellence. Innovation. Partnership.</p>
+            <p className="footer-subtext">Developed and supported by T3raTech Solutions (Pvt) Ltd</p>
           </div>
           <div className="footer-links">
-            <a href="mailto:t3ratech.dev@gmail.com">
-              <MessageSquareText size={18} strokeWidth={2.1} />
-              t3ratech.dev@gmail.com
+            <h4>Official Presence</h4>
+            <a href="mailto:support@t3ratech.co.zw">
+              <MessageSquareText size={16} strokeWidth={2.1} />
+              support@t3ratech.co.zw
             </a>
-            <a href="https://www.t3ratech.co.zw" target="_blank" rel="noreferrer">
-              <Globe2 size={18} strokeWidth={2.1} />
-              www.t3ratech.co.zw
+            <a href="https://www.codester.com/t3ratech" target="_blank" rel="noreferrer">
+              <ShoppingBag size={16} strokeWidth={2.1} />
+              Codester Page
             </a>
-            <a href="#products">
-              <ArrowUpRight size={18} strokeWidth={2.1} />
-              View systems
+            <a href="https://t3rnel.gumroad.com/" target="_blank" rel="noreferrer">
+              <Globe2 size={16} strokeWidth={2.1} />
+              Gumroad Shop
+            </a>
+            <a href="https://github.com/t3ratech" target="_blank" rel="noreferrer">
+              <Github size={16} strokeWidth={2.1} />
+              GitHub Repository
+            </a>
+            <a href="https://x.com/t3ratech" target="_blank" rel="noreferrer">
+              <Twitter size={16} strokeWidth={2.1} />
+              Twitter / X
+            </a>
+            <a href="https://www.reddit.com/user/t3ratech/" target="_blank" rel="noreferrer">
+              <MessageSquareText size={16} strokeWidth={2.1} />
+              Reddit Profile
+            </a>
+            <a href="https://opensea.io/collection/t3rnel-genesis" target="_blank" rel="noreferrer">
+              <Palette size={16} strokeWidth={2.1} />
+              OpenSea NFT Collection
             </a>
           </div>
         </div>
