@@ -1,0 +1,62 @@
+[
+  {
+    "name": "Bug Bounty Team \u2014 Agent Configuration Bundle",
+    "url": "https://t3rnel.gumroad.com/l/kuvwtk",
+    "price_usd": 39.0,
+    "summary": "Bug Bounty Team \u2014 Scopes a target, enumerates attack surface, validates findings and writes reports that meet triage standards."
+  },
+  {
+    "name": "Crypto Research Team \u2014 Agent Configuration Bundle",
+    "url": "https://t3rnel.gumroad.com/l/kmqram",
+    "price_usd": 39.0,
+    "summary": "Crypto Research Team \u2014 Tracks on-chain activity, market structure and project fundamentals, producing dated research briefs."
+  },
+  {
+    "name": "DevOps Team \u2014 Agent Configuration Bundle",
+    "url": "https://t3rnel.gumroad.com/l/epsyne",
+    "price_usd": 39.0,
+    "summary": "DevOps Team \u2014 Builds and hardens deployment pipelines, infrastructure definitions and service monitoring."
+  },
+  {
+    "name": "Due Diligence Team \u2014 Agent Configuration Bundle",
+    "url": "https://t3rnel.gumroad.com/l/kctluj",
+    "price_usd": 39.0,
+    "summary": "Due Diligence Team \u2014 Assembles a company or project dossier from public sources with every claim traced to its evidence."
+  },
+  {
+    "name": "Freelance Delivery Team \u2014 Agent Configuration Bundle",
+    "url": "https://t3rnel.gumroad.com/l/oumlto",
+    "price_usd": 39.0,
+    "summary": "Freelance Delivery Team \u2014 Finds fixed-scope work, qualifies it, writes the proposal, delivers it and tracks the payment."
+  },
+  {
+    "name": "Newsletter Team \u2014 Agent Configuration Bundle",
+    "url": "https://t3rnel.gumroad.com/l/hbozf",
+    "price_usd": 39.0,
+    "summary": "Newsletter Team \u2014 Researches, writes, edits and schedules a recurring newsletter across several distribution channels."
+  },
+  {
+    "name": "Open Source Maintainer Team \u2014 Agent Configuration Bundle",
+    "url": "https://t3rnel.gumroad.com/l/olizf",
+    "price_usd": 39.0,
+    "summary": "Open Source Maintainer Team \u2014 Triages issues, reviews pull requests, writes release notes and keeps documentation current on a public repository."
+  },
+  {
+    "name": "Product Design Team \u2014 Agent Configuration Bundle",
+    "url": "https://t3rnel.gumroad.com/l/mnihyk",
+    "price_usd": 39.0,
+    "summary": "Product Design Team \u2014 Turns a product brief into interface designs and a built, reviewed front end."
+  },
+  {
+    "name": "Skill Publishing Team \u2014 Agent Configuration Bundle",
+    "url": "https://t3rnel.gumroad.com/l/dmyhtw",
+    "price_usd": 39.0,
+    "summary": "Skill Publishing Team \u2014 Authors, tests, security-scans, documents and releases installable skill packages to public registries."
+  },
+  {
+    "name": "Software Delivery Team \u2014 Agent Configuration Bundle",
+    "url": "https://t3rnel.gumroad.com/l/ulvmp",
+    "price_usd": 39.0,
+    "summary": "Software Delivery Team \u2014 Takes a specification to merged, tested and released code with review and security gates in the path."
+  }
+]
