@@ -14,7 +14,7 @@ export function GumroadProducts() {
           <p className="section-label">Digital products</p>
           <h2 id="gumroad-title">Gumroad Shop</h2>
           <p className="technology-lead">
-            Ready-to-run agent teams, prompt bundles, and configuration packs you can use with your own model provider.
+            Open-source documentation packs and digital products produced by the T3rnel revenue pipeline. Pick a pack, name a fair price, and download instantly.
           </p>
           <a
             className="button store-hero-button"
@@ -35,7 +35,7 @@ export function GumroadProducts() {
                 <span className="store-icon">
                   <ShoppingBag size={22} strokeWidth={2} />
                 </span>
-                <span className="store-price">${product.price_usd.toFixed(2)}</span>
+                <span className="store-price">{product.price_usd === 0 ? "$0+" : `$${product.price_usd.toFixed(2)}`}</span>
               </div>
               <h3>{product.name}</h3>
               <p className="store-summary">{product.summary}</p>

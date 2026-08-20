@@ -27,7 +27,6 @@ export function Nfts() {
               <div className="nft-content">
                 <span className="nft-series-key">{nft.seriesKey}</span>
                 <h3>{nft.name}</h3>
-                <p className="nft-tagline">{nft.tagline}</p>
                 <p className="nft-description">{nft.description}</p>
                 <a className="button nft-button" href={nft.openseaUrl} target="_blank" rel="noreferrer">
                   <Palette size={16} strokeWidth={2.2} />

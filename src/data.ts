@@ -4,7 +4,6 @@ import {
   ArrowUpRight,
   Bot,
   BrainCircuit,
-  ExternalLink,
   Github,
   Globe2,
   Languages,
@@ -12,31 +11,18 @@ import {
   MessageSquareText,
   Monitor,
   Moon,
-  Network,
   Palette,
   ShieldCheck,
   ShoppingBag,
   Sun,
   Twitter,
   UsersRound,
-  Vote,
   Workflow,
   X,
 } from "lucide-react";
 import gumroadProductsJson from "./data/gumroadProducts.json";
+import nftsJson from "./data/nfts.json";
 
-export type Product = {
-  name: string;
-  eyebrow: string;
-  domain: string;
-  url: string;
-  summary: string;
-  detail: string;
-  points: string[];
-  accent: "green" | "red" | "gold";
-  image?: string;
-  icon: React.ComponentType<{ size?: number; strokeWidth?: number }>;
-};
 
 export type CommunityGroup = {
   name: string;
@@ -98,115 +84,8 @@ export function resolveTheme(preference: ThemePreference, mediaQuery: MediaQuery
   return preference;
 }
 
-export const products: Product[] = [
-  {
-    name: "Bantora",
-    eyebrow: "Civic signal",
-    domain: "bantora.t3ratech.co.zw",
-    url: "https://bantora.t3ratech.co.zw",
-    summary: "A Pan-African polling, consensus, and civic engagement platform.",
-    detail:
-      "Bantora gives African communities a structured way to propose ideas, vote, and turn public sentiment into a traceable continental signal.",
-    points: [
-      "Ideas, polls, votes, and source traceability turn civic noise into a clearer public mandate",
-      "African-first registration, language support, regional scopes, and country-aware participation",
-      "Built for trust: one person, one vote, transparent moderation, and accountable public sentiment",
-    ],
-    accent: "green",
-    icon: Vote,
-  },
-  {
-    name: "Connekt",
-    eyebrow: "Digital ecosystem",
-    domain: "connekt.t3ratech.co.zw",
-    url: "https://connekt.t3ratech.co.zw",
-    summary: "A modular superapp ecosystem for services, commerce, listings, and communication.",
-    detail:
-      "Connekt brings everyday African economic activity into one channel-aware platform, from service bidding and payments to content, chat, jobs, events, and marketplaces.",
-    points: [
-      "Services, listings, jobs, events, payments, provider workflows, ratings, and communication in one ecosystem",
-      "Designed around African access patterns: web, chat, WhatsApp-style flows, and modular service expansion",
-      "A practical digital economy layer for informal work, discovery, trust, and local transactions",
-    ],
-    accent: "red",
-    image: "/assets/connekt-system.jpeg",
-    icon: Network,
-  },
-  {
-    name: "T3rnel",
-    eyebrow: "Agent operating system",
-    domain: "t3rnel.t3ratech.co.zw",
-    url: "https://t3rnel.t3ratech.co.zw",
-    summary: "A Rust-cored agent OS for running specialist swarms across complex digital work.",
-    detail:
-      "T3rnel is more than a coding assistant: it coordinates agents for software, research, marketing, faceless video workflows, book writing, stock-market systems, and everyday operations.",
-    points: [
-      "Agent swarms coordinate researchers, builders, writers, market watchers, reviewers, and skill authors",
-      "A Tab OS keeps workspaces like Agents, Chat, Search, Mail, News, Stocks, Skills, Inbox, and Tasks inspectable",
-      "Human approval, memory, skills, audit trails, and safety rails keep broad automation under control",
-    ],
-    accent: "gold",
-    image: "/assets/t3ratech-tt-logo-visible.png",
-    icon: Bot,
-  },
-];
 
-export const nftSeriesList: NFTSeries[] = [
-  {
-    name: "Vault Warden",
-    seriesKey: "Genesis Series 01",
-    tagline: "Security & Guardrail Primitives",
-    description:
-      "Autonomous agent-generated artwork from the T3rnel Agent OS genesis series. Vault Warden represents policy enforcement and capability token security.",
-    image: "/nfts/vault-warden.jpg",
-    openseaUrl: "https://opensea.io/collection/t3rnel-genesis",
-  },
-  {
-    name: "Aurora Daemon",
-    seriesKey: "Genesis Series 02",
-    tagline: "High-Frequency Intelligence",
-    description:
-      "Autonomous agent-generated artwork from the T3rnel Agent OS genesis series. Aurora Daemon embodies reactive event handling and real-time execution.",
-    image: "/nfts/aurora-daemon.jpg",
-    openseaUrl: "https://opensea.io/collection/t3rnel-genesis",
-  },
-  {
-    name: "Glasswing Oracle",
-    seriesKey: "Genesis Series 03",
-    tagline: "Transparent Knowledge & Foresight",
-    description:
-      "Autonomous agent-generated artwork from the T3rnel Agent OS genesis series. Glasswing Oracle symbolizes verifiable analytical reasoning and market insight.",
-    image: "/nfts/glasswing-oracle.jpg",
-    openseaUrl: "https://opensea.io/collection/t3rnel-genesis",
-  },
-  {
-    name: "Verdant Archivist",
-    seriesKey: "Genesis Series 04",
-    tagline: "Long-Term Memory & State",
-    description:
-      "Autonomous agent-generated artwork from the T3rnel Agent OS genesis series. Verdant Archivist preserves persistent knowledge graphs and long-term memory.",
-    image: "/nfts/verdant-archivist.jpg",
-    openseaUrl: "https://opensea.io/collection/t3rnel-genesis",
-  },
-  {
-    name: "Tidecaller",
-    seriesKey: "Genesis Series 05",
-    tagline: "Stream Orchestration & Market Flow",
-    description:
-      "Autonomous agent-generated artwork from the T3rnel Agent OS genesis series. Tidecaller coordinates multi-channel data streams and market liquidity systems.",
-    image: "/nfts/tidecaller.jpg",
-    openseaUrl: "https://opensea.io/collection/t3rnel-genesis",
-  },
-  {
-    name: "Emberwright",
-    seriesKey: "Genesis Series 06",
-    tagline: "Core Engine & Synthesis",
-    description:
-      "Autonomous agent-generated artwork from the T3rnel Agent OS genesis series. Emberwright represents low-level kernel compilation and agent synthesis.",
-    image: "/nfts/emberwright.jpg",
-    openseaUrl: "https://opensea.io/collection/t3rnel-genesis",
-  },
-];
+export const nftSeriesList: NFTSeries[] = nftsJson;
 
 export const socialLinks: SocialLink[] = [
   {
@@ -255,46 +134,52 @@ export const socialLinks: SocialLink[] = [
 
 export const impactPillars = [
   {
-    label: "Civic voice",
-    title: "Bantora turns scattered ideas into structured public will.",
-    body: "African-country registration, regional scopes, multilingual access, and traceable AI poll generation help communities express what they want built and why.",
+    label: "Community",
+    title: "SciTech Zimbabwe keeps builders, traders, and makers connected.",
+    body: "A national WhatsApp network for science, technology, software, property, gaming, events, business, and market discussion — where useful signals travel faster than noise.",
   },
   {
-    label: "Economic inclusion",
-    title: "Connekt formalizes the everyday informal economy.",
-    body: "Bidding, escrow, service ratings, provider workflows, messaging, listings, jobs, events, payments, and local discovery make opportunity easier to find and trust.",
+    label: "Products",
+    title: "Documentation, tools, and agent packs for working developers.",
+    body: "Gumroad packs, open-source documentation, the T3rnel Browser extension, and the MCP Session Bridge give African and global technologists practical starting points.",
   },
   {
-    label: "Agent leverage",
-    title: "T3rnel turns ambitious work into coordinated swarms.",
-    body: "Agent teams can research markets, build products, produce content, write long-form material, monitor stock systems, and run operations while side effects remain visible and approval-gated.",
+    label: "Agent tools",
+    title: "MCP and browser automation with the human in the loop.",
+    body: "AI agents should drive your real browser, read authenticated pages, and run tools with approval gates — not ship session cookies to a cloud browser or run blind.",
   },
 ];
 
 export const technologyCards = [
   {
+    title: "NFTs and digital collectibles",
+    body: "The T3rnel Genesis collection on OpenSea is agent-generated artwork minted on Base. Each piece represents a core component of the T3rnel Agent OS.",
+    icon: Palette,
+  },
+  {
+    title: "MCP servers",
+    body: "MCP Session Bridge exposes 84 browser tools over stdio so Claude, Cursor, and Windsurf can read the page the user is already signed into — with a human approval gate.",
+    icon: Bot,
+  },
+  {
+    title: "Browser automation",
+    body: "The T3rnel Browser Chrome extension turns any tab into an agentic surface: CSS inspection, full-page screenshots, Markdown viewer, page audit, record/replay, and encrypted local vaults.",
+    icon: Monitor,
+  },
+  {
     title: "Agentic systems",
     body: "We work with agent swarms, A2A coordination, MCP integrations, skill systems, memory, and human approval loops so automation can do real work without becoming a black box.",
     icon: BrainCircuit,
   },
-  {
-    title: "Modern product surfaces",
-    body: "We build across React, React Native, Expo, Flutter Web, real-time chat, web dashboards, IDE panels, mobile surfaces, and channel-aware experiences for African access patterns.",
-    icon: Languages,
-  },
-  {
-    title: "High-performance cores",
-    body: "Rust, Java 25, reactive APIs, gRPC, WebSocket streams, event-driven messaging, typed interfaces, and secure service boundaries give our systems room to scale cleanly.",
-    icon: Workflow,
-  },
-  {
-    title: "Reliability discipline",
-    body: "Test automation, UI checks, integration tests, strict configuration, observability, security controls, audit trails, and fail-fast behavior help us ship robust systems.",
-    icon: ShieldCheck,
-  },
 ];
 
 export const technologyHighlights = [
+  "NFTs",
+  "OpenSea",
+  "Gumroad products",
+  "MCP Session Bridge",
+  "T3rnel Browser",
+  "Chrome Web Store",
   "Agent swarms",
   "A2A protocol",
   "MCP tools",
@@ -489,11 +374,30 @@ export type ChromeProduct = {
 
 export const chromeProduct: ChromeProduct = {
   name: "T3rnel Browser",
-  tagline: "MCP browser automation for AI agents",
+  tagline: "DevTools you can talk to, and an agent runway you can trust",
   description:
-    "Inspect CSS, capture full-page screenshots, read Markdown, and drive any page from your AI coding assistant. All local.",
+    "A Chrome extension with 84 tools: hover-and-copy CSS, full-page screenshots, Markdown viewer, page audit, record/replay with Playwright codegen, DOM time-travel, and an MCP server that lets your AI drive the browser you are already signed into — all local.",
   url: "https://chromewebstore.google.com/detail/egpckhdpkoeimoekciejbmbbcackhdmd",
   icon: Monitor,
+};
+
+export type McpProduct = {
+  name: string;
+  tagline: string;
+  description: string;
+  url: string;
+  installCommand: string;
+  icon: React.ComponentType<{ size?: number; strokeWidth?: number }>;
+};
+
+export const mcpProduct: McpProduct = {
+  name: "MCP Session Bridge",
+  tagline: "Authenticated browser extraction as an MCP tool. Works from the user's own session.",
+  description:
+    "A paid MCP server that exposes authenticated browser-session automation. In extension mode it forwards calls over a local relay to the T3rnel Browser extension, so Claude, Cursor, and Windsurf can read the tab the user is already logged into. In standalone mode it launches its own CDP browser for free local automation.",
+  url: "https://www.npmjs.com/package/@t3rnel/mcp-session-bridge",
+  installCommand: "npm install -g @t3rnel/mcp-session-bridge",
+  icon: Bot,
 };
 
 export type NavItem = {
@@ -503,11 +407,11 @@ export type NavItem = {
 
 export const navItems: NavItem[] = [
   { path: "/", label: "Home" },
-  { path: "/systems", label: "Systems" },
   { path: "/whatsapp-groups", label: "WhatsApp Groups" },
   { path: "/nfts", label: "NFTs" },
   { path: "/gumroad", label: "Gumroad" },
   { path: "/chrome", label: "Chrome" },
+  { path: "/mcp", label: "MCP" },
 ];
 
 export type PageLink = {
@@ -518,9 +422,9 @@ export type PageLink = {
 };
 
 export const exploreLinks: PageLink[] = [
-  { path: "/systems", label: "Systems", description: "Bantora, Connekt, and T3rnel.", icon: Network },
   { path: "/whatsapp-groups", label: "WhatsApp Groups", description: "SciTech Zimbabwe communities.", icon: UsersRound },
-  { path: "/nfts", label: "NFTs", description: "Genesis agent-art series.", icon: Palette },
-  { path: "/gumroad", label: "Gumroad", description: "Agent configuration bundles and digital products.", icon: ShoppingBag },
+  { path: "/nfts", label: "NFTs", description: "Genesis agent-art series on OpenSea.", icon: Palette },
+  { path: "/gumroad", label: "Gumroad", description: "Open-source documentation packs and digital products.", icon: ShoppingBag },
   { path: "/chrome", label: "Chrome", description: "T3rnel Browser extension.", icon: Monitor },
+  { path: "/mcp", label: "MCP", description: "MCP Session Bridge for AI coding assistants.", icon: Bot },
 ];
