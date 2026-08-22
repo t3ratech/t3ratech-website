@@ -1,6 +1,6 @@
 import { useEffect } from "react";
 import { Link } from "react-router-dom";
-import { ArrowUpRight, Bot, ShoppingBag } from "lucide-react";
+import { ArrowUpRight } from "lucide-react";
 import {
   exploreLinks,
   impactPillars,
@@ -25,16 +25,6 @@ export function Home() {
             A proudly Zimbabwean and African software company building digital systems for civic voice,
             inclusive commerce, agentic software delivery, and connected technology communities.
           </p>
-          <div className="hero-actions">
-            <Link className="button primary" to="/gumroad">
-              <ShoppingBag size={18} strokeWidth={2.2} />
-              Gumroad shop
-            </Link>
-            <Link className="button secondary" to="/mcp">
-              <Bot size={18} strokeWidth={2.2} />
-              MCP Session Bridge
-            </Link>
-          </div>
         </div>
       </section>
 

@@ -1,62 +1,242 @@
 [
   {
-    "name": "openclaw/openclaw \u2014 Documentation Pack",
-    "url": "https://t3rnel.gumroad.com/l/xtrdpr",
-    "price_usd": 0.0,
-    "summary": "Produced by the T3rnel revenue pipeline."
+    "name": "Bug Bounty Team — Agent Configuration Bundle",
+    "url": "https://t3rnel.gumroad.com/l/edpfxl",
+    "price_usd": 39.0,
+    "summary": "Bug Bounty Team — Scopes a target, enumerates attack surface, validates findings and writes reports that meet triage standards.Getting a multi-agent team to behave takes weeks of trial and error: deciding the roles, writing prompts that hold under load, scoping tool permissions tightly enough to be safe and loosely enough to work. This is that work, finished. Install it, point it at your own model provider, and you have a working team instead of a blank prompt.The 4 roles you get\n\nsecurity-auditor — Security specialist. Reviews code for vulnerabilities, checks configurations, performs threat modeling. Tools: file_read, file_list, shell_exec, memory_store, memory_recall.\n\n\nresearcher — Research agent. Fetches web content and synthesizes information. Tools: web_search, web_fetch, file_read, file_write, file_list.\n\n\ncode-reviewer — Senior code reviewer. Reviews PRs, identifies issues, suggests improvements with production standards. Tools: file_read, file_list, shell_exec, memory_store, memory_recall.\n\n\nreviewer — Pipeline reviewer. Reviews proposed changes for correctness, maintainability, tests, and release readiness. Tools: file_read, file_list, memory_store, memory_recall, agent_send.\n\nHow they work together\nconfirm scope\nenumerate surface\ntest hypothesis\nvalidate finding\nwrite report\nWhat is in the download\n4 system prompts, one per role, as separate files\nA manifest declaring every role, its tools and its permissions\nAn orchestration graph — the 5-step order above\nAn evaluation set (2 cases) so you can prove the team works before you rely on it\nA setup guide and a troubleshooting guide\nWhy an evaluation set mattersMost prompt packs cannot be tested. This one ships with pass/fail cases, so you can tell a team that works from one that merely looks plausible. If it fails its own evaluations, do not deploy it.What you need to bring\nAny agent runtime that reads system prompts and tool allowlists\nYour own model provider key — OpenAI, Anthropic, Google, OpenRouter, Groq, or a local model\nLicence and updatesUse it on unlimited projects, personal or commercial. Free updates for this bundle version line.From T3raTech Solutions (Private) Limited — software for financial services, artificial intelligence and digital ecosystems. t3ratech.co.zw#aiagents #agentteam #multiagent #llmprompts #systemprompts #promptengineering #aiautomation #agentworkflow #bugbounty #security #penetrationtesting #appsec"
   },
   {
-    "name": "openchamber/openchamber \u2014 Documentation Pack",
-    "url": "https://t3rnel.gumroad.com/l/exyerx",
-    "price_usd": 0.0,
-    "summary": "Produced by the T3rnel revenue pipeline."
+    "name": "Crypto Research Team — Agent Configuration Bundle",
+    "url": "https://t3rnel.gumroad.com/l/axuzwz",
+    "price_usd": 39.0,
+    "summary": "Crypto Research Team — Tracks on-chain activity, market structure and project fundamentals, producing dated research briefs.Getting a multi-agent team to behave takes weeks of trial and error: deciding the roles, writing prompts that hold under load, scoping tool permissions tightly enough to be safe and loosely enough to work. This is that work, finished. Install it, point it at your own model provider, and you have a working team instead of a blank prompt.The 5 roles you get\n\nbusiness-researcher — Business research agent. Scouts profitable software opportunities across app stores, Amazon KDP, freelance platforms, GitHub, news, and social media. Tools: web_search, web_fetch, file_read, file_write, file_list.\n\n\nmarket-watcher — Ambient market data and news ingestion agent for the Stocks tab. Tools: web_search, web_fetch, memory_store, memory_recall, event_publish.\n\n\nquant-strategist — Signal generation agent for first-party momentum and mean-reversion strategies. Tools: memory_store, memory_recall, event_publish, knowledge_query.\n\n\nrisk-officer — Continuous risk monitor for trading rails, drawdown, kill switch, and flatten events. Tools: memory_store, memory_recall, event_publish, mcp.invoke.\n\n\nresearcher — Research agent. Fetches web content and synthesizes information. Tools: web_search, web_fetch, file_read, file_write, file_list.\n\nHow they work together\ncollect on-chain data\ncollect market data\nanalyse\ncross-check\nwrite brief\nWhat is in the download\n5 system prompts, one per role, as separate files\nA manifest declaring every role, its tools and its permissions\nAn orchestration graph — the 5-step order above\nAn evaluation set (2 cases) so you can prove the team works before you rely on it\nA setup guide and a troubleshooting guide\nWhy an evaluation set mattersMost prompt packs cannot be tested. This one ships with pass/fail cases, so you can tell a team that works from one that merely looks plausible. If it fails its own evaluations, do not deploy it.What you need to bring\nAny agent runtime that reads system prompts and tool allowlists\nYour own model provider key — OpenAI, Anthropic, Google, OpenRouter, Groq, or a local model\nLicence and updatesUse it on unlimited projects, personal or commercial. Free updates for this bundle version line.From T3raTech Solutions (Private) Limited — software for financial services, artificial intelligence and digital ecosystems. t3ratech.co.zw#aiagents #agentteam #multiagent #llmprompts #systemprompts #promptengineering #aiautomation #agentworkflow #crypto #web3 #onchainanalysis #defi"
   },
   {
-    "name": "nrwl/nx \u2014 Documentation Pack",
-    "url": "https://t3rnel.gumroad.com/l/sxvza",
-    "price_usd": 0.0,
-    "summary": "Produced by the T3rnel revenue pipeline."
+    "name": "DevOps Team — Agent Configuration Bundle",
+    "url": "https://t3rnel.gumroad.com/l/misxv",
+    "price_usd": 39.0,
+    "summary": "DevOps Team — Builds and hardens deployment pipelines, infrastructure definitions and service monitoring.Getting a multi-agent team to behave takes weeks of trial and error: deciding the roles, writing prompts that hold under load, scoping tool permissions tightly enough to be safe and loosely enough to work. This is that work, finished. Install it, point it at your own model provider, and you have a working team instead of a blank prompt.The 4 roles you get\n\ndevops-lead — DevOps lead. Manages CI/CD, infrastructure, deployments, monitoring, and incident response. Tools: file_read, file_write, file_list, shell_exec, memory_store.\n\n\nbackend-builder — Rust backend specialist. Extends kernel, API, gRPC services, and data layer. Implements cross-surface sync and backend features. Tools: file_read, file_write, file_list, shell_exec, memory_store.\n\n\nsecurity-auditor — Security specialist. Reviews code for vulnerabilities, checks configurations, performs threat modeling. Tools: file_read, file_list, shell_exec, memory_store, memory_recall.\n\n\ntest-engineer — Quality assurance engineer. Designs test strategies, writes tests, validates correctness. Tools: file_read, file_write, file_list, shell_exec, memory_store.\n\nHow they work together\nassess current state\ndefine infrastructure\nharden\ntest\nmonitor\nWhat is in the download\n4 system prompts, one per role, as separate files\nA manifest declaring every role, its tools and its permissions\nAn orchestration graph — the 5-step order above\nAn evaluation set (2 cases) so you can prove the team works before you rely on it\nA setup guide and a troubleshooting guide\nWhy an evaluation set mattersMost prompt packs cannot be tested. This one ships with pass/fail cases, so you can tell a team that works from one that merely looks plausible. If it fails its own evaluations, do not deploy it.What you need to bring\nAny agent runtime that reads system prompts and tool allowlists\nYour own model provider key — OpenAI, Anthropic, Google, OpenRouter, Groq, or a local model\nLicence and updatesUse it on unlimited projects, personal or commercial. Free updates for this bundle version line.From T3raTech Solutions (Private) Limited — software for financial services, artificial intelligence and digital ecosystems. t3ratech.co.zw#aiagents #agentteam #multiagent #llmprompts #systemprompts #promptengineering #aiautomation #agentworkflow #devops #infrastructure #kubernetes #monitoring"
   },
   {
-    "name": "wasm-bindgen/wasm-bindgen \u2014 Documentation Pack",
-    "url": "https://t3rnel.gumroad.com/l/erles",
-    "price_usd": 0.0,
-    "summary": "Produced by the T3rnel revenue pipeline."
+    "name": "Due Diligence Team — Agent Configuration Bundle",
+    "url": "https://t3rnel.gumroad.com/l/kphgxx",
+    "price_usd": 39.0,
+    "summary": "Due Diligence Team — Assembles a company or project dossier from public sources with every claim traced to its evidence.Getting a multi-agent team to behave takes weeks of trial and error: deciding the roles, writing prompts that hold under load, scoping tool permissions tightly enough to be safe and loosely enough to work. This is that work, finished. Install it, point it at your own model provider, and you have a working team instead of a blank prompt.The 4 roles you get\n\nbusiness-researcher — Business research agent. Scouts profitable software opportunities across app stores, Amazon KDP, freelance platforms, GitHub, news, and social media. Tools: web_search, web_fetch, file_read, file_write, file_list.\n\n\nresearcher — Research agent. Fetches web content and synthesizes information. Tools: web_search, web_fetch, file_read, file_write, file_list.\n\n\nrisk-officer — Continuous risk monitor for trading rails, drawdown, kill switch, and flatten events. Tools: memory_store, memory_recall, event_publish, mcp.invoke.\n\n\nreviewer — Pipeline reviewer. Reviews proposed changes for correctness, maintainability, tests, and release readiness. Tools: file_read, file_list, memory_store, memory_recall, agent_send.\n\nHow they work together\ncollect filings\ncollect public record\nassess risk\ntrace evidence\nwrite dossier\nWhat is in the download\n4 system prompts, one per role, as separate files\nA manifest declaring every role, its tools and its permissions\nAn orchestration graph — the 5-step order above\nAn evaluation set (2 cases) so you can prove the team works before you rely on it\nA setup guide and a troubleshooting guide\nWhy an evaluation set mattersMost prompt packs cannot be tested. This one ships with pass/fail cases, so you can tell a team that works from one that merely looks plausible. If it fails its own evaluations, do not deploy it.What you need to bring\nAny agent runtime that reads system prompts and tool allowlists\nYour own model provider key — OpenAI, Anthropic, Google, OpenRouter, Groq, or a local model\nLicence and updatesUse it on unlimited projects, personal or commercial. Free updates for this bundle version line.From T3raTech Solutions (Private) Limited — software for financial services, artificial intelligence and digital ecosystems. t3ratech.co.zw#aiagents #agentteam #multiagent #llmprompts #systemprompts #promptengineering #aiautomation #agentworkflow #duediligence #research #investmentanalysis"
   },
   {
-    "name": "vllm-project/vllm-omni \u2014 Documentation Pack",
-    "url": "https://t3rnel.gumroad.com/l/vajlx",
-    "price_usd": 0.0,
-    "summary": "Produced by the T3rnel revenue pipeline."
+    "name": "Freelance Delivery Team — Agent Configuration Bundle",
+    "url": "https://t3rnel.gumroad.com/l/uwwjpa",
+    "price_usd": 39.0,
+    "summary": "Freelance Delivery Team — Finds fixed-scope work, qualifies it, writes the proposal, delivers it and tracks the payment.Getting a multi-agent team to behave takes weeks of trial and error: deciding the roles, writing prompts that hold under load, scoping tool permissions tightly enough to be safe and loosely enough to work. This is that work, finished. Install it, point it at your own model provider, and you have a working team instead of a blank prompt.The 5 roles you get\n\njob-scout — Scouts paid online work, scores opportunities, and reports strong matches for the supervised first-profit job swarm. Tools: web_search, web_fetch, browser_navigate, browser_read_page, browser_screenshot.\n\n\njob-proposal-writer — Writes tailored, truthful job proposals and bid pricing for approval-gated freelance applications. Tools: web_fetch, memory_store, memory_recall, event_publish, file_read.\n\n\njob-work-runner — Executes accepted freelance work in local workspaces, validates deliverables, and approval-gates final delivery. Tools: shell_exec, file_read, file_write, file_list, web_fetch.\n\n\njob-inbox-monitor — Triages job-related email and marketplace notifications, escalating offers, confirmations, blockers, and payment signals. Tools: memory_store, memory_recall, event_publish, file_read, file_write.\n\n\npayment-monitor — Monitors approved payment evidence for the first-profit swarm and stops the job team after first verified payment. Tools: memory_store, memory_recall, event_publish, file_read, file_write.\n\nHow they work together\nscout\nqualify\npropose\nexecute\ndeliver\ntrack payment\nWhat is in the download\n5 system prompts, one per role, as separate files\nA manifest declaring every role, its tools and its permissions\nAn orchestration graph — the 6-step order above\nAn evaluation set (2 cases) so you can prove the team works before you rely on it\nA setup guide and a troubleshooting guide\nWhy an evaluation set mattersMost prompt packs cannot be tested. This one ships with pass/fail cases, so you can tell a team that works from one that merely looks plausible. If it fails its own evaluations, do not deploy it.What you need to bring\nAny agent runtime that reads system prompts and tool allowlists\nYour own model provider key — OpenAI, Anthropic, Google, OpenRouter, Groq, or a local model\nLicence and updatesUse it on unlimited projects, personal or commercial. Free updates for this bundle version line.From T3raTech Solutions (Private) Limited — software for financial services, artificial intelligence and digital ecosystems. t3ratech.co.zw#aiagents #agentteam #multiagent #llmprompts #systemprompts #promptengineering #aiautomation #agentworkflow #freelance #upwork #clientwork"
   },
   {
-    "name": "rmyndharis/OpenWA \u2014 Documentation Pack",
-    "url": "https://t3rnel.gumroad.com/l/brqai",
-    "price_usd": 0.0,
-    "summary": "Produced by the T3rnel revenue pipeline."
+    "name": "Newsletter Team — Agent Configuration Bundle",
+    "url": "https://t3rnel.gumroad.com/l/rujpvo",
+    "price_usd": 39.0,
+    "summary": "Newsletter Team — Researches, writes, edits and schedules a recurring newsletter across several distribution channels.Getting a multi-agent team to behave takes weeks of trial and error: deciding the roles, writing prompts that hold under load, scoping tool permissions tightly enough to be safe and loosely enough to work. This is that work, finished. Install it, point it at your own model provider, and you have a working team instead of a blank prompt.The 4 roles you get\n\nnews-curator — Ambient news tab agent for personalized digests, source monitoring, saved articles, and KG-backed relevance. Tools: web_search, web_fetch, file_read, file_write, file_list.\n\n\nresearcher — Research agent. Fetches web content and synthesizes information. Tools: web_search, web_fetch, file_read, file_write, file_list.\n\n\nreviewer — Pipeline reviewer. Reviews proposed changes for correctness, maintainability, tests, and release readiness. Tools: file_read, file_list, memory_store, memory_recall, agent_send.\n\n\nscheduler — Calendar tab agent for schedule reasoning, conflict detection, task planning, and approval-gated event mutations. Tools: file_read, file_write, file_list, memory_store, memory_recall.\n\nHow they work together\nscan sources\npick angle\ndraft\nedit\nschedule\nWhat is in the download\n4 system prompts, one per role, as separate files\nA manifest declaring every role, its tools and its permissions\nAn orchestration graph — the 5-step order above\nAn evaluation set (2 cases) so you can prove the team works before you rely on it\nA setup guide and a troubleshooting guide\nWhy an evaluation set mattersMost prompt packs cannot be tested. This one ships with pass/fail cases, so you can tell a team that works from one that merely looks plausible. If it fails its own evaluations, do not deploy it.What you need to bring\nAny agent runtime that reads system prompts and tool allowlists\nYour own model provider key — OpenAI, Anthropic, Google, OpenRouter, Groq, or a local model\nLicence and updatesUse it on unlimited projects, personal or commercial. Free updates for this bundle version line.From T3raTech Solutions (Private) Limited — software for financial services, artificial intelligence and digital ecosystems. t3ratech.co.zw#aiagents #agentteam #multiagent #llmprompts #systemprompts #promptengineering #aiautomation #agentworkflow #newsletter #contentmarketing #copywriting"
   },
   {
-    "name": "QwenLM/qwen-code \u2014 Documentation Pack",
-    "url": "https://t3rnel.gumroad.com/l/ubyebb",
-    "price_usd": 0.0,
-    "summary": "Produced by the T3rnel revenue pipeline."
+    "name": "Open Source Maintainer Team — Agent Configuration Bundle",
+    "url": "https://t3rnel.gumroad.com/l/ojmkry",
+    "price_usd": 39.0,
+    "summary": "Open Source Maintainer Team — Triages issues, reviews pull requests, writes release notes and keeps documentation current on a public repository.Getting a multi-agent team to behave takes weeks of trial and error: deciding the roles, writing prompts that hold under load, scoping tool permissions tightly enough to be safe and loosely enough to work. This is that work, finished. Install it, point it at your own model provider, and you have a working team instead of a blank prompt.The 5 roles you get\n\ncode-reviewer — Senior code reviewer. Reviews PRs, identifies issues, suggests improvements with production standards. Tools: file_read, file_list, shell_exec, memory_store, memory_recall.\n\n\ndoc-writer — Technical writer. Creates documentation, README files, API docs, tutorials, and architecture guides. Tools: file_read, file_write, file_list, memory_store, memory_recall.\n\n\nrelease-manager — Release manager. Validates completed task graphs, prepares changelogs, version changes, and publish readiness. Tools: file_read, file_write, file_list, shell_exec, memory_store.\n\n\ntest-engineer — Quality assurance engineer. Designs test strategies, writes tests, validates correctness. Tools: file_read, file_write, file_list, shell_exec, memory_store.\n\n\nsecurity-auditor — Security specialist. Reviews code for vulnerabilities, checks configurations, performs threat modeling. Tools: file_read, file_list, shell_exec, memory_store, memory_recall.\n\nHow they work together\ntriage issue\nreproduce\nreview patch\nrun tests\nwrite release note\nupdate docs\nWhat is in the download\n5 system prompts, one per role, as separate files\nA manifest declaring every role, its tools and its permissions\nAn orchestration graph — the 6-step order above\nAn evaluation set (2 cases) so you can prove the team works before you rely on it\nA setup guide and a troubleshooting guide\nWhy an evaluation set mattersMost prompt packs cannot be tested. This one ships with pass/fail cases, so you can tell a team that works from one that merely looks plausible. If it fails its own evaluations, do not deploy it.What you need to bring\nAny agent runtime that reads system prompts and tool allowlists\nYour own model provider key — OpenAI, Anthropic, Google, OpenRouter, Groq, or a local model\nLicence and updatesUse it on unlimited projects, personal or commercial. Free updates for this bundle version line.From T3raTech Solutions (Private) Limited — software for financial services, artificial intelligence and digital ecosystems. t3ratech.co.zw#aiagents #agentteam #multiagent #llmprompts #systemprompts #promptengineering #aiautomation #agentworkflow #opensource #github #maintainer #issuetriage"
   },
   {
-    "name": "langchain-ai/deepagents \u2014 Documentation Pack",
-    "url": "https://t3rnel.gumroad.com/l/dpdjhb",
-    "price_usd": 0.0,
-    "summary": "Produced by the T3rnel revenue pipeline."
+    "name": "Product Design Team — Agent Configuration Bundle",
+    "url": "https://t3rnel.gumroad.com/l/wnoqq",
+    "price_usd": 39.0,
+    "summary": "Product Design Team — Turns a product brief into interface designs and a built, reviewed front end.Getting a multi-agent team to behave takes weeks of trial and error: deciding the roles, writing prompts that hold under load, scoping tool permissions tightly enough to be safe and loosely enough to work. This is that work, finished. Install it, point it at your own model provider, and you have a working team instead of a blank prompt.The 4 roles you get\n\nui-ux-designer — UI/UX design authority. Owns the design system, produces visual assets, maintains cross-surface consistency, and writes all user-facing microcopy and templates. Tools: file_read, file_write, shell_exec, web_search, memory_store.\n\n\nfrontend-builder — Cross-surface frontend builder. Implements UI for web, desktop, mobile, VS Code extension, Chrome extension, and any future surface. Not limited to React. Tools: file_read, file_write, file_list, shell_exec, memory_store.\n\n\nproject-manager — Project manager and resource orchestrator. Owns the task backlog, sprint planning, dependency mapping, team coordination, and agent lifecycle management (spawn, pause, stop). Tools: file_read, file_write, memory_store, memory_recall, task_post.\n\n\nreviewer — Pipeline reviewer. Reviews proposed changes for correctness, maintainability, tests, and release readiness. Tools: file_read, file_list, memory_store, memory_recall, agent_send.\n\nHow they work together\nread brief\ndesign\nbuild\nreview\niterate\nWhat is in the download\n4 system prompts, one per role, as separate files\nA manifest declaring every role, its tools and its permissions\nAn orchestration graph — the 5-step order above\nAn evaluation set (2 cases) so you can prove the team works before you rely on it\nA setup guide and a troubleshooting guide\nWhy an evaluation set mattersMost prompt packs cannot be tested. This one ships with pass/fail cases, so you can tell a team that works from one that merely looks plausible. If it fails its own evaluations, do not deploy it.What you need to bring\nAny agent runtime that reads system prompts and tool allowlists\nYour own model provider key — OpenAI, Anthropic, Google, OpenRouter, Groq, or a local model\nLicence and updatesUse it on unlimited projects, personal or commercial. Free updates for this bundle version line.From T3raTech Solutions (Private) Limited — software for financial services, artificial intelligence and digital ecosystems. t3ratech.co.zw#aiagents #agentteam #multiagent #llmprompts #systemprompts #promptengineering #aiautomation #agentworkflow #uidesign #ux #frontend #productdesign"
   },
   {
-    "name": "herdrdev/herdr \u2014 Documentation Pack",
-    "url": "https://t3rnel.gumroad.com/l/ckwkesd",
-    "price_usd": 0.0,
-    "summary": "Produced by the T3rnel revenue pipeline."
+    "name": "Skill Publishing Team — Agent Configuration Bundle",
+    "url": "https://t3rnel.gumroad.com/l/zpbkem",
+    "price_usd": 39.0,
+    "summary": "Skill Publishing Team — Authors, tests, security-scans, documents and releases installable skill packages to public registries.Getting a multi-agent team to behave takes weeks of trial and error: deciding the roles, writing prompts that hold under load, scoping tool permissions tightly enough to be safe and loosely enough to work. This is that work, finished. Install it, point it at your own model provider, and you have a working team instead of a blank prompt.The 5 roles you get\n\nskill-author — Skills marketplace agent for first-party skill review, prompt-skill authoring, capability declaration checks, and signing-pipeline handoff. Tools: file_read, file_write, file_list, memory_store, memory_recall.\n\n\ntest-engineer — Quality assurance engineer. Designs test strategies, writes tests, validates correctness. Tools: file_read, file_write, file_list, shell_exec, memory_store.\n\n\nsecurity-auditor — Security specialist. Reviews code for vulnerabilities, checks configurations, performs threat modeling. Tools: file_read, file_list, shell_exec, memory_store, memory_recall.\n\n\ndoc-writer — Technical writer. Creates documentation, README files, API docs, tutorials, and architecture guides. Tools: file_read, file_write, file_list, memory_store, memory_recall.\n\n\nrelease-manager — Release manager. Validates completed task graphs, prepares changelogs, version changes, and publish readiness. Tools: file_read, file_write, file_list, shell_exec, memory_store.\n\nHow they work together\nauthor skill\nwrite tests\nsecurity scan\nwrite docs\npublish\nWhat is in the download\n5 system prompts, one per role, as separate files\nA manifest declaring every role, its tools and its permissions\nAn orchestration graph — the 5-step order above\nAn evaluation set (2 cases) so you can prove the team works before you rely on it\nA setup guide and a troubleshooting guide\nWhy an evaluation set mattersMost prompt packs cannot be tested. This one ships with pass/fail cases, so you can tell a team that works from one that merely looks plausible. If it fails its own evaluations, do not deploy it.What you need to bring\nAny agent runtime that reads system prompts and tool allowlists\nYour own model provider key — OpenAI, Anthropic, Google, OpenRouter, Groq, or a local model\nLicence and updatesUse it on unlimited projects, personal or commercial. Free updates for this bundle version line.From T3raTech Solutions (Private) Limited — software for financial services, artificial intelligence and digital ecosystems. t3ratech.co.zw#aiagents #agentteam #multiagent #llmprompts #systemprompts #promptengineering #aiautomation #agentworkflow #npm #packagepublishing #developertools"
   },
   {
-    "name": "fschutt/azul \u2014 Documentation Pack",
+    "name": "Software Delivery Team — Agent Configuration Bundle",
+    "url": "https://t3rnel.gumroad.com/l/njhdat",
+    "price_usd": 39.0,
+    "summary": "Software Delivery Team — Takes a specification to merged, tested and released code with review and security gates in the path.Getting a multi-agent team to behave takes weeks of trial and error: deciding the roles, writing prompts that hold under load, scoping tool permissions tightly enough to be safe and loosely enough to work. This is that work, finished. Install it, point it at your own model provider, and you have a working team instead of a blank prompt.The 6 roles you get\n\narchitect — Lead Software Architect & System Owner. Owns codebase health, major architectural decisions, patterns/standards, security posture, task distribution, peer review oversight, versioning, release cycles, refactoring authority, and mandatory pre-release enterprise audit execution. Tools: file_read, file_write, file_list, shell_exec, web_search.\n\n\ncoder — Expert software engineer. Reads, writes, and analyzes code. Tools: file_read, file_write, file_list, shell_exec, web_search.\n\n\ntest-engineer — Quality assurance engineer. Designs test strategies, writes tests, validates correctness. Tools: file_read, file_write, file_list, shell_exec, memory_store.\n\n\ncode-reviewer — Senior code reviewer. Reviews PRs, identifies issues, suggests improvements with production standards. Tools: file_read, file_list, shell_exec, memory_store, memory_recall.\n\n\nsecurity-auditor — Security specialist. Reviews code for vulnerabilities, checks configurations, performs threat modeling. Tools: file_read, file_list, shell_exec, memory_store, memory_recall.\n\n\nrelease-manager — Release manager. Validates completed task graphs, prepares changelogs, version changes, and publish readiness. Tools: file_read, file_write, file_list, shell_exec, memory_store.\n\nHow they work together\ndesign\nimplement\ntest\nreview\nsecurity check\nrelease\nWhat is in the download\n6 system prompts, one per role, as separate files\nA manifest declaring every role, its tools and its permissions\nAn orchestration graph — the 6-step order above\nAn evaluation set (2 cases) so you can prove the team works before you rely on it\nA setup guide and a troubleshooting guide\nWhy an evaluation set mattersMost prompt packs cannot be tested. This one ships with pass/fail cases, so you can tell a team that works from one that merely looks plausible. If it fails its own evaluations, do not deploy it.What you need to bring\nAny agent runtime that reads system prompts and tool allowlists\nYour own model provider key — OpenAI, Anthropic, Google, OpenRouter, Groq, or a local model\nLicence and updatesUse it on unlimited projects, personal or commercial. Free updates for this bundle version line.From T3raTech Solutions (Private) Limited — software for financial services, artificial intelligence and digital ecosystems. t3ratech.co.zw#aiagents #agentteam #multiagent #llmprompts #systemprompts #promptengineering #aiautomation #agentworkflow #softwaredevelopment #codereview #cicd #devops"
+  },
+  {
+    "name": "Technical Writing Team — Agent Configuration Bundle",
+    "url": "https://t3rnel.gumroad.com/l/urckha",
+    "price_usd": 39.0,
+    "summary": "Technical Writing Team — Turns a codebase into reference documentation, guides and runnable examples that are verified before they ship.Getting a multi-agent team to behave takes weeks of trial and error: deciding the roles, writing prompts that hold under load, scoping tool permissions tightly enough to be safe and loosely enough to work. This is that work, finished. Install it, point it at your own model provider, and you have a working team instead of a blank prompt.The 5 roles you get\n\nresearcher — Research agent. Fetches web content and synthesizes information. Tools: web_search, web_fetch, file_read, file_write, file_list.\n\n\ndoc-writer — Technical writer. Creates documentation, README files, API docs, tutorials, and architecture guides. Tools: file_read, file_write, file_list, memory_store, memory_recall.\n\n\nreviewer — Pipeline reviewer. Reviews proposed changes for correctness, maintainability, tests, and release readiness. Tools: file_read, file_list, memory_store, memory_recall, agent_send.\n\n\ntest-engineer — Quality assurance engineer. Designs test strategies, writes tests, validates correctness. Tools: file_read, file_write, file_list, shell_exec, memory_store.\n\n\narchitect — Lead Software Architect & System Owner. Owns codebase health, major architectural decisions, patterns/standards, security posture, task distribution, peer review oversight, versioning, release cycles, refactoring authority, and mandatory pre-release enterprise audit execution. Tools: file_read, file_write, file_list, shell_exec, web_search.\n\nHow they work together\nread source\nextract API surface\ndraft reference\ngenerate examples\nexecute examples\nedit\nWhat is in the download\n5 system prompts, one per role, as separate files\nA manifest declaring every role, its tools and its permissions\nAn orchestration graph — the 6-step order above\nAn evaluation set (2 cases) so you can prove the team works before you rely on it\nA setup guide and a troubleshooting guide\nWhy an evaluation set mattersMost prompt packs cannot be tested. This one ships with pass/fail cases, so you can tell a team that works from one that merely looks plausible. If it fails its own evaluations, do not deploy it.What you need to bring\nAny agent runtime that reads system prompts and tool allowlists\nYour own model provider key — OpenAI, Anthropic, Google, OpenRouter, Groq, or a local model\nLicence and updatesUse it on unlimited projects, personal or commercial. Free updates for this bundle version line.From T3raTech Solutions (Private) Limited — software for financial services, artificial intelligence and digital ecosystems. t3ratech.co.zw#aiagents #agentteam #multiagent #llmprompts #systemprompts #promptengineering #aiautomation #agentworkflow #technicalwriting #documentation #apidocs"
+  },
+  {
+    "name": "Trading Research Team — Agent Configuration Bundle",
+    "url": "https://t3rnel.gumroad.com/l/eqxkv",
+    "price_usd": 39.0,
+    "summary": "Trading Research Team — Builds and back-tests strategy hypotheses with explicit risk limits and a written rejection log.Getting a multi-agent team to behave takes weeks of trial and error: deciding the roles, writing prompts that hold under load, scoping tool permissions tightly enough to be safe and loosely enough to work. This is that work, finished. Install it, point it at your own model provider, and you have a working team instead of a blank prompt.The 5 roles you get\n\nquant-strategist — Signal generation agent for first-party momentum and mean-reversion strategies. Tools: memory_store, memory_recall, event_publish, knowledge_query.\n\n\nmarket-watcher — Ambient market data and news ingestion agent for the Stocks tab. Tools: web_search, web_fetch, memory_store, memory_recall, event_publish.\n\n\nrisk-officer — Continuous risk monitor for trading rails, drawdown, kill switch, and flatten events. Tools: memory_store, memory_recall, event_publish, mcp.invoke.\n\n\nautonomous-trader — Autonomous trading agent for Deriv synthetic indices and t3ratrade integration. Tools: memory_store, memory_recall, event_publish, mcp.invoke, shell_exec.\n\n\nresearcher — Research agent. Fetches web content and synthesizes information. Tools: web_search, web_fetch, file_read, file_write, file_list.\n\nHow they work together\nform hypothesis\ngather series\nback-test\nrisk review\nrecord decision\nWhat is in the download\n5 system prompts, one per role, as separate files\nA manifest declaring every role, its tools and its permissions\nAn orchestration graph — the 5-step order above\nAn evaluation set (2 cases) so you can prove the team works before you rely on it\nA setup guide and a troubleshooting guide\nWhy an evaluation set mattersMost prompt packs cannot be tested. This one ships with pass/fail cases, so you can tell a team that works from one that merely looks plausible. If it fails its own evaluations, do not deploy it.What you need to bring\nAny agent runtime that reads system prompts and tool allowlists\nYour own model provider key — OpenAI, Anthropic, Google, OpenRouter, Groq, or a local model\nLicence and updatesUse it on unlimited projects, personal or commercial. Free updates for this bundle version line.From T3raTech Solutions (Private) Limited — software for financial services, artificial intelligence and digital ecosystems. t3ratech.co.zw#aiagents #agentteam #multiagent #llmprompts #systemprompts #promptengineering #aiautomation #agentworkflow #trading #quant #backtesting #riskmanagement"
+  },
+  {
+    "name": "Web Automation Team — Agent Configuration Bundle",
+    "url": "https://t3rnel.gumroad.com/l/rtxcxz",
+    "price_usd": 39.0,
+    "summary": "Web Automation Team — Drives a real browser to gather data and complete workflows on sites with no usable API.Getting a multi-agent team to behave takes weeks of trial and error: deciding the roles, writing prompts that hold under load, scoping tool permissions tightly enough to be safe and loosely enough to work. This is that work, finished. Install it, point it at your own model provider, and you have a working team instead of a blank prompt.The 3 roles you get\n\nbrowser-pilot — Browser and Webview tab agent for supervised navigation, trace narration, evidence capture, and approval-aware browser actions. Tools: web_search, web_fetch, memory_store, memory_recall, agent_send.\n\n\nresearcher — Research agent. Fetches web content and synthesizes information. Tools: web_search, web_fetch, file_read, file_write, file_list.\n\n\nreviewer — Pipeline reviewer. Reviews proposed changes for correctness, maintainability, tests, and release readiness. Tools: file_read, file_list, memory_store, memory_recall, agent_send.\n\nHow they work together\nmap the site\nplan the run\nexecute\nverify result\nWhat is in the download\n3 system prompts, one per role, as separate files\nA manifest declaring every role, its tools and its permissions\nAn orchestration graph — the 4-step order above\nAn evaluation set (2 cases) so you can prove the team works before you rely on it\nA setup guide and a troubleshooting guide\nWhy an evaluation set mattersMost prompt packs cannot be tested. This one ships with pass/fail cases, so you can tell a team that works from one that merely looks plausible. If it fails its own evaluations, do not deploy it.What you need to bring\nAny agent runtime that reads system prompts and tool allowlists\nYour own model provider key — OpenAI, Anthropic, Google, OpenRouter, Groq, or a local model\nLicence and updatesUse it on unlimited projects, personal or commercial. Free updates for this bundle version line.From T3raTech Solutions (Private) Limited — software for financial services, artificial intelligence and digital ecosystems. t3ratech.co.zw#aiagents #agentteam #multiagent #llmprompts #systemprompts #promptengineering #aiautomation #agentworkflow #webscraping #browserautomation #dataextraction"
+  },
+  {
+    "name": "Agent Orchestration",
+    "url": "https://t3rnel.gumroad.com/l/ynvpfb",
+    "price_usd": 9.99,
+    "summary": "A 5-lesson course. Every lesson states an objective, sets an exercise and ships a reference solution — a course whose exercises have no verified solution cannot be graded."
+  },
+  {
+    "name": "agentscope-ai/QwenPaw — Documentation Pack",
+    "url": "https://t3rnel.gumroad.com/l/wcnww",
+    "price_usd": 9.99,
+    "summary": "Your Personal AI Assistant; easy to install, deploy on your own machine or on the cloud; supports multiple chat apps with easily extensible capabilities."
+  },
+  {
+    "name": "anomalyco/opentui — Documentation Pack",
+    "url": "https://t3rnel.gumroad.com/l/cqowux",
+    "price_usd": 9.99,
+    "summary": "OpenTUI is a library for building terminal user interfaces (TUIs)"
+  },
+  {
+    "name": "anthropics/claude-plugins-official — Documentation Pack",
+    "url": "https://t3rnel.gumroad.com/l/nidkbj",
+    "price_usd": 9.99,
+    "summary": "Official, Anthropic-managed directory of high quality Claude Code Plugins."
+  },
+  {
+    "name": "ariakit/ariakit — Documentation Pack",
+    "url": "https://t3rnel.gumroad.com/l/btnchju",
+    "price_usd": 9.99,
+    "summary": "Toolkit with accessible components, styles, and examples for your next web app"
+  },
+  {
+    "name": "block/buzz — Documentation Pack",
+    "url": "https://t3rnel.gumroad.com/l/sbalp",
+    "price_usd": 9.99,
+    "summary": "A hive mind communication platform"
+  },
+  {
+    "name": "changesets/changesets — Documentation Pack",
+    "url": "https://t3rnel.gumroad.com/l/obgajc",
+    "price_usd": 9.99,
+    "summary": "🦋 A tool to manage versioning and changelogs with a focus on monorepos"
+  },
+  {
+    "name": "code-yeongyu/oh-my-openagent — Documentation Pack",
+    "url": "https://t3rnel.gumroad.com/l/zbhgkq",
+    "price_usd": 9.99,
+    "summary": "omo/lazycodex: The coding agent for tokenmaxxers;the one and only agent harness for complex codebases. For your Codex, for your OpenCode"
+  },
+  {
+    "name": "Dataset — Demand Report",
+    "url": "https://t3rnel.gumroad.com/l/qjongl",
+    "price_usd": 9.99,
+    "summary": "40 evidenced signals collected to 2026-08-07."
+  },
+  {
+    "name": "debpalash/VoiceStudio — Documentation Pack",
+    "url": "https://t3rnel.gumroad.com/l/bsprel",
+    "price_usd": 9.99,
+    "summary": "The Open-Source Elevenlabs alternative AI Voice Clone, Dub, Dictate, Transcribe, Audiobook creator and Voice workflow studio."
+  },
+  {
+    "name": "earendil-works/pi — Documentation Pack",
+    "url": "https://t3rnel.gumroad.com/l/mlbbmb",
+    "price_usd": 9.99,
+    "summary": "AI agent toolkit: unified LLM API, agent loop, TUI, coding agent CLI"
+  },
+  {
+    "name": "fschutt/azul — Documentation Pack",
     "url": "https://t3rnel.gumroad.com/l/tlcfnx",
-    "price_usd": 0.0,
-    "summary": "Produced by the T3rnel revenue pipeline."
+    "price_usd": 9.99,
+    "summary": "Desktop GUI Framework"
+  },
+  {
+    "name": "github/spec-kit — Documentation Pack",
+    "url": "https://t3rnel.gumroad.com/l/rvqml",
+    "price_usd": 9.99,
+    "summary": "💫 Toolkit to help you get started with Spec-Driven Development"
+  },
+  {
+    "name": "herdrdev/herdr — Documentation Pack",
+    "url": "https://t3rnel.gumroad.com/l/ckwkesd",
+    "price_usd": 9.99,
+    "summary": "the runtime your coding agents live on"
+  },
+  {
+    "name": "heygen-com/hyperframes — Documentation Pack",
+    "url": "https://t3rnel.gumroad.com/l/cnlurc",
+    "price_usd": 9.99,
+    "summary": "Write HTML. Render video. Built for agents."
+  },
+  {
+    "name": "langchain-ai/deepagents — Documentation Pack",
+    "url": "https://t3rnel.gumroad.com/l/dpdjhb",
+    "price_usd": 9.99,
+    "summary": "The batteries-included agent harness."
+  },
+  {
+    "name": "microsoft/agent-lightning — Documentation Pack",
+    "url": "https://t3rnel.gumroad.com/l/wqcag",
+    "price_usd": 9.99,
+    "summary": "The absolute trainer to light up AI agents."
+  },
+  {
+    "name": "nearai/ironclaw — Documentation Pack",
+    "url": "https://t3rnel.gumroad.com/l/vhxvlq",
+    "price_usd": 9.99,
+    "summary": "IronClaw is an Agent OS focused on privacy, security and extensibility"
+  },
+  {
+    "name": "nrwl/nx — Documentation Pack",
+    "url": "https://t3rnel.gumroad.com/l/sxvza",
+    "price_usd": 9.99,
+    "summary": "The Monorepo Platform that amplifies both developers and AI agents. Nx optimizes your builds, scales your CI, and fixes failed PRs automatically. Ship in half the time."
+  },
+  {
+    "name": "openchamber/openchamber — Documentation Pack",
+    "url": "https://t3rnel.gumroad.com/l/exyerx",
+    "price_usd": 9.99,
+    "summary": "Desktop and web interface for OpenCode AI agent"
+  },
+  {
+    "name": "openclaw/openclaw — Documentation Pack",
+    "url": "https://t3rnel.gumroad.com/l/xtrdpr",
+    "price_usd": 9.99,
+    "summary": "Your own personal AI assistant. Any OS. Any Platform. The lobster way. 🦞"
+  },
+  {
+    "name": "paperclipai/paperclip — Documentation Pack",
+    "url": "https://t3rnel.gumroad.com/l/xzkojv",
+    "price_usd": 9.99,
+    "summary": "The open-source app everyone uses to manage agents at work"
+  },
+  {
+    "name": "QwenLM/qwen-code — Documentation Pack",
+    "url": "https://t3rnel.gumroad.com/l/ubyebb",
+    "price_usd": 9.99,
+    "summary": "An open-source AI coding agent that lives in your terminal."
+  },
+  {
+    "name": "rmyndharis/OpenWA — Documentation Pack",
+    "url": "https://t3rnel.gumroad.com/l/brqai",
+    "price_usd": 9.99,
+    "summary": "Free, Open Source, Self-Hosted WhatsApp API Gateway"
+  },
+  {
+    "name": "tinyhumansai/openhuman — Documentation Pack",
+    "url": "https://t3rnel.gumroad.com/l/aqvruv",
+    "price_usd": 9.99,
+    "summary": "Your Personal AI super intelligence. A brain that builds a local-first memory of your life, a fantastic orchestrator of agent fleets and workflows, and a deep researcher."
+  },
+  {
+    "name": "vllm-project/vllm-omni — Documentation Pack",
+    "url": "https://t3rnel.gumroad.com/l/vajlx",
+    "price_usd": 9.99,
+    "summary": "A framework for efficient model inference with omni-modality models"
+  },
+  {
+    "name": "wasm-bindgen/wasm-bindgen — Documentation Pack",
+    "url": "https://t3rnel.gumroad.com/l/erles",
+    "price_usd": 9.99,
+    "summary": "Facilitating high-level interactions between Wasm modules and JavaScript"
   }
 ]
