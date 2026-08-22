@@ -14,7 +14,7 @@ export function GumroadProducts() {
           <p className="section-label">Digital products</p>
           <h2 id="gumroad-title">Gumroad Shop</h2>
           <p className="technology-lead">
-            Documentation packs, agent team bundles, reports and courses built by the T3rnel revenue pipeline. Every listing has a clear price and a deliverable attached.
+            Agent team bundles, reports, datasets and courses built by the T3rnel revenue pipeline. Every listing has a clear price and a deliverable attached.
           </p>
           <a
             className="button store-hero-button"
