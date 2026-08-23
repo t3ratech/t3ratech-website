@@ -158,12 +158,12 @@ export const technologyCards = [
   },
   {
     title: "MCP servers",
-    body: "MCP Session Bridge exposes 84 browser tools over stdio so Claude, Cursor, and Windsurf can read the page the user is already signed into — with a human approval gate.",
+    body: "MCP Session Bridge exposes 87 browser tools over stdio so Claude, Cursor, and Windsurf can read the page the user is already signed into — with a human approval gate.",
     icon: Bot,
   },
   {
     title: "Browser automation",
-    body: "The T3rnel Browser Chrome extension turns any tab into an agentic surface: CSS inspection, full-page screenshots, Markdown viewer, page audit, record/replay, and encrypted local vaults.",
+    body: "The T3rnel Browser extension — Chrome, Brave, Edge, Chromium, with Firefox and Opera partly supported — turns any tab into an agentic surface: CSS inspection, full-page screenshots, Markdown viewer, page audit, record/replay, and encrypted local vaults.",
     icon: Monitor,
   },
   {
@@ -376,7 +376,7 @@ export const chromeProduct: ChromeProduct = {
   name: "T3rnel Browser",
   tagline: "DevTools you can talk to, and an agent runway you can trust",
   description:
-    "A Chrome extension with 84 tools: hover-and-copy CSS, full-page screenshots, Markdown viewer, page audit, record/replay with Playwright codegen, DOM time-travel, and an MCP server that lets your AI drive the browser you are already signed into — all local.",
+    "A browser extension with 87 tools, for Chrome, Brave, Edge and Chromium: hover-and-copy CSS, full-page screenshots, Markdown viewer, page audit, record/replay with Playwright codegen, DOM time-travel, and an MCP server that lets your AI drive the browser you are already signed into — all local.",
   url: "https://chromewebstore.google.com/detail/egpckhdpkoeimoekciejbmbbcackhdmd",
   icon: Monitor,
 };
@@ -396,7 +396,7 @@ export const mcpProduct: McpProduct = {
   description:
     "A paid MCP server that exposes authenticated browser-session automation. In extension mode it forwards calls over a local relay to the T3rnel Browser extension, so Claude, Cursor, and Windsurf can read the tab the user is already logged into. In standalone mode it launches its own CDP browser for free local automation.",
   url: "https://www.npmjs.com/package/@t3rnel/mcp-session-bridge",
-  installCommand: "npm install -g @t3rnel/mcp-session-bridge",
+  installCommand: "npm install -g @t3ratech/mcp-session-bridge",
   icon: Bot,
 };
 

@@ -35,7 +35,7 @@ export function Mcp() {
           <ul className="chrome-feature-list">
             <li>
               <ShieldCheck size={18} strokeWidth={2.2} />
-              <strong>Extension mode (paid)</strong> — forwards calls over a local, owner-only relay socket to a native messaging host that Chrome spawns, then to the T3rnel Browser extension, which executes them against your real logged-in tabs.
+              <strong>Extension mode</strong> — forwards calls over a local, owner-only relay socket to a native messaging host the browser spawns, then to the T3rnel Browser extension, which executes them against your real logged-in tabs. The bridge itself is free; the Pro tools it can reach are gated by the extension's own licence.
             </li>
             <li>
               <Globe2 size={18} strokeWidth={2.2} />
@@ -81,7 +81,7 @@ export function Mcp() {
 
           <h3>Why this matters</h3>
           <p className="chrome-description">
-            Other MCP tools can only read public pages. MCP Session Bridge uses the T3rnel Chrome extension to extract
+            Other MCP tools can only read public pages. MCP Session Bridge uses the T3rnel Browser extension to extract
             data from the tab the user is already logged into. Great for pulling account details into an AI workflow,
             filling forms from existing page state, and building context-aware agents without sending cookies to a cloud browser.
           </p>

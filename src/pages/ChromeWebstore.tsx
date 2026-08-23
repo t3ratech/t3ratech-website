@@ -4,7 +4,7 @@ import { chromeProduct } from "../data";
 
 export function ChromeWebstore() {
   useEffect(() => {
-    document.title = "Chrome Webstore | T3rnel Browser";
+    document.title = "Install | T3rnel Browser";
   }, []);
 
   const Icon = chromeProduct.icon;
@@ -24,12 +24,12 @@ export function ChromeWebstore() {
             <span className="store-icon chrome-icon">
               <Icon size={32} strokeWidth={2} />
             </span>
-            <span className="store-badge">Chrome Extension</span>
+            <span className="store-badge">Browser Extension</span>
           </div>
 
           <h3>What you get</h3>
           <p className="chrome-description">
-            T3rnel Browser is a Chrome extension with 84 tools and no backend servers. It gives you developer tools
+            T3rnel Browser is a browser extension with 87 tools and no backend servers. It installs on Chrome, Brave, Edge and Chromium from one package; Firefox and Opera are partly supported. It gives you developer tools
             you can talk to, and an agent runway you can trust.
           </p>
 
@@ -89,7 +89,7 @@ export function ChromeWebstore() {
           <h3>Privacy</h3>
           <p className="chrome-description">
             The extension collects nothing: no account, no analytics, no telemetry, no error reporting, no tracking.
-            Everything it saves is stored locally in your browser. Payment goes through PayNow; we never see payment details.
+            Everything it saves is stored locally in your browser. Payment goes through PayNow or PayPal, whichever you choose at checkout; we never see payment details.
           </p>
 
           <div className="chrome-actions">
