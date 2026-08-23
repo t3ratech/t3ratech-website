@@ -140,8 +140,8 @@ export const impactPillars = [
   },
   {
     label: "Products",
-    title: "Documentation, tools, and agent packs for working developers.",
-    body: "Gumroad packs, open-source documentation, the T3rnel Browser extension, and the MCP Session Bridge give African and global technologists practical starting points.",
+    title: "Reports, datasets, tools, and agent packs for working developers.",
+    body: "Gumroad packs, the T3rnel Browser extension, and the free MCP Session Bridge give African and global technologists practical starting points.",
   },
   {
     label: "Agent tools",
@@ -158,12 +158,12 @@ export const technologyCards = [
   },
   {
     title: "MCP servers",
-    body: "MCP Session Bridge exposes 87 browser tools over stdio so Claude, Cursor, and Windsurf can read the page the user is already signed into — with a human approval gate.",
+    body: "MCP Session Bridge exposes 98 browser tools over stdio so Claude, Cursor, and Windsurf can read the page the user is already signed into — with a human approval gate.",
     icon: Bot,
   },
   {
     title: "Browser automation",
-    body: "The T3rnel Browser extension — Chrome, Brave, Edge, Chromium, with Firefox and Opera partly supported — turns any tab into an agentic surface: CSS inspection, full-page screenshots, Markdown viewer, page audit, record/replay, and encrypted local vaults.",
+    body: "The T3rnel Browser extension — Chrome, Brave, Edge and Chromium from one package; Firefox and Opera partly supported — turns any tab into an agentic surface: CSS inspection, full-page screenshots, Markdown viewer, page audit, record/replay with Playwright codegen, DOM compression, firewall, time-travel, and encrypted local vaults.",
     icon: Monitor,
   },
   {
@@ -376,7 +376,7 @@ export const chromeProduct: ChromeProduct = {
   name: "T3rnel Browser",
   tagline: "DevTools you can talk to, and an agent runway you can trust",
   description:
-    "A browser extension with 87 tools, for Chrome, Brave, Edge and Chromium: hover-and-copy CSS, full-page screenshots, Markdown viewer, page audit, record/replay with Playwright codegen, DOM time-travel, and an MCP server that lets your AI drive the browser you are already signed into — all local.",
+    "A browser extension with 98 tools, for Chrome, Brave, Edge and Chromium: hover-and-copy CSS, full-page screenshots, Markdown viewer, page audit, record/replay with Playwright codegen, DOM compression and time-travel, and an MCP server that lets your AI drive the browser you are already signed into — all local.",
   url: "https://chromewebstore.google.com/detail/egpckhdpkoeimoekciejbmbbcackhdmd",
   icon: Monitor,
 };
@@ -394,8 +394,8 @@ export const mcpProduct: McpProduct = {
   name: "MCP Session Bridge",
   tagline: "Authenticated browser extraction as an MCP tool. Works from the user's own session.",
   description:
-    "A paid MCP server that exposes authenticated browser-session automation. In extension mode it forwards calls over a local relay to the T3rnel Browser extension, so Claude, Cursor, and Windsurf can read the tab the user is already logged into. In standalone mode it launches its own CDP browser for free local automation.",
-  url: "https://www.npmjs.com/package/@t3rnel/mcp-session-bridge",
+    "A free MCP server that exposes authenticated browser-session automation. In extension mode it forwards calls over a local relay to the T3rnel Browser extension, so Claude, Cursor, and Windsurf can read the tab the user is already logged into. In standalone mode it launches its own CDP browser for free local automation.",
+  url: "https://www.npmjs.com/package/@t3ratech/mcp-session-bridge",
   installCommand: "npm install -g @t3ratech/mcp-session-bridge",
   icon: Bot,
 };
@@ -424,7 +424,7 @@ export type PageLink = {
 export const exploreLinks: PageLink[] = [
   { path: "/whatsapp-groups", label: "WhatsApp Groups", description: "SciTech Zimbabwe communities.", icon: UsersRound },
   { path: "/nfts", label: "NFTs", description: "Genesis agent-art series on OpenSea.", icon: Palette },
-  { path: "/gumroad", label: "Gumroad", description: "Open-source documentation packs and digital products.", icon: ShoppingBag },
+  { path: "/gumroad", label: "Gumroad", description: "Reports, datasets, courses and digital products.", icon: ShoppingBag },
   { path: "/chrome", label: "Chrome", description: "T3rnel Browser extension.", icon: Monitor },
   { path: "/mcp", label: "MCP", description: "MCP Session Bridge for AI coding assistants.", icon: Bot },
 ];
