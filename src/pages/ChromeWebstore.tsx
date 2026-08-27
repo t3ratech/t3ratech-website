@@ -1,6 +1,7 @@
 import { useEffect } from "react";
-import { ArrowUpRight, Check, Globe2 } from "lucide-react";
-import { chromeProduct } from "../data";
+import { Link } from "react-router-dom";
+import { ArrowUpRight, BookOpen, Bot, Check } from "lucide-react";
+import { chromeProduct, mcpProduct } from "../data";
 
 export function ChromeWebstore() {
   useEffect(() => {
@@ -30,7 +31,11 @@ export function ChromeWebstore() {
           <h3>What you get</h3>
           <p className="chrome-description">
             T3rnel Browser is a browser extension with 98 tools and no backend servers. It installs on Chrome, Brave, Edge and Chromium from one package; Firefox and Opera are partly supported. It gives you developer tools
-            you can talk to, and an agent runway you can trust.
+            you can talk to, and an agent runway you can trust. Pair it with the{" "}
+            <a href={mcpProduct.url} target="_blank" rel="noreferrer">
+              free MCP Session Bridge
+            </a>{" "}
+            and any MCP client can drive the browser you are already signed into.
           </p>
 
           <ul className="chrome-feature-list">
@@ -45,6 +50,22 @@ export function ChromeWebstore() {
             <li>
               <Check size={18} strokeWidth={2.2} />
               <strong>Markdown viewer</strong> — read .md files as documents, including the ones your agent just wrote.
+            </li>
+            <li>
+              <Check size={18} strokeWidth={2.2} />
+              <strong>Form filler</strong> — seed a form with plausible values in one call and still be able to submit it.
+            </li>
+            <li>
+              <Check size={18} strokeWidth={2.2} />
+              <strong>Colour picker</strong> — sample the rendered pixel anywhere and build palettes.
+            </li>
+            <li>
+              <Check size={18} strokeWidth={2.2} />
+              <strong>Cache tools</strong> — clear site data and hard-reload with cache bypass.
+            </li>
+            <li>
+              <Check size={18} strokeWidth={2.2} />
+              <strong>React inspector</strong> — walk the real component tree on React pages.
             </li>
             <li>
               <Check size={18} strokeWidth={2.2} />
@@ -99,19 +120,26 @@ export function ChromeWebstore() {
               target="_blank"
               rel="noreferrer"
             >
-              Install from Chrome Webstore
+              Install from product site
               <ArrowUpRight size={16} strokeWidth={2.2} />
             </a>
+            {/* A second button to the same address is not a second choice. This one goes
+                to the manual, which is what someone deciding whether to install wants. */}
             <a
               className="button chrome-button-secondary"
-              href="https://t3ratech.github.io/t3rnel-browser-plugin/"
+              href="https://t3ratech.github.io/t3rnel-browser-plugin/manual.html"
               target="_blank"
               rel="noreferrer"
             >
-              <Globe2 size={16} strokeWidth={2.2} />
-              Product site
+              <BookOpen size={16} strokeWidth={2.2} />
+              Read the manual
               <ArrowUpRight size={16} strokeWidth={2.2} />
             </a>
+            {/* An in-app route, so it navigates rather than reloading the whole bundle. */}
+            <Link className="button chrome-button-secondary" to="/mcp">
+              <Bot size={16} strokeWidth={2.2} />
+              MCP Session Bridge
+            </Link>
           </div>
         </div>
       </div>

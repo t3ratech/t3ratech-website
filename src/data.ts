@@ -53,6 +53,9 @@ export type ThemePreference = "light" | "dark" | "auto";
 export const themeStorageKey = "t3ratech-theme";
 export const defaultThemePreference: ThemePreference = "auto";
 
+export const SUPPORTED_MCP_CLIENTS =
+  "Claude Code/Desktop, Cursor, VS Code, Windsurf, Antigravity, IntelliJ, Codex, Grok Build, Kimi Code/Desktop, JCode, Cline, OpenCode, Continue.dev, KiloCode, Roo Code, Aider, OpenClaw, Hermes, OpenFang and any MCP client";
+
 export const themeOptions: Array<{
   value: ThemePreference;
   label: string;
@@ -158,12 +161,12 @@ export const technologyCards = [
   },
   {
     title: "MCP servers",
-    body: "MCP Session Bridge exposes 98 browser tools over stdio so Claude, Cursor, and Windsurf can read the page the user is already signed into — with a human approval gate.",
+    body: `MCP Session Bridge exposes 98 browser tools over stdio so ${SUPPORTED_MCP_CLIENTS} can read the page the user is already signed into — with a human approval gate.`,
     icon: Bot,
   },
   {
     title: "Browser automation",
-    body: "The T3rnel Browser extension — Chrome, Brave, Edge and Chromium from one package; Firefox and Opera partly supported — turns any tab into an agentic surface: CSS inspection, full-page screenshots, Markdown viewer, page audit, record/replay with Playwright codegen, DOM compression, firewall, time-travel, and encrypted local vaults.",
+    body: "The T3rnel Browser extension — Chrome, Brave, Edge and Chromium from one package; Firefox and Opera partly supported — turns any tab into an agentic surface for any MCP client: CSS inspection, full-page screenshots, Markdown viewer, page audit, record/replay with Playwright codegen, DOM compression, time-travel, and encrypted local vaults.",
     icon: Monitor,
   },
   {
@@ -376,8 +379,8 @@ export const chromeProduct: ChromeProduct = {
   name: "T3rnel Browser",
   tagline: "DevTools you can talk to, and an agent runway you can trust",
   description:
-    "A browser extension with 98 tools, for Chrome, Brave, Edge and Chromium: hover-and-copy CSS, full-page screenshots, Markdown viewer, page audit, record/replay with Playwright codegen, DOM compression and time-travel, and an MCP server that lets your AI drive the browser you are already signed into — all local.",
-  url: "https://chromewebstore.google.com/detail/egpckhdpkoeimoekciejbmbbcackhdmd",
+    "A browser extension with 98 tools, for Chrome, Brave, Opera, Firefox, Safari, Edge and Chromium: hover-and-copy CSS, full-page screenshots, Markdown viewer, page audit, form filler, colour picker, cache tools, React inspector, record/replay with Playwright/Cypress codegen, DOM compression and time-travel, and the MCP Session Bridge that lets your AI drive the browser you are already signed into — all local. Pro is a one-time purchase via PayNow or PayPal.",
+  url: "https://t3ratech.github.io/t3rnel-browser-plugin/",
   icon: Monitor,
 };
 
@@ -393,8 +396,7 @@ export type McpProduct = {
 export const mcpProduct: McpProduct = {
   name: "MCP Session Bridge",
   tagline: "Authenticated browser extraction as an MCP tool. Works from the user's own session.",
-  description:
-    "A free MCP server that exposes authenticated browser-session automation. In extension mode it forwards calls over a local relay to the T3rnel Browser extension, so Claude, Cursor, and Windsurf can read the tab the user is already logged into. In standalone mode it launches its own CDP browser for free local automation.",
+  description: `A free MCP server that exposes authenticated browser-session automation. In extension mode it forwards calls over a local relay to the T3rnel Browser extension, so ${SUPPORTED_MCP_CLIENTS} can read the tab the user is already logged into. In standalone mode it launches its own CDP browser for free local automation.`,
   url: "https://www.npmjs.com/package/@t3ratech/mcp-session-bridge",
   installCommand: "npm install -g @t3ratech/mcp-session-bridge",
   icon: Bot,

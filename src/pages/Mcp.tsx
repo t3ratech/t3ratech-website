@@ -1,6 +1,6 @@
 import { useEffect } from "react";
 import { ArrowUpRight, Bot, Check, Terminal, ShieldCheck, Globe2 } from "lucide-react";
-import { mcpProduct } from "../data";
+import { SUPPORTED_MCP_CLIENTS, chromeProduct, mcpProduct } from "../data";
 
 export function Mcp() {
   useEffect(() => {
@@ -17,6 +17,13 @@ export function Mcp() {
           <h2 id="mcp-title">{mcpProduct.name}</h2>
           <p className="technology-lead">{mcpProduct.tagline}</p>
           <p className="chrome-description">{mcpProduct.description}</p>
+          <p className="chrome-description">
+            It pairs with the{" "}
+            <a href={chromeProduct.url} target="_blank" rel="noreferrer">
+              T3rnel Browser extension
+            </a>
+            , which gives these tools access to the browser you are already signed into.
+          </p>
         </div>
 
         <div className="chrome-card mcp-card">
@@ -29,7 +36,7 @@ export function Mcp() {
 
           <h3>What it does</h3>
           <p className="chrome-description">
-            MCP Session Bridge serves MCP over stdio to Claude Desktop, Cursor, Windsurf, and any MCP client.
+            MCP Session Bridge serves MCP over stdio to {SUPPORTED_MCP_CLIENTS}.
             It uses a dual-transport design:
           </p>
           <ul className="chrome-feature-list">
@@ -53,7 +60,7 @@ export function Mcp() {
 
           <h3>Configure</h3>
           <p className="chrome-description">
-            Add to your MCP client config (Claude Desktop, Cursor, Windsurf, or any MCP settings):
+            Add to your MCP client config ({SUPPORTED_MCP_CLIENTS}):
           </p>
           <pre className="mcp-install">
             <code>{`{
