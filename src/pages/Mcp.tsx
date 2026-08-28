@@ -93,6 +93,32 @@ export function Mcp() {
             filling forms from existing page state, and building context-aware agents without sending cookies to a cloud browser.
           </p>
 
+          <h3>The skill</h3>
+          <p className="chrome-description">{mcpProduct.skill.summary}</p>
+          <p className="chrome-description">
+            <a href={mcpProduct.skill.url} target="_blank" rel="noreferrer">
+              {mcpProduct.skill.name}
+            </a>{" "}
+            is published beside the server, so the tool names and counts it quotes are
+            covered by that repository's tests. It is also on{" "}
+            <a href={mcpProduct.skill.registryUrl} target="_blank" rel="noreferrer">Smithery</a>.
+          </p>
+
+          <h3>Source and listings</h3>
+          <p className="chrome-description">
+            The bridge is source-available — the same source the npm package ships. The
+            T3rnel Browser extension it connects to is closed source and ships through the
+            browser stores.
+          </p>
+          <ul className="chrome-features">
+            {mcpProduct.listings.map((listing) => (
+              <li key={listing.url}>
+                <Check size={16} strokeWidth={2.2} />
+                <a href={listing.url} target="_blank" rel="noreferrer">{listing.label}</a>
+              </li>
+            ))}
+          </ul>
+
           <a
             className="button store-button chrome-button"
             href={mcpProduct.url}

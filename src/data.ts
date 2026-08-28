@@ -389,6 +389,12 @@ export type McpProduct = {
   tagline: string;
   description: string;
   url: string;
+  /** Where the source actually lives, which is what MCP directories link to. */
+  sourceUrl: string;
+  /** The skill published alongside the server. */
+  skill: { name: string; url: string; registryUrl: string; summary: string };
+  /** Every place the server is listed, so one page can be checked against reality. */
+  listings: { label: string; url: string }[];
   installCommand: string;
   icon: React.ComponentType<{ size?: number; strokeWidth?: number }>;
 };
@@ -398,6 +404,20 @@ export const mcpProduct: McpProduct = {
   tagline: "Authenticated browser extraction as an MCP tool. Works from the user's own session.",
   description: `A free MCP server that exposes authenticated browser-session automation. In extension mode it forwards calls over a local relay to the T3rnel Browser extension, so ${SUPPORTED_MCP_CLIENTS} can read the tab the user is already logged into. In standalone mode it launches its own CDP browser for free local automation.`,
   url: "https://www.npmjs.com/package/@t3ratech/mcp-session-bridge",
+  sourceUrl: "https://github.com/t3ratech/mcp-session-bridge",
+  skill: {
+    name: "signed-in-browser",
+    url: "https://github.com/t3ratech/mcp-session-bridge/tree/main/skills/signed-in-browser",
+    registryUrl: "https://smithery.ai/skills/t3ratech-dev/signed-in-browser",
+    summary:
+      "Tools tell an agent what it can do; a skill tells it when — and when not to. This one says a public page should be fetched rather than driven through somebody's live browser, leads with the risk of acting in a browser logged into real accounts, and tells the agent to verify a change rather than assume a resolved call made one.",
+  },
+  listings: [
+    { label: "npm", url: "https://www.npmjs.com/package/@t3ratech/mcp-session-bridge" },
+    { label: "Source", url: "https://github.com/t3ratech/mcp-session-bridge" },
+    { label: "Smithery", url: "https://smithery.ai/servers/t3ratech-dev/mcp-session-bridge" },
+    { label: "Skill on Smithery", url: "https://smithery.ai/skills/t3ratech-dev/signed-in-browser" },
+  ],
   installCommand: "npm install -g @t3ratech/mcp-session-bridge",
   icon: Bot,
 };
