@@ -6,6 +6,7 @@ import { Nfts } from "./pages/Nfts";
 import { GumroadProducts } from "./pages/GumroadProducts";
 import { ChromeWebstore } from "./pages/ChromeWebstore";
 import { Mcp } from "./pages/Mcp";
+import { AgentSkills } from "./pages/AgentSkills";
 import "./styles.css";
 
 export function App() {
@@ -17,8 +18,11 @@ export function App() {
           <Route path="whatsapp-groups" element={<WhatsAppGroups />} />
           <Route path="nfts" element={<Nfts />} />
           <Route path="gumroad" element={<GumroadProducts />} />
-          <Route path="chrome" element={<ChromeWebstore />} />
+          <Route path="extensions" element={<ChromeWebstore />} />
+          {/* The old path stays reachable; it was linked from published listings. */}
+          <Route path="chrome" element={<Navigate to="/extensions" replace />} />
           <Route path="mcp" element={<Mcp />} />
+          <Route path="skills" element={<AgentSkills />} />
           <Route path="*" element={<Navigate to="/" replace />} />
         </Route>
       </Routes>

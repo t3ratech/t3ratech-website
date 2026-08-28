@@ -128,3 +128,63 @@ describe("the client list is stated once", () => {
     assert.deepEqual(offenders, [], `hand-typed copies of the client list: ${offenders.join(", ")}`);
   });
 });
+
+/**
+ * The menu, checked against the router.
+ *
+ * `navItems` and the `<Route>` list are two hand-maintained descriptions of the same set
+ * of pages. A nav entry pointing at a path the router does not serve renders a menu item
+ * that lands on the catch-all redirect, which looks like the site losing the page rather
+ * than like a typo. Renaming a route is exactly when this happens — `/chrome` became
+ * `/extensions` because the label undersold a product that ships for six browsers.
+ */
+describe("the navigation matches the router", () => {
+  const app = readFileSync(path.join(srcDir, "App.tsx"), "utf8");
+  const data = readFileSync(path.join(srcDir, "data.ts"), "utf8");
+
+  const routes = new Set(
+    [...app.matchAll(/<Route\s+path="([^"]+)"/g)]
+      .map((m) => m[1])
+      .filter((p) => p !== "*")
+      .map((p) => (p.startsWith("/") ? p : `/${p}`))
+  );
+  routes.add("/");
+
+  const navBlock = data.match(/export const navItems: NavItem\[\] = \[([\s\S]*?)\n\];/);
+  const nav = [...(navBlock?.[1] ?? "").matchAll(/\{\s*path:\s*"([^"]+)",\s*label:\s*"([^"]+)"/g)]
+    .map((m) => ({ path: m[1], label: m[2] }));
+
+  test("there is a menu to check", () => {
+    assert.ok(nav.length >= 4, `only parsed ${nav.length} nav item(s)`);
+  });
+
+  test("every menu entry points at a route the router serves", () => {
+    const broken = nav.filter((item) => !routes.has(item.path));
+    assert.deepEqual(
+      broken.map((b) => `${b.label} -> ${b.path}`),
+      [],
+      "menu entries with no route behind them",
+    );
+  });
+
+  test("every page the router serves is reachable from the menu, or is a redirect", () => {
+    // A page nobody links to is a page nobody finds. Redirect-only paths are exempt:
+    // they exist to keep an old published URL working, not to appear in the menu.
+    const redirects = new Set(
+      [...app.matchAll(/<Route\s+path="([^"]+)"\s+element=\{<Navigate/g)]
+        .map((m) => (m[1].startsWith("/") ? m[1] : `/${m[1]}`))
+    );
+    const inMenu = new Set(nav.map((item) => item.path));
+    const orphans = [...routes].filter((route) => !inMenu.has(route) && !redirects.has(route));
+    assert.deepEqual(orphans, [], `routes with no way to reach them: ${orphans.join(", ")}`);
+  });
+
+  test("the menu names what we actually publish", () => {
+    const labels = nav.map((item) => item.label);
+    // "Chrome" named one browser for an extension that ships for six, and skills are a
+    // separate product from the extension and the server.
+    assert.ok(!labels.includes("Chrome"), "the menu still says Chrome, which undersells a six-browser extension");
+    assert.ok(labels.some((l) => /extension/i.test(l)), "nothing in the menu leads to the extensions");
+    assert.ok(labels.some((l) => /skill/i.test(l)), "nothing in the menu leads to the agent skills");
+  });
+});

@@ -427,13 +427,74 @@ export type NavItem = {
   label: string;
 };
 
+export type AgentSkill = {
+  name: string;
+  tagline: string;
+  description: string;
+  points: string[];
+  sourceUrl: string;
+  registryUrl?: string;
+};
+
+/**
+ * The agent skills we publish.
+ *
+ * A skill is a Markdown file an AI client reads before deciding how to approach a task —
+ * a distinct thing from the extension and from the MCP server, and a distinct thing
+ * people search for. Listed as data so the site, the sitemap and any future listing all
+ * read from one place.
+ */
+export const agentSkills: AgentSkill[] = [
+  {
+    name: "signed-in-browser",
+    tagline: "Working in a browser the operator is already signed into.",
+    description:
+      "The capability is the easy half. Most of this skill is about restraint: when the tool is the wrong choice, and what to confirm before acting in a session that holds someone's real accounts.",
+    points: [
+      "Says when not to use it — a public page should be fetched, not driven through a live browser.",
+      "Leads with the risk: a wrong click sends mail, cancels a subscription or moves money.",
+      "Never enters a credential the model generated — passwords, one-time codes and card numbers are refused.",
+      "Says to verify: a click that resolves is not a click that worked.",
+    ],
+    sourceUrl: "https://github.com/t3ratech/mcp-session-bridge/tree/main/skills/signed-in-browser",
+    registryUrl: "https://smithery.ai/skills/t3ratech-dev/signed-in-browser",
+  },
+  {
+    name: "publish-mcp-server",
+    tagline: "Listing an MCP server on the public directories.",
+    description:
+      "Smithery, Glama, mcpservers.org and awesome-mcp-servers. Every warning in it cost a failed submission to find.",
+    points: [
+      "Per-site field limits, including one that nothing mentions until you submit.",
+      "The required controls that a careless read of a page misses entirely.",
+      "The paid tiers that sit beside the free submit button, and how to tell them apart.",
+      "How to tell a real submission from a form that quietly did nothing.",
+    ],
+    sourceUrl: "https://github.com/t3ratech/mcp-session-bridge/tree/main/skills/publish-mcp-server",
+  },
+  {
+    name: "post-to-hacker-news",
+    tagline: "Submitting to Hacker News, including Show HN.",
+    description:
+      "One shot per thing, so the skill is mostly about deciding it is ready before opening the form.",
+    points: [
+      "The title rules, and why a marketing title is worse than a plain one.",
+      "The url-or-text choice, which is exclusive and easy to get wrong.",
+      "How to tell a submission succeeded, rather than assuming.",
+      "The author comment a Show HN needs to survive its first hour.",
+    ],
+    sourceUrl: "https://github.com/t3ratech/mcp-session-bridge/tree/main/skills/post-to-hacker-news",
+  },
+];
+
 export const navItems: NavItem[] = [
   { path: "/", label: "Home" },
   { path: "/whatsapp-groups", label: "WhatsApp Groups" },
   { path: "/nfts", label: "NFTs" },
   { path: "/gumroad", label: "Gumroad" },
-  { path: "/chrome", label: "Chrome" },
+  { path: "/extensions", label: "Extensions" },
   { path: "/mcp", label: "MCP" },
+  { path: "/skills", label: "Agent Skills" },
 ];
 
 export type PageLink = {
