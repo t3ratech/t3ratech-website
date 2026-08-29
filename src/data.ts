@@ -407,7 +407,7 @@ export const mcpProduct: McpProduct = {
   sourceUrl: "https://github.com/t3ratech/mcp-session-bridge",
   skill: {
     name: "signed-in-browser",
-    url: "https://github.com/t3ratech/mcp-session-bridge/tree/main/skills/signed-in-browser",
+    url: "https://github.com/t3ratech/mcp-session-bridge/tree/main/agent-skills/signed-in-browser",
     registryUrl: "https://smithery.ai/skills/t3ratech-dev/signed-in-browser",
     summary:
       "Tools tell an agent what it can do; a skill tells it when — and when not to. This one says a public page should be fetched rather than driven through somebody's live browser, leads with the risk of acting in a browser logged into real accounts, and tells the agent to verify a change rather than assume a resolved call made one.",
@@ -456,7 +456,7 @@ export const agentSkills: AgentSkill[] = [
       "Never enters a credential the model generated — passwords, one-time codes and card numbers are refused.",
       "Says to verify: a click that resolves is not a click that worked.",
     ],
-    sourceUrl: "https://github.com/t3ratech/mcp-session-bridge/tree/main/skills/signed-in-browser",
+    sourceUrl: "https://github.com/t3ratech/mcp-session-bridge/tree/main/agent-skills/signed-in-browser",
     registryUrl: "https://smithery.ai/skills/t3ratech-dev/signed-in-browser",
   },
   {
@@ -470,7 +470,7 @@ export const agentSkills: AgentSkill[] = [
       "The paid tiers that sit beside the free submit button, and how to tell them apart.",
       "How to tell a real submission from a form that quietly did nothing.",
     ],
-    sourceUrl: "https://github.com/t3ratech/mcp-session-bridge/tree/main/skills/publish-mcp-server",
+    sourceUrl: "https://github.com/t3ratech/mcp-session-bridge/tree/main/agent-skills/publish-mcp-server",
   },
   {
     name: "post-to-hacker-news",
@@ -483,7 +483,7 @@ export const agentSkills: AgentSkill[] = [
       "How to tell a submission succeeded, rather than assuming.",
       "The author comment a Show HN needs to survive its first hour.",
     ],
-    sourceUrl: "https://github.com/t3ratech/mcp-session-bridge/tree/main/skills/post-to-hacker-news",
+    sourceUrl: "https://github.com/t3ratech/mcp-session-bridge/tree/main/agent-skills/post-to-hacker-news",
   },
 ];
 
