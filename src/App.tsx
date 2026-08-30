@@ -6,6 +6,7 @@ import { Nfts } from "./pages/Nfts";
 import { GumroadProducts } from "./pages/GumroadProducts";
 import { ChromeWebstore } from "./pages/ChromeWebstore";
 import { Mcp } from "./pages/Mcp";
+import { T3rnelIntelligence } from "./pages/T3rnelIntelligence";
 import { AgentSkills } from "./pages/AgentSkills";
 import "./styles.css";
 
@@ -22,6 +23,7 @@ export function App() {
           {/* The old path stays reachable; it was linked from published listings. */}
           <Route path="chrome" element={<Navigate to="/extensions" replace />} />
           <Route path="mcp" element={<Mcp />} />
+          <Route path="t3rnel-intelligence" element={<T3rnelIntelligence />} />
           <Route path="skills" element={<AgentSkills />} />
           <Route path="*" element={<Navigate to="/" replace />} />
         </Route>

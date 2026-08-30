@@ -12,9 +12,11 @@ import {
   Monitor,
   Moon,
   Palette,
+  Search,
   ShieldCheck,
   ShoppingBag,
   Sun,
+  Target,
   Twitter,
   UsersRound,
   Workflow,
@@ -143,8 +145,8 @@ export const impactPillars = [
   },
   {
     label: "Products",
-    title: "Reports, datasets, tools, and agent packs for working developers.",
-    body: "Gumroad packs, the T3rnel Browser extension, and the free MCP Session Bridge give African and global technologists practical starting points.",
+    title: "Reports, datasets, tools, agent packs, and lead research for working developers.",
+    body: "Gumroad packs, the T3rnel Browser extension, the free MCP Session Bridge, and T3rnel Intelligence MCP give African and global technologists practical starting points.",
   },
   {
     label: "Agent tools",
@@ -174,6 +176,11 @@ export const technologyCards = [
     body: "We work with agent swarms, A2A coordination, MCP integrations, skill systems, memory, and human approval loops so automation can do real work without becoming a black box.",
     icon: BrainCircuit,
   },
+  {
+    title: "T3rnel Intelligence MCP",
+    body: "An MCP server for evidence-backed company lead research, scoring, and reporting using public search APIs and customer-supplied inputs.",
+    icon: Target,
+  },
 ];
 
 export const technologyHighlights = [
@@ -182,6 +189,7 @@ export const technologyHighlights = [
   "Gumroad products",
   "MCP Session Bridge",
   "T3rnel Browser",
+  "T3rnel Intelligence MCP",
   "Chrome Web Store",
   "Agent swarms",
   "A2A protocol",
@@ -379,7 +387,7 @@ export const chromeProduct: ChromeProduct = {
   name: "T3rnel Browser",
   tagline: "DevTools you can talk to, and an agent runway you can trust",
   description:
-    "A browser extension with 98 tools, for Chrome, Brave, Opera, Firefox, Safari, Edge and Chromium: hover-and-copy CSS, full-page screenshots, Markdown viewer, page audit, form filler, colour picker, cache tools, React inspector, record/replay with Playwright/Cypress codegen, DOM compression and time-travel, and the MCP Session Bridge that lets your AI drive the browser you are already signed into — all local. Pro is a one-time purchase via PayNow or PayPal.",
+    "A browser extension with 99 tools, for Chrome, Brave, Opera, Firefox, Safari, Edge and Chromium: hover-and-copy CSS, full-page screenshots, Markdown viewer, page audit, form filler and one-call form clearing, colour picker, cache tools, React inspector, record/replay with Playwright/Cypress codegen, DOM compression and time-travel, and the MCP Session Bridge that lets your AI drive the browser you are already signed into — all local. Pro is a one-time purchase via PayNow or PayPal.",
   url: "https://t3ratech.github.io/t3rnel-browser-plugin/",
   icon: Monitor,
 };
@@ -420,6 +428,28 @@ export const mcpProduct: McpProduct = {
   ],
   installCommand: "npm install -g @t3ratech/mcp-session-bridge",
   icon: Bot,
+};
+
+export const t3rnelIntelligenceProduct: McpProduct = {
+  name: "T3rnel Intelligence MCP",
+  tagline: "Evidence-backed lead research, scoring, and reporting through an MCP server.",
+  description:
+    "A rate-limited Streamable HTTP MCP server. An AI client describes an ideal-customer profile and any industry, country, company size, technologies, keywords, or buying signals; the server returns a small set of scored company leads with source links, confidence, and a recommended outreach angle.",
+  url: "https://github.com/t3ratech/t3rnel/tree/main/products/t3rnel_intelligence_mcp",
+  sourceUrl: "https://github.com/t3ratech/t3rnel/tree/main/products/t3rnel_intelligence_mcp",
+  skill: {
+    name: "t3rnel-intelligence",
+    url: "https://github.com/t3ratech/t3rnel/tree/main/products/t3rnel_intelligence_mcp",
+    registryUrl: "",
+    summary:
+      "Lead research through public search APIs and customer-supplied inputs. The toolset is designed to return evidence-backed company prospects, not to scrape LinkedIn, automate outreach, or fabricate contact details.",
+  },
+  listings: [
+    { label: "Source", url: "https://github.com/t3ratech/t3rnel/tree/main/products/t3rnel_intelligence_mcp" },
+    { label: "README", url: "https://github.com/t3ratech/t3rnel/blob/main/products/t3rnel_intelligence_mcp/README.md" },
+  ],
+  installCommand: `export T3RNEL_INTELLIGENCE_BASE_URL="https://YOUR_WORKER_HOST"; curl -H "Authorization: Bearer $T3RNEL_INTELLIGENCE_API_TOKEN" "$T3RNEL_INTELLIGENCE_BASE_URL/health"`,
+  icon: Target,
 };
 
 export type NavItem = {
@@ -494,6 +524,7 @@ export const navItems: NavItem[] = [
   { path: "/gumroad", label: "Gumroad" },
   { path: "/extensions", label: "Extensions" },
   { path: "/mcp", label: "MCP" },
+  { path: "/t3rnel-intelligence", label: "T3rnel Intelligence" },
   { path: "/skills", label: "Agent Skills" },
 ];
 
@@ -510,4 +541,5 @@ export const exploreLinks: PageLink[] = [
   { path: "/gumroad", label: "Gumroad", description: "Reports, datasets, courses and digital products.", icon: ShoppingBag },
   { path: "/chrome", label: "Chrome", description: "T3rnel Browser extension.", icon: Monitor },
   { path: "/mcp", label: "MCP", description: "MCP Session Bridge for AI coding assistants.", icon: Bot },
+  { path: "/t3rnel-intelligence", label: "T3rnel Intelligence", description: "Evidence-backed lead research and scoring.", icon: Target },
 ];

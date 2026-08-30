@@ -30,7 +30,7 @@ export function ChromeWebstore() {
 
           <h3>What you get</h3>
           <p className="chrome-description">
-            T3rnel Browser is a browser extension with 98 tools and no backend servers. It installs on Chrome, Brave, Edge and Chromium from one package; Firefox and Opera are partly supported. It gives you developer tools
+            T3rnel Browser is a browser extension with 99 tools and no backend servers. It installs on Chrome, Brave, Edge and Chromium from one package; Firefox and Opera are partly supported. It gives you developer tools
             you can talk to, and an agent runway you can trust. Pair it with the{" "}
             <a href={mcpProduct.url} target="_blank" rel="noreferrer">
               free MCP Session Bridge
