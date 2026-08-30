@@ -435,19 +435,16 @@ export const t3rnelIntelligenceProduct: McpProduct = {
   tagline: "Evidence-backed lead research, scoring, and reporting through an MCP server.",
   description:
     "A rate-limited Streamable HTTP MCP server. An AI client describes an ideal-customer profile and any industry, country, company size, technologies, keywords, or buying signals; the server returns a small set of scored company leads with source links, confidence, and a recommended outreach angle.",
-  url: "https://github.com/t3ratech/t3rnel/tree/main/products/t3rnel_intelligence_mcp",
-  sourceUrl: "https://github.com/t3ratech/t3rnel/tree/main/products/t3rnel_intelligence_mcp",
+  url: "",
+  sourceUrl: "",
   skill: {
     name: "t3rnel-intelligence",
-    url: "https://github.com/t3ratech/t3rnel/tree/main/products/t3rnel_intelligence_mcp",
+    url: "",
     registryUrl: "",
     summary:
       "Lead research through public search APIs and customer-supplied inputs. The toolset is designed to return evidence-backed company prospects, not to scrape LinkedIn, automate outreach, or fabricate contact details.",
   },
-  listings: [
-    { label: "Source", url: "https://github.com/t3ratech/t3rnel/tree/main/products/t3rnel_intelligence_mcp" },
-    { label: "README", url: "https://github.com/t3ratech/t3rnel/blob/main/products/t3rnel_intelligence_mcp/README.md" },
-  ],
+  listings: [],
   installCommand: `export T3RNEL_INTELLIGENCE_BASE_URL="https://YOUR_WORKER_HOST"; curl -H "Authorization: Bearer $T3RNEL_INTELLIGENCE_API_TOKEN" "$T3RNEL_INTELLIGENCE_BASE_URL/health"`,
   icon: Target,
 };

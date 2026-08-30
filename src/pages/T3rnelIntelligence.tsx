@@ -1,5 +1,5 @@
 import { useEffect } from "react";
-import { ArrowUpRight, Check, Target } from "lucide-react";
+import { Check, Target } from "lucide-react";
 import { t3rnelIntelligenceProduct } from "../data";
 
 export function T3rnelIntelligence() {
@@ -95,29 +95,12 @@ export function T3rnelIntelligence() {
             tenant data while preserving suppression hashes and deletion evidence.
           </p>
 
-          <h3>Source and listings</h3>
+          <h3>Access</h3>
           <p className="chrome-description">
-            The server is part of the t3rnel repository and is source-available under its own
-            proprietary licence.
+            T3rnel Intelligence MCP is a proprietary, closed-source service. Access is granted by a
+            pilot bearer token; the source code is not publicly distributed. Contact T3raTech for
+            pricing, a custom domain, or an on-premise deployment.
           </p>
-          <ul className="chrome-features">
-            {t3rnelIntelligenceProduct.listings.map((listing) => (
-              <li key={listing.url}>
-                <Check size={16} strokeWidth={2.2} />
-                <a href={listing.url} target="_blank" rel="noreferrer">{listing.label}</a>
-              </li>
-            ))}
-          </ul>
-
-          <a
-            className="button store-button chrome-button"
-            href={t3rnelIntelligenceProduct.url}
-            target="_blank"
-            rel="noreferrer"
-          >
-            View source
-            <ArrowUpRight size={16} strokeWidth={2.2} />
-          </a>
         </div>
       </div>
     </section>
