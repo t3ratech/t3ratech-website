@@ -2,6 +2,7 @@ import { useEffect, useState } from "react";
 import { Link, useLocation, Outlet } from "react-router-dom";
 import {
   ArrowUpRight,
+  ChevronDown,
   Github,
   Globe2,
   Menu,
@@ -15,11 +16,32 @@ import {
   X,
 } from "lucide-react";
 import {
+  type NavItem,
   navItems,
   socialLinks,
   themeOptions,
 } from "./data";
 import { useTheme } from "./hooks/useTheme";
+
+type NavGroup =
+  | { type: "link"; item: NavItem }
+  | { type: "dropdown"; label: string; items: NavItem[] };
+
+function buildNavGroups(items: NavItem[]): NavGroup[] {
+  return items.reduce<NavGroup[]>((groups, item) => {
+    if (item.group) {
+      const tail = groups[groups.length - 1];
+      if (tail && tail.type === "dropdown" && tail.label === item.group) {
+        tail.items.push(item);
+      } else {
+        groups.push({ type: "dropdown", label: item.group, items: [item] });
+      }
+    } else {
+      groups.push({ type: "link", item });
+    }
+    return groups;
+  }, []);
+}
 
 function ScrollToTop() {
   const { pathname } = useLocation();
@@ -33,6 +55,7 @@ function ScrollToTop() {
 
 export function Layout() {
   const { themePreference, setThemePreference } = useTheme();
+  const { pathname } = useLocation();
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
 
   useEffect(() => {
@@ -65,11 +88,38 @@ export function Layout() {
         </Link>
         <div className="header-actions">
           <nav className="nav-links" id="primary-navigation">
-            {navItems.map((item) => (
-              <Link to={item.path} key={item.path} onClick={() => setIsMobileMenuOpen(false)}>
-                {item.label}
-              </Link>
-            ))}
+            {buildNavGroups(navItems).map((group) =>
+              group.type === "link" ? (
+                <Link
+                  to={group.item.path}
+                  key={group.item.path}
+                  className={pathname === group.item.path ? "active" : undefined}
+                  onClick={() => setIsMobileMenuOpen(false)}
+                >
+                  {group.item.label}
+                </Link>
+              ) : (
+                <details className="nav-dropdown" key={group.label}>
+                  <summary>
+                    {group.label}
+                    <ChevronDown size={14} strokeWidth={2.2} aria-hidden="true" />
+                  </summary>
+                  <div className="nav-dropdown-content" role="menu">
+                    {group.items.map((item) => (
+                      <Link
+                        to={item.path}
+                        key={item.path}
+                        className={pathname === item.path ? "active" : undefined}
+                        onClick={() => setIsMobileMenuOpen(false)}
+                        role="menuitem"
+                      >
+                        {item.label}
+                      </Link>
+                    ))}
+                  </div>
+                </details>
+              )
+            )}
           </nav>
           <div className="theme-toggle" aria-label="Color mode">
             {themeOptions.map((option) => {

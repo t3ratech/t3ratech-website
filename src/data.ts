@@ -480,6 +480,8 @@ export const t3rnelDocumentIntelligenceProduct: McpProduct = {
 export type NavItem = {
   path: string;
   label: string;
+  /** When set, this item belongs to a dropdown group labelled by this value. */
+  group?: string;
 };
 
 export type AgentSkill = {
@@ -544,14 +546,14 @@ export const agentSkills: AgentSkill[] = [
 
 export const navItems: NavItem[] = [
   { path: "/", label: "Home" },
-  { path: "/whatsapp-groups", label: "WhatsApp Groups" },
+  { path: "/extensions", label: "Browser & Extensions", group: "Products" },
+  { path: "/mcp", label: "MCP Bridge", group: "Products" },
+  { path: "/t3rnel-intelligence", label: "T3rnel Intelligence", group: "Products" },
+  { path: "/document-intelligence", label: "Document Intelligence", group: "Products" },
+  { path: "/skills", label: "Agent Skills" },
   { path: "/nfts", label: "NFTs" },
   { path: "/gumroad", label: "Gumroad" },
-  { path: "/extensions", label: "Extensions" },
-  { path: "/mcp", label: "MCP" },
-  { path: "/t3rnel-intelligence", label: "T3rnel Intelligence" },
-  { path: "/document-intelligence", label: "Document Intelligence" },
-  { path: "/skills", label: "Agent Skills" },
+  { path: "/whatsapp-groups", label: "WhatsApp Groups" },
 ];
 
 export type PageLink = {
