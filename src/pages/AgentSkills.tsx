@@ -1,6 +1,6 @@
 import { useEffect } from "react";
 import { ArrowUpRight, BookOpen, Check } from "lucide-react";
-import { agentSkills, mcpProduct } from "../data";
+import { agentSkills } from "../data";
 
 /**
  * Agent skills are a third product, not a footnote on the MCP page.
@@ -58,31 +58,6 @@ export function AgentSkills() {
             ) : null}
           </div>
         ))}
-
-        <div className="chrome-card">
-          <h3>Installing one</h3>
-          <p className="chrome-description">
-            Copy the folder into your client&apos;s skills directory — <code>~/.claude/skills/</code>{" "}
-            for your account, or <code>.claude/skills/</code> inside a project. They are plain
-            Markdown, so read one before installing it. That is advice we would give about
-            anybody&apos;s.
-          </p>
-          <p className="chrome-description">
-            They pair with the{" "}
-            <a href={mcpProduct.sourceUrl} target="_blank" rel="noreferrer">
-              MCP Session Bridge
-            </a>
-            , which is what gives an assistant the browser tools these skills describe.
-          </p>
-          <h3>Why they are tested</h3>
-          <p className="chrome-description">
-            A skill is an instruction another system follows without checking. One naming a
-            tool that no longer exists, or a limit that has moved, sends an agent down a
-            path the skill was written to rule out. So every tool they name is asserted to
-            exist and every number they quote is compared against what the code serves —
-            they fail the build rather than mislead a reader.
-          </p>
-        </div>
       </div>
     </section>
   );
