@@ -7,6 +7,7 @@ import { GumroadProducts } from "./pages/GumroadProducts";
 import { ChromeWebstore } from "./pages/ChromeWebstore";
 import { Mcp } from "./pages/Mcp";
 import { T3rnelIntelligence } from "./pages/T3rnelIntelligence";
+import { DocumentIntelligence } from "./pages/DocumentIntelligence";
 import { AgentSkills } from "./pages/AgentSkills";
 import "./styles.css";
 
@@ -24,6 +25,7 @@ export function App() {
           <Route path="chrome" element={<Navigate to="/extensions" replace />} />
           <Route path="mcp" element={<Mcp />} />
           <Route path="t3rnel-intelligence" element={<T3rnelIntelligence />} />
+          <Route path="document-intelligence" element={<DocumentIntelligence />} />
           <Route path="skills" element={<AgentSkills />} />
           <Route path="*" element={<Navigate to="/" replace />} />
         </Route>
