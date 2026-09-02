@@ -30,7 +30,7 @@ export function ChromeWebstore() {
 
           <h3>What you get</h3>
           <p className="chrome-description">
-            T3rnel Browser is a browser extension with 99 tools and no backend servers. It installs on Chrome, Brave, Edge and Chromium from one package; Firefox and Opera are partly supported. It gives you developer tools
+            T3rnel Browser is a browser extension with 102 tools and no backend servers. It installs on Chrome, Brave, Edge and Chromium from one package; Firefox and Opera are partly supported. It gives you developer tools
             you can talk to, and an agent runway you can trust. Pair it with the{" "}
             <a href={mcpProduct.url} target="_blank" rel="noreferrer">
               free MCP Session Bridge
@@ -110,7 +110,7 @@ export function ChromeWebstore() {
           <h3>Privacy</h3>
           <p className="chrome-description">
             The extension collects nothing: no account, no analytics, no telemetry, no error reporting, no tracking.
-            Everything it saves is stored locally in your browser. Payment goes through PayNow or PayPal, whichever you choose at checkout; we never see payment details.
+            Everything it saves is stored locally in your browser. Payment goes through PayNow — Visa, Mastercard, ZimSwitch, EcoCash, OneMoney, Telecash, InnBucks and O’mari — handled by T3rnel WavePay, our own gateway; we never see payment details.
           </p>
 
           <div className="chrome-actions">

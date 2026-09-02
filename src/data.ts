@@ -394,7 +394,7 @@ export const chromeProduct: ChromeProduct = {
   name: "T3rnel Browser",
   tagline: "DevTools you can talk to, and an agent runway you can trust",
   description:
-    "A browser extension with 99 tools, for Chrome, Brave, Opera, Firefox, Safari, Edge and Chromium: hover-and-copy CSS, full-page screenshots, Markdown viewer, page audit, form filler and one-call form clearing, colour picker, cache tools, React inspector, record/replay with Playwright/Cypress codegen, DOM compression and time-travel, and the MCP Session Bridge that lets your AI drive the browser you are already signed into — all local. Pro is a one-time purchase via PayNow or PayPal.",
+    "A browser extension with 102 tools, for Chrome, Brave, Opera, Firefox, Safari, Edge and Chromium: hover-and-copy CSS, full-page screenshots, Markdown viewer, page audit, form filler and one-call form clearing, colour picker, cache tools, React inspector, record/replay with Playwright/Cypress codegen, DOM compression and time-travel, an anti-infinite-scroll guard, light and dark themes, an interface in 24 languages, and the MCP Session Bridge that lets your AI drive the browser you are already signed into — all local. Pro is a one-time purchase via PayNow.",
   url: "https://t3ratech.github.io/t3rnel-browser-plugin/",
   icon: Monitor,
 };
