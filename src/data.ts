@@ -164,7 +164,7 @@ export const technologyCards = [
   },
   {
     title: "MCP servers",
-    body: `MCP Session Bridge exposes 98 browser tools over stdio so ${SUPPORTED_MCP_CLIENTS} can read the page the user is already signed into — with a human approval gate.`,
+    body: `MCP Session Bridge exposes 103 browser tools over stdio so ${SUPPORTED_MCP_CLIENTS} can read the page the user is already signed into — with a human approval gate. 14 of them work standalone, before the extension is installed.`,
     icon: Bot,
   },
   {
