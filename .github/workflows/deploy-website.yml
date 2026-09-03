@@ -1,22 +1,8 @@
 name: Deploy Website
 
 on:
-  push:
-    branches:
-      - main
-    paths:
-      - ".github/workflows/deploy-website.yml"
-      - "Dockerfile"
-      - "index.html"
-      - "nginx.conf.template"
-      - "package-lock.json"
-      - "package.json"
-      - "public/**"
-      - "scripts/deploy-website-terraform.sh"
-      - "src/**"
-      - "infra/website/**"
-      - "tsconfig.json"
-      - "vite.config.ts"
+  # Disabled: the site is now deployed through Cloudflare.
+  # workflow_dispatch: keep for any future manual Cloud Run release.
   workflow_dispatch:
     inputs:
       apply_domain_mappings:
