@@ -39,23 +39,25 @@ export function AgentSkills() {
             <h3>{skill.name}</h3>
             <p className="technology-lead">{skill.tagline}</p>
             <p className="chrome-description">{skill.description}</p>
-            <ul className="chrome-features">
+            <ul className="chrome-feature-list">
               {skill.points.map((point) => (
                 <li key={point}>
                   <Check size={16} strokeWidth={2.2} /> {point}
                 </li>
               ))}
             </ul>
-            <a className="button store-button chrome-button" href={skill.sourceUrl} target="_blank" rel="noreferrer">
-              Read the skill
-              <ArrowUpRight size={16} strokeWidth={2.2} />
-            </a>
-            {skill.registryUrl ? (
-              <a className="button" href={skill.registryUrl} target="_blank" rel="noreferrer">
-                On Smithery
+            <div className="chrome-actions">
+              <a className="button store-button chrome-button" href={skill.sourceUrl} target="_blank" rel="noreferrer">
+                Read the skill
                 <ArrowUpRight size={16} strokeWidth={2.2} />
               </a>
-            ) : null}
+              {skill.registryUrl ? (
+                <a className="button" href={skill.registryUrl} target="_blank" rel="noreferrer">
+                  On Smithery
+                  <ArrowUpRight size={16} strokeWidth={2.2} />
+                </a>
+              ) : null}
+            </div>
           </div>
         ))}
       </div>

@@ -55,7 +55,7 @@ export function Mcp() {
             <code>{mcpProduct.installCommand}</code>
           </pre>
           <p className="chrome-description">
-            Then run <code>mcp-session-bridge --install</code> to register the native-messaging host for Chrome, Chromium, Brave, and Edge.
+            Then run <code className="mcp-install-cmd">mcp-session-bridge --install</code> to register the native-messaging host for Chrome, Chromium, Brave, and Edge.
           </p>
 
           <h3>Configure</h3>
@@ -110,7 +110,7 @@ export function Mcp() {
             T3rnel Browser extension it connects to is closed source and ships through the
             browser stores.
           </p>
-          <ul className="chrome-features">
+          <ul className="chrome-feature-list">
             {mcpProduct.listings.map((listing) => (
               <li key={listing.url}>
                 <Check size={16} strokeWidth={2.2} />

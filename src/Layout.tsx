@@ -1,10 +1,16 @@
-import { useEffect, useState } from "react";
+import { useEffect, useRef, useState } from "react";
 import { Link, useLocation, Outlet } from "react-router-dom";
 import {
   ArrowUpRight,
+  Bot,
   ChevronDown,
+  Facebook,
+  FileText,
+  type LucideIcon,
+  Target,
   Github,
   Globe2,
+  Linkedin,
   Menu,
   MessageSquareText,
   Palette,
@@ -22,6 +28,14 @@ import {
   themeOptions,
 } from "./data";
 import { useTheme } from "./hooks/useTheme";
+
+const desktopQuery = "(min-width: 1080px)";
+const productIcons: Record<string, LucideIcon> = {
+  "/extensions": Monitor,
+  "/mcp": Bot,
+  "/t3rnel-intelligence": Target,
+  "/document-intelligence": FileText,
+};
 
 type NavGroup =
   | { type: "link"; item: NavItem }
@@ -55,69 +69,190 @@ function ScrollToTop() {
 
 export function Layout() {
   const { themePreference, setThemePreference } = useTheme();
-  const { pathname } = useLocation();
+  const location = useLocation();
+  const { pathname } = location;
+  const [isMobile, setIsMobile] = useState(() => !window.matchMedia(desktopQuery).matches);
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
+  const [isProductsOpen, setIsProductsOpen] = useState(false);
+  const headerRef = useRef<HTMLElement>(null);
+  const navigationRef = useRef<HTMLElement>(null);
+  const dropdownRef = useRef<HTMLDivElement>(null);
+  const dropdownTriggerRef = useRef<HTMLButtonElement>(null);
+  const menuToggleRef = useRef<HTMLButtonElement>(null);
+  const mainRef = useRef<HTMLElement>(null);
+  const footerRef = useRef<HTMLElement>(null);
+
+  const closeNavigation = () => {
+    if (isMobileMenuOpen) {
+      menuToggleRef.current?.focus();
+    } else if (dropdownRef.current?.contains(document.activeElement)) {
+      dropdownTriggerRef.current?.focus();
+    }
+    setIsMobileMenuOpen(false);
+    setIsProductsOpen(false);
+  };
 
   useEffect(() => {
-    if (!isMobileMenuOpen) {
-      return;
-    }
-
-    const closeOnEscape = (event: KeyboardEvent) => {
-      if (event.key === "Escape") {
-        setIsMobileMenuOpen(false);
+    const media = window.matchMedia(desktopQuery);
+    const updateViewport = () => {
+      const focused = document.activeElement;
+      if (media.matches && focused === menuToggleRef.current) {
+        navigationRef.current?.querySelector<HTMLAnchorElement>("a[href]")?.focus();
+      } else if (!media.matches && navigationRef.current?.contains(focused)) {
+        menuToggleRef.current?.focus();
+      } else if (dropdownRef.current?.contains(focused)) {
+        dropdownTriggerRef.current?.focus();
       }
+      setIsMobile(!media.matches);
+      setIsMobileMenuOpen(false);
+      setIsProductsOpen(false);
     };
+    media.addEventListener("change", updateViewport);
+    return () => media.removeEventListener("change", updateViewport);
+  }, []);
 
-    window.addEventListener("keydown", closeOnEscape);
+  useEffect(() => {
+    if (navigationRef.current?.contains(document.activeElement)) {
+      if (!window.matchMedia(desktopQuery).matches) {
+        menuToggleRef.current?.focus();
+      } else if (dropdownRef.current?.contains(document.activeElement)) {
+        dropdownTriggerRef.current?.focus();
+      }
+    }
+    setIsMobileMenuOpen(false);
+    setIsProductsOpen(false);
+  }, [location.key]);
 
+  useEffect(() => {
+    if (!isMobileMenuOpen) return;
+    const background = [mainRef.current, footerRef.current].map((element) => ({
+      element,
+      inert: element?.getAttribute("inert"),
+    }));
+    const bodyOverflow = document.body.style.overflow;
+    background.forEach(({ element }) => element?.setAttribute("inert", ""));
+    document.body.style.overflow = "hidden";
+    navigationRef.current?.querySelector<HTMLAnchorElement>("a[href]")?.focus({ preventScroll: true });
     return () => {
-      window.removeEventListener("keydown", closeOnEscape);
+      background.forEach(({ element, inert }) => {
+        if (inert == null) element?.removeAttribute("inert");
+        else element?.setAttribute("inert", inert);
+      });
+      document.body.style.overflow = bodyOverflow;
     };
   }, [isMobileMenuOpen]);
+
+  useEffect(() => {
+    if (!isMobileMenuOpen && !isProductsOpen) return;
+    const closeOnPointer = (event: PointerEvent) => {
+      if (!(event.target instanceof Node)) return;
+      if (isMobileMenuOpen && !headerRef.current?.contains(event.target)) {
+        setIsMobileMenuOpen(false);
+        setIsProductsOpen(false);
+        menuToggleRef.current?.focus();
+      } else if (isProductsOpen && !dropdownRef.current?.contains(event.target)) {
+        if (dropdownRef.current?.contains(document.activeElement)) dropdownTriggerRef.current?.focus();
+        setIsProductsOpen(false);
+      }
+    };
+    const handleKeyDown = (event: KeyboardEvent) => {
+      if (event.key === "Escape") {
+        event.preventDefault();
+        setIsProductsOpen(false);
+        if (isMobileMenuOpen) {
+          setIsMobileMenuOpen(false);
+          menuToggleRef.current?.focus();
+        } else {
+          dropdownTriggerRef.current?.focus();
+        }
+      } else if (event.key === "Tab" && isMobileMenuOpen) {
+        const controls = Array.from(headerRef.current?.querySelectorAll<HTMLElement>(
+          'a[href], button:not([disabled]), [tabindex]:not([tabindex="-1"])'
+        ) ?? []).filter((element) => !element.closest("[hidden]") && element.getClientRects().length > 0
+          && window.getComputedStyle(element).visibility !== "hidden");
+        const index = controls.indexOf(document.activeElement as HTMLElement);
+        if (index === -1 || (event.shiftKey ? index === 0 : index === controls.length - 1)) {
+          event.preventDefault();
+          (event.shiftKey ? controls[controls.length - 1] : controls[0])?.focus();
+        }
+      }
+    };
+    const containFocus = (event: FocusEvent) => {
+      if (isMobileMenuOpen && event.target instanceof Node && !headerRef.current?.contains(event.target)) {
+        menuToggleRef.current?.focus();
+      }
+    };
+    document.addEventListener("pointerdown", closeOnPointer, true);
+    document.addEventListener("keydown", handleKeyDown);
+    document.addEventListener("focusin", containFocus);
+    return () => {
+      document.removeEventListener("pointerdown", closeOnPointer, true);
+      document.removeEventListener("keydown", handleKeyDown);
+      document.removeEventListener("focusin", containFocus);
+    };
+  }, [isMobileMenuOpen, isProductsOpen]);
 
   return (
     <>
       <ScrollToTop />
-      <header className={`site-header ${isMobileMenuOpen ? "menu-open" : ""}`} aria-label="Primary">
-        <Link className="brand" to="/" aria-label="T3raTech home">
+      <header ref={headerRef} className={`site-header ${isMobileMenuOpen ? "menu-open" : ""}`} aria-label="Primary">
+        <Link className="brand" to="/" aria-label="T3raTech home" onClick={closeNavigation} aria-current={pathname === "/" ? "page" : undefined}>
           <span className="brand-mark" aria-hidden="true">
             <img src="/assets/t3ratech-logo-white.png" alt="" />
           </span>
           <span>T3raTech</span>
         </Link>
         <div className="header-actions">
-          <nav className="nav-links" id="primary-navigation">
+          <nav ref={navigationRef} className="nav-links" id="primary-navigation" aria-label="Primary navigation" hidden={isMobile && !isMobileMenuOpen}>
             {buildNavGroups(navItems).map((group) =>
               group.type === "link" ? (
                 <Link
                   to={group.item.path}
                   key={group.item.path}
                   className={pathname === group.item.path ? "active" : undefined}
-                  onClick={() => setIsMobileMenuOpen(false)}
+                  aria-current={pathname === group.item.path ? "page" : undefined}
+                  onClick={closeNavigation}
                 >
                   {group.item.label}
                 </Link>
               ) : (
-                <details className="nav-dropdown" key={group.label}>
-                  <summary>
+                <div
+                  className="nav-dropdown"
+                  key={group.label}
+                  ref={dropdownRef}
+                  onBlur={(event) => {
+                    if (!event.currentTarget.contains(event.relatedTarget)) setIsProductsOpen(false);
+                  }}
+                >
+                  <button
+                    ref={dropdownTriggerRef}
+                    type="button"
+                    className={group.items.some((item) => item.path === pathname) ? "active" : undefined}
+                    aria-expanded={isProductsOpen}
+                    aria-controls="product-navigation"
+                    onClick={() => setIsProductsOpen((isOpen) => !isOpen)}
+                  >
                     {group.label}
                     <ChevronDown size={14} strokeWidth={2.2} aria-hidden="true" />
-                  </summary>
-                  <div className="nav-dropdown-content" role="menu">
-                    {group.items.map((item) => (
-                      <Link
-                        to={item.path}
-                        key={item.path}
-                        className={pathname === item.path ? "active" : undefined}
-                        onClick={() => setIsMobileMenuOpen(false)}
-                        role="menuitem"
-                      >
-                        {item.label}
-                      </Link>
-                    ))}
+                  </button>
+                  <div className="nav-dropdown-content" id="product-navigation" hidden={!isProductsOpen}>
+                    {group.items.map((item) => {
+                      const Icon = productIcons[item.path];
+                      return (
+                        <Link
+                          to={item.path}
+                          key={item.path}
+                          className={pathname === item.path ? "active" : undefined}
+                          aria-current={pathname === item.path ? "page" : undefined}
+                          onClick={closeNavigation}
+                        >
+                          {Icon && <Icon size={20} strokeWidth={1.6} aria-hidden="true" />}
+                          {item.label}
+                        </Link>
+                      );
+                    })}
                   </div>
-                </details>
+                </div>
               )
             )}
           </nav>
@@ -144,7 +279,11 @@ export function Layout() {
             aria-expanded={isMobileMenuOpen}
             aria-label={isMobileMenuOpen ? "Close menu" : "Open menu"}
             className="menu-toggle"
-            onClick={() => setIsMobileMenuOpen((isOpen) => !isOpen)}
+            ref={menuToggleRef}
+            onClick={() => {
+              if (isMobileMenuOpen) closeNavigation();
+              else setIsMobileMenuOpen(true);
+            }}
             type="button"
           >
             {isMobileMenuOpen ? <X size={22} strokeWidth={2.2} /> : <Menu size={22} strokeWidth={2.2} />}
@@ -152,11 +291,11 @@ export function Layout() {
         </div>
       </header>
 
-      <main>
+      <main ref={mainRef}>
         <Outlet />
       </main>
 
-      <footer className="site-footer">
+      <footer className="site-footer" ref={footerRef}>
         <div className="section-inner footer-grid">
           <div>
             <Link className="brand footer-brand" to="/" aria-label="T3raTech home">
@@ -174,9 +313,13 @@ export function Layout() {
               <MessageSquareText size={16} strokeWidth={2.1} />
               support@t3ratech.co.zw
             </a>
-            <a href="https://www.codester.com/t3ratech" target="_blank" rel="noreferrer">
-              <ShoppingBag size={16} strokeWidth={2.1} />
-              Codester Page
+            <a href="https://www.facebook.com/t3ratech" target="_blank" rel="noreferrer">
+              <Facebook size={16} strokeWidth={2.1} />
+              Facebook
+            </a>
+            <a href="https://www.linkedin.com/company/t3ratech" target="_blank" rel="noreferrer">
+              <Linkedin size={16} strokeWidth={2.1} />
+              LinkedIn
             </a>
             <a href="https://t3rnel.gumroad.com/" target="_blank" rel="noreferrer">
               <Globe2 size={16} strokeWidth={2.1} />

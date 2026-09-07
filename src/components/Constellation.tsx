@@ -1,4 +1,4 @@
-import { useCallback, useMemo, useRef, useState } from "react";
+import { useCallback, useEffect, useMemo, useRef, useState } from "react";
 import {
   constellationNodes,
   nodeById,
@@ -15,7 +15,7 @@ import type { RobotTarget } from "./RobotSentinel";
  * - Keyword nodes are dim green dots that brighten when a connected primary
  *   is hovered.
  * - Hovering a primary node draws tentacle lines to its connections.
- * - Hovering MCP draws lines to all MCP-related nodes but shows no popup.
+ * - MCP Session Bridge shows a popup too, with install and listing links.
  * - Reports the hovered node's screen position to the parent so the
  *   RobotSentinel can track it.
  */
@@ -82,6 +82,17 @@ export function Constellation({
     [hoveredId, handleNodeEnter, handleNodeLeave],
   );
 
+  useEffect(() => {
+    if (!hoveredId) return;
+    const dismiss = (event: PointerEvent) => {
+      if (event.target instanceof Node && !document.getElementById(`node-${hoveredId}`)?.contains(event.target)) {
+        handleNodeLeave();
+      }
+    };
+    document.addEventListener("pointerdown", dismiss);
+    return () => document.removeEventListener("pointerdown", dismiss);
+  }, [hoveredId, handleNodeLeave]);
+
   return (
     <div className="constellation" ref={containerRef}>
       {/* SVG layer for edges — uses vector-effect:non-scaling-stroke so lines
@@ -114,8 +125,9 @@ export function Constellation({
             x2={edge.to.x}
             y2={edge.to.y}
             stroke={edge.from.color ?? "#19a866"}
-            strokeWidth="1.5"
-            strokeOpacity="0.7"
+            strokeWidth="2.5"
+            strokeOpacity="0.95"
+            strokeLinecap="round"
             className="tentacle-edge"
             vectorEffect="non-scaling-stroke"
           />
@@ -142,15 +154,43 @@ export function Constellation({
                 top: `${node.y}%`,
                 "--node-color": node.color ?? "var(--green)",
               } as React.CSSProperties}
-              onMouseEnter={() => isPrimary && handleNodeEnter(node)}
-              onMouseLeave={() => isPrimary && handleNodeLeave()}
-              onClick={() => isPrimary && handleNodeClick(node)}
-              role={isPrimary ? "button" : undefined}
-              tabIndex={isPrimary ? 0 : undefined}
-              aria-label={node.label}
+              onPointerEnter={(event) => event.pointerType === "mouse" && isPrimary && handleNodeEnter(node)}
+              onPointerLeave={(event) =>
+                event.pointerType === "mouse" &&
+                isPrimary &&
+                !(event.relatedTarget instanceof Node && event.currentTarget.contains(event.relatedTarget)) &&
+                handleNodeLeave()
+              }
+              onBlur={(event) => !event.currentTarget.contains(event.relatedTarget) && handleNodeLeave()}
+              onKeyDown={(event) => {
+                if (event.key === "Escape") {
+                  event.stopPropagation();
+                  handleNodeLeave();
+                  event.currentTarget.querySelector("button")?.focus();
+                }
+              }}
             >
-              <span className="node-dot" />
-              <span className="node-label">{node.label}</span>
+              {isPrimary ? (
+                <button
+                  className="node-trigger"
+                  id={`trigger-${node.id}`}
+                  type="button"
+                  aria-expanded={node.hasPopup ? isHovered : undefined}
+                  aria-controls={node.hasPopup ? `popup-${node.id}` : undefined}
+                  onClick={(event) => {
+                    if (event.detail === 0 || window.matchMedia("(hover: none)").matches) handleNodeClick(node);
+                    else handleNodeEnter(node);
+                  }}
+                >
+                  <span className="node-dot" aria-hidden="true" />
+                  <span className="node-label">{node.label}</span>
+                </button>
+              ) : (
+                <>
+                  <span className="node-dot" />
+                  <span className="node-label">{node.label}</span>
+                </>
+              )}
               {node.hasPopup && node.popup && isHovered && (
                 <div
                   /*
@@ -159,7 +199,10 @@ export function Constellation({
                    * brand column. A node in the left third opens to its right instead,
                    * so the panel stays inside the mesh it belongs to.
                    */
-                  className={`node-popup ${node.x < 34 ? "opens-right" : ""}`}
+                  className={`node-popup ${node.x < 34 ? "opens-right" : ""} ${node.y < 40 ? "opens-below" : ""} ${node.x >= 34 && node.x < 66 ? "centered" : ""}`}
+                  id={`popup-${node.id}`}
+                  role="region"
+                  aria-labelledby={`trigger-${node.id}`}
                   style={{ "--popup-color": node.color } as React.CSSProperties}
                 >
                   <div className="popup-title">{node.popup.title}</div>

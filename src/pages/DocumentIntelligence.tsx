@@ -118,7 +118,7 @@ export function DocumentIntelligence() {
           </p>
 
           <h3>Source and listings</h3>
-          <ul className="chrome-features">
+          <ul className="chrome-feature-list">
             {t3rnelDocumentIntelligenceProduct.listings.map((listing) => (
               <li key={listing.url}>
                 <Check size={16} strokeWidth={2.2} />

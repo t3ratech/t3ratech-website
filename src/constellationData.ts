@@ -98,7 +98,14 @@ const primaryNodes: ConstellationNode[] = [
     y: 20,
     kind: "product",
     color: NODE_COLORS.mcpBridge,
-    hasPopup: false, // draws lines to all MCP-related, but no popup
+    hasPopup: true,
+    popup: {
+      title: mcpProduct.name,
+      tagline: mcpProduct.tagline,
+      description: mcpProduct.description,
+      link: { label: "View on npm", url: mcpProduct.url },
+      links: mcpProduct.listings.filter((l) => l.label !== "npm"),
+    },
     connections: [
       "t3rnel-browser", "document-intelligence",
       "mcp-tools", "a2a-protocol", "agent-skills",

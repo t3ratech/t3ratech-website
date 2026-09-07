@@ -4,9 +4,11 @@ import {
   ArrowUpRight,
   Bot,
   BrainCircuit,
+  Facebook,
   Github,
   Globe2,
   Languages,
+  Linkedin,
   Menu,
   MessageSquareText,
   Monitor,
@@ -95,11 +97,18 @@ export const nftSeriesList: NFTSeries[] = nftsJson;
 
 export const socialLinks: SocialLink[] = [
   {
-    name: "Codester Page",
-    label: "Our #Codester Page",
-    url: "https://www.codester.com/t3ratech",
-    category: "Software & Templates Marketplace",
-    icon: ShoppingBag,
+    name: "Facebook",
+    label: "Our #Facebook Page",
+    url: "https://www.facebook.com/t3ratech",
+    category: "Official Facebook Page",
+    icon: Facebook,
+  },
+  {
+    name: "LinkedIn",
+    label: "Our #LinkedIn Company",
+    url: "https://www.linkedin.com/company/t3ratech",
+    category: "Official LinkedIn Channel",
+    icon: Linkedin,
   },
   {
     name: "Gumroad Shop",
