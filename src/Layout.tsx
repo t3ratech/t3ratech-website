@@ -82,7 +82,7 @@ export function Layout() {
       <header className={`site-header ${isMobileMenuOpen ? "menu-open" : ""}`} aria-label="Primary">
         <Link className="brand" to="/" aria-label="T3raTech home">
           <span className="brand-mark" aria-hidden="true">
-            <img src="/assets/t3ratech-tt-logo-visible.png" alt="" />
+            <img src="/assets/t3ratech-logo-white.png" alt="" />
           </span>
           <span>T3raTech</span>
         </Link>
@@ -161,7 +161,7 @@ export function Layout() {
           <div>
             <Link className="brand footer-brand" to="/" aria-label="T3raTech home">
               <span className="brand-mark" aria-hidden="true">
-                <img src="/assets/t3ratech-tt-logo-visible.png" alt="" />
+                <img src="/assets/t3ratech-logo-white.png" alt="" />
               </span>
               <span>T3raTech Solutions</span>
             </Link>

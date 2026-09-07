@@ -1,0 +1,43 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1280 820" font-family="Inter, system-ui, sans-serif">
+  <title>24 — Tapestry Weave</title>
+  <defs><radialGradient id="bg24" cx="50%" cy="40%" r="80%"><stop offset="0%" stop-color="#0a1410"/><stop offset="100%" stop-color="#050807"/></radialGradient></defs>
+  <rect width="1280" height="820" fill="#0a0d0b"/>
+  <rect x="0" y="0" width="1280" height="34" fill="#1b201d"/>
+  <circle cx="20" cy="17" r="5" fill="#ff5f57"/><circle cx="40" cy="17" r="5" fill="#febc2e"/><circle cx="60" cy="17" r="5" fill="#28c840"/>
+  <rect x="120" y="9" width="1040" height="16" rx="8" fill="#0a0d0b"/>
+  <text x="640" y="21" fill="#6b756e" font-size="10" text-anchor="middle">t3ratech.co.zw · section: NFTs (art revealed beneath weave)</text>
+  <rect x="0" y="34" width="1280" height="786" fill="url(#bg24)"/>
+  <!-- woven threads (warp &amp; weft) -->
+  <g stroke="#19a866" stroke-opacity="0.3" stroke-width="3">
+    <line x1="100" y1="200" x2="1180" y2="200"/><line x1="100" y1="240" x2="1180" y2="240"/>
+    <line x1="100" y1="280" x2="1180" y2="280"/><line x1="100" y1="320" x2="1180" y2="320"/>
+    <line x1="100" y1="360" x2="1180" y2="360"/><line x1="100" y1="400" x2="1180" y2="400"/>
+    <line x1="100" y1="440" x2="1180" y2="440"/><line x1="100" y1="480" x2="1180" y2="480"/>
+    <line x1="100" y1="520" x2="1180" y2="520"/><line x1="100" y1="560" x2="1180" y2="560"/>
+    <line x1="100" y1="600" x2="1180" y2="600"/>
+  </g>
+  <g stroke="#1d6f9f" stroke-opacity="0.25" stroke-width="3">
+    <line x1="200" y1="180" x2="200" y2="620"/><line x1="300" y1="180" x2="300" y2="620"/>
+    <line x1="400" y1="180" x2="400" y2="620"/><line x1="500" y1="180" x2="500" y2="620"/>
+    <line x1="600" y1="180" x2="600" y2="620"/><line x1="700" y1="180" x2="700" y2="620"/>
+    <line x1="800" y1="180" x2="800" y2="620"/><line x1="900" y1="180" x2="900" y2="620"/>
+    <line x1="1000" y1="180" x2="1000" y2="620"/><line x1="1100" y1="180" x2="1100" y2="620"/>
+  </g>
+  <!-- cursor pulls threads aside at 640,400 revealing NFT art -->
+  <circle cx="640" cy="400" r="120" fill="#0e1310" fill-opacity="0.85" stroke="#d49a18" stroke-opacity="0.6" stroke-dasharray="4 4"/>
+  <!-- revealed NFT artwork (abstract) -->
+  <g transform="translate(640,400)">
+    <rect x="-60" y="-60" width="120" height="120" rx="8" fill="#1a2a22" stroke="#d49a18" stroke-width="2"/>
+    <circle cx="-20" cy="-20" r="20" fill="#d49a18" opacity="0.7"/>
+    <circle cx="20" cy="20" r="25" fill="#cf2630" opacity="0.5"/>
+    <path d="M-40 30 Q 0 -10 40 30" stroke="#9be8c4" stroke-width="2" fill="none"/>
+    <text x="0" y="50" fill="#ffc247" font-size="8" text-anchor="middle">T3RNEL GENESIS #042</text>
+  </g>
+  <rect x="0" y="34" width="1280" height="56" fill="#050505" fill-opacity="0.7"/>
+  <rect x="32" y="48" width="28" height="28" rx="6" fill="#fff"/><text x="46" y="68" fill="#087a48" font-size="16" font-weight="800" text-anchor="middle">T3</text><text x="70" y="68" fill="#fff" font-size="14" font-weight="800">T3raTech</text>
+  <text x="80" y="180" fill="#19a866" font-size="12" letter-spacing="3">BUILD IN AFRICA, FOR AFRICA</text>
+  <text x="78" y="232" fill="#fff" font-size="40" font-weight="800">T3raTech Solutions</text>
+  <text x="80" y="272" fill="#a7b1aa" font-size="14">Cursor pulls woven threads aside, revealing section imagery beneath.</text>
+  <g transform="translate(640,400)"><path d="M0 0 L0 18 L5 13 L9 22 L13 20 L9 11 L16 11 Z" fill="#fff" stroke="#0a0d0b"/></g>
+  <rect x="0" y="794" width="1280" height="26" fill="#111"/><text x="640" y="811" fill="#9be8c4" font-size="11" text-anchor="middle">CONCEPT 24 — Tapestry Weave: cursor pulls threads aside revealing section imagery (NFT art / Africa / blueprint)</text>
+</svg>

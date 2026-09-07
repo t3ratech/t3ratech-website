@@ -111,14 +111,11 @@ img {
 
 .brand-mark {
   align-items: center;
-  background: #ffffff;
-  border: 1px solid rgba(255, 255, 255, 0.72);
   display: inline-flex;
-  height: 40px;
+  height: 36px;
   justify-content: center;
   overflow: hidden;
-  padding: 4px;
-  width: 40px;
+  width: 36px;
 }
 
 .brand-mark img {
@@ -1566,5 +1563,729 @@ h2 {
 
   .chrome-pricing-row {
     grid-template-columns: 1fr;
+  }
+}
+
+
+/* ════════════════════════════════════════════════════════════════════════
+   Constellation Hero — homepage interactive node graph + robot sentinel
+   ════════════════════════════════════════════════════════════════════════ */
+
+/*
+ * The brand has a column; the mesh has a column.
+ *
+ * The heading and its paragraph used to be absolutely positioned over the constellation,
+ * which meant the first thing a reader sees was laid across a moving field of nodes and
+ * lines — text over texture, at every window size, with the nodes underneath it
+ * unreachable. They are now two columns: the words on the left, where reading starts,
+ * and the mesh to the right of them with nothing on top of it.
+ */
+.constellation-hero {
+  align-items: stretch;
+  background: #050807;
+  display: grid;
+  gap: 0;
+  grid-template-columns: minmax(340px, 27vw) 1fr;
+  min-height: 100vh;
+  overflow: hidden;
+  position: relative;
+}
+
+.constellation-hero-overlay {
+  background: radial-gradient(ellipse at 65% 45%, #0c1a14 0%, #050807 80%);
+  inset: 0;
+  pointer-events: none;
+  position: absolute;
+  z-index: 0;
+}
+
+.constellation {
+  grid-column: 2;
+  grid-row: 1;
+  /* Room on the right for the sentinel, so it never stands over a node. */
+  padding-right: 132px;
+  position: relative;
+  z-index: 1;
+}
+
+@media (max-width: 1180px) {
+  .constellation {
+    padding-right: 96px;
+  }
+}
+
+.constellation-edges {
+  height: 100%;
+  left: 0;
+  pointer-events: none;
+  position: absolute;
+  top: 0;
+  width: 100%;
+  z-index: 1;
+}
+
+.tentacle-edge {
+  animation: tentacle-pulse 1.4s ease-in-out infinite;
+}
+
+@keyframes tentacle-pulse {
+  0%, 100% { stroke-opacity: 0.5; }
+  50% { stroke-opacity: 0.9; }
+}
+
+.constellation-nodes {
+  height: 100%;
+  left: 0;
+  position: absolute;
+  top: 0;
+  width: 100%;
+  z-index: 2;
+}
+
+.constellation-node {
+  align-items: center;
+  cursor: default;
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+  pointer-events: auto;
+  position: absolute;
+  transform: translate(-50%, -50%);
+  transition: opacity 0.25s ease, filter 0.25s ease;
+}
+
+.constellation-node.product,
+.constellation-node.community,
+.constellation-node.shop,
+.constellation-node.nft {
+  cursor: pointer;
+}
+
+.node-dot {
+  border-radius: 50%;
+  display: block;
+  transition: all 0.2s ease;
+}
+
+/* keyword nodes — small, dim green */
+.constellation-node.keyword .node-dot {
+  background: var(--node-color, var(--green));
+  height: 5px;
+  opacity: 0.35;
+  width: 5px;
+}
+
+.constellation-node.keyword .node-label {
+  color: rgba(25, 168, 102, 0.4);
+  font-size: 0.62rem;
+  font-weight: 600;
+  letter-spacing: 0.02em;
+  text-shadow: 0 0 4px rgba(0, 0, 0, 0.8);
+  transition: color 0.2s ease, opacity 0.2s ease;
+  white-space: nowrap;
+}
+
+/* primary nodes — larger, colored, rounded */
+.constellation-node.product .node-dot,
+.constellation-node.community .node-dot,
+.constellation-node.shop .node-dot,
+.constellation-node.nft .node-dot {
+  background: var(--node-color, var(--green));
+  border-radius: 50%;
+  box-shadow: 0 0 12px color-mix(in srgb, var(--node-color, var(--green)) 50%, transparent);
+  height: 14px;
+  width: 14px;
+}
+
+.constellation-node.product .node-label,
+.constellation-node.community .node-label,
+.constellation-node.shop .node-label,
+.constellation-node.nft .node-label {
+  color: var(--node-color, var(--green));
+  font-size: 0.82rem;
+  font-weight: 800;
+  text-shadow: 0 0 8px rgba(0, 0, 0, 0.9);
+  white-space: nowrap;
+}
+
+/* hovered state */
+.constellation-node.hovered .node-dot {
+  box-shadow: 0 0 24px var(--node-color, var(--green)), 0 0 48px var(--node-color, var(--green));
+  transform: scale(1.6);
+}
+
+.constellation-node.hovered .node-label {
+  font-size: 0.92rem;
+}
+
+/* connected state — keyword nodes brighten */
+.constellation-node.connected .node-dot {
+  opacity: 1;
+  transform: scale(1.4);
+}
+
+.constellation-node.connected .node-label {
+  color: var(--green);
+  opacity: 1;
+}
+
+/* dimmed state — non-related nodes fade back */
+.constellation-node.dimmed {
+  opacity: 0.3;
+}
+
+/* popup card — rounded, matches existing card design */
+.node-popup.opens-right {
+  left: 100%;
+  right: auto;
+  transform: translateY(-50%) translateX(16px);
+}
+
+.node-popup {
+  background: #0e1310;
+  border: 1px solid var(--popup-color, var(--green));
+  border-left: 4px solid var(--popup-color, var(--green));
+  border-radius: 12px;
+  max-width: 320px;
+  padding: 18px 20px;
+  pointer-events: auto;
+  position: absolute;
+  right: 100%;
+  top: 50%;
+  transform: translateY(-50%) translateX(-16px);
+  white-space: normal;
+  width: max-content;
+  z-index: 10;
+}
+
+.popup-title {
+  color: var(--popup-color, var(--green));
+  font-size: 0.92rem;
+  font-weight: 800;
+  margin-bottom: 4px;
+}
+
+.popup-tagline {
+  color: #cfd6cf;
+  font-size: 0.82rem;
+  font-weight: 700;
+  margin-bottom: 8px;
+}
+
+.popup-desc {
+  color: #a7b1aa;
+  font-size: 0.78rem;
+  line-height: 1.5;
+  margin-bottom: 12px;
+}
+
+.popup-link {
+  color: var(--popup-color, var(--green));
+  font-size: 0.8rem;
+  font-weight: 800;
+  text-decoration: none;
+}
+
+.popup-link:hover {
+  text-decoration: underline;
+}
+
+/* ── hero text panel — top-left, pointer-events:none so it never blocks ── */
+.constellation-hero-content {
+  align-content: center;
+  border-right: 1px solid rgba(255, 255, 255, 0.06);
+  display: grid;
+  /*
+   * Placed explicitly, because the mesh comes first in the markup.
+   * Grid fills columns in document order, so without this the constellation took the
+   * narrow left column and the copy took the wide right one — the copy then spanned the
+   * viewport and sat back on top of the mesh, which is the arrangement this replaced.
+   */
+  grid-column: 1;
+  grid-row: 1;
+  padding: 120px 40px 140px;
+  position: relative;
+  z-index: 3;
+}
+
+.constellation-hero-content .kicker {
+  color: #ffcf4d;
+  font-size: 0.78rem;
+  font-weight: 900;
+  letter-spacing: 0.15em;
+  margin-bottom: 8px;
+  text-transform: uppercase;
+}
+
+.constellation-hero-content h1 {
+  color: #ffffff;
+  font-size: 2.4rem;
+  font-weight: 800;
+  line-height: 1.1;
+  margin-bottom: 10px;
+}
+
+.constellation-hero-copy {
+  color: rgba(207, 214, 207, 0.8);
+  font-size: 0.92rem;
+  line-height: 1.5;
+  margin-bottom: 0;
+  max-width: 420px;
+}
+
+/* ── socials row — bottom-left, above robot ──────────────────────────── */
+.constellation-socials {
+  align-items: center;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 10px;
+  margin-top: 26px;
+  pointer-events: auto;
+  z-index: 4;
+}
+
+.constellation-socials a {
+  align-items: center;
+  background: rgba(255, 255, 255, 0.06);
+  border: 1px solid rgba(255, 255, 255, 0.12);
+  border-radius: 10px;
+  color: rgba(255, 255, 255, 0.7);
+  display: inline-flex;
+  height: 38px;
+  justify-content: center;
+  transition: all 0.2s ease;
+  width: 38px;
+}
+
+.constellation-socials a:hover {
+  background: rgba(25, 168, 102, 0.15);
+  border-color: var(--green);
+  color: var(--green);
+}
+
+/* ── hint text — bottom-center, subtle ───────────────────────────────── */
+.constellation-hint {
+  bottom: 30px;
+  color: rgba(25, 168, 102, 0.5);
+  font-size: 0.75rem;
+  font-weight: 600;
+  left: 50%;
+  pointer-events: none;
+  position: absolute;
+  transform: translateX(-50%);
+  z-index: 3;
+}
+
+/* ── robot sentinel — fixed bottom-right ─────────────────────────────── */
+/*
+ * The sentinel stands beside the mesh, not on it.
+ *
+ * Fixed to the viewport's bottom-right it was clipped by the edge — the head and the feet
+ * both ran off — and it sat on top of the nodes in that corner, so the labels it covered
+ * could not be read or hovered. It is anchored to the hero instead, with room reserved to
+ * its right, which keeps it whole and keeps the corner of the mesh usable.
+ */
+.robot-sentinel {
+  bottom: 28px;
+  pointer-events: none;
+  position: absolute;
+  right: 34px;
+  z-index: 15;
+}
+
+/* On a phone the mesh is gone, and so is the thing that points at it. */
+@media (max-width: 900px) {
+  .robot-sentinel {
+    display: none;
+  }
+}
+
+.robot-sentinel svg {
+  filter: drop-shadow(0 8px 20px rgba(0, 0, 0, 0.6));
+}
+
+/* ── responsive ──────────────────────────────────────────────────────── */
+
+@media (max-width: 980px) {
+  .constellation-hero-content h1 {
+    font-size: 1.8rem;
+  }
+
+  .constellation-hero-content {
+    max-width: 100%;
+  }
+
+  .constellation-hero-copy {
+    font-size: 0.86rem;
+    max-width: 340px;
+  }
+
+  .robot-sentinel svg {
+    height: 180px;
+    width: 90px;
+  }
+}
+
+@media (max-width: 720px) {
+  .constellation-hero {
+    min-height: 85vh;
+  }
+
+  /*
+   * `left` and `top` are gone with the absolute positioning they belonged to.
+   *
+   * The element is `position: relative` now, so those offsets no longer place it — they
+   * *shift* it, out of the box the layout reserved, without moving anything else. The
+   * cards then began 84px before the column above them ended and were drawn straight
+   * over the social row, and no amount of padding below could close a gap that was an
+   * offset rather than a size.
+   */
+  .constellation-hero-content {
+    max-width: 100%;
+  }
+
+  .constellation-hero-content h1 {
+    font-size: 1.4rem;
+  }
+
+  .constellation-hero-copy {
+    font-size: 0.82rem;
+    max-width: 100%;
+  }
+
+  /* Hide keyword labels on mobile to reduce clutter */
+  .constellation-node.keyword .node-label {
+    display: none;
+  }
+
+  .constellation-node.keyword .node-dot {
+    height: 4px;
+    width: 4px;
+  }
+
+  /* Primary nodes slightly smaller on mobile */
+  .constellation-node.product .node-dot,
+  .constellation-node.community .node-dot,
+  .constellation-node.shop .node-dot,
+  .constellation-node.nft .node-dot {
+    height: 10px;
+    width: 10px;
+  }
+
+  .constellation-node.product .node-label,
+  .constellation-node.community .node-label,
+  .constellation-node.shop .node-label,
+  .constellation-node.nft .node-label {
+    font-size: 0.72rem;
+  }
+
+  /* Popup below node on mobile */
+  .node-popup {
+    max-width: 260px;
+    right: 50%;
+    top: 100%;
+    transform: translateX(50%) translateY(10px);
+  }
+
+  .constellation-socials a {
+    height: 34px;
+    width: 34px;
+  }
+
+  .constellation-hint {
+    bottom: 64px;
+    font-size: 0.7rem;
+  }
+
+  .robot-sentinel svg {
+    height: 130px;
+    width: 65px;
+  }
+
+  .robot-sentinel {
+    bottom: 8px;
+    right: 8px;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .tentacle-edge {
+    animation: none;
+  }
+
+  .robot-sentinel {
+    display: none;
+  }
+}
+
+/* ── the constellation on a screen with no hover ───────────────────────── */
+
+/*
+ * The cards are the mesh's content without the mesh.
+ *
+ * A constellation is a hover surface. On a phone there is no pointer, the nodes are
+ * smaller than a fingertip, and a tentacle drawn between two of them is decoration for an
+ * interaction that cannot happen. So below the breakpoint the mesh, the robot and the
+ * hover hint all go, and what the popups would have said is already on the page.
+ */
+.constellation-cards {
+  display: none;
+}
+
+.popup-stores {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 6px;
+  margin-top: 10px;
+}
+
+.popup-store {
+  background: rgba(255, 255, 255, 0.05);
+  border: 1px solid var(--popup-color, rgba(255, 255, 255, 0.16));
+  border-radius: 999px;
+  color: var(--popup-color, #cfd6cf);
+  font-size: 0.72rem;
+  font-weight: 700;
+  letter-spacing: 0.04em;
+  padding: 4px 11px;
+  text-decoration: none;
+  transition: background 0.18s ease, color 0.18s ease;
+}
+
+.popup-store:hover {
+  background: var(--popup-color, #19a866);
+  color: #050807;
+}
+
+@media (max-width: 900px) {
+  /*
+   * Order, not source order.
+   *
+   * The mesh is rendered before the copy in the markup — correct for the two-column
+   * layout, where placement is explicit. Stacked with `display: block` the browser falls
+   * back to source order and the cards came first, so a phone opened on a list of
+   * products with the company's name somewhere below them. Flex ordering puts the words
+   * first, which is what the small screen is being asked to do.
+   */
+  .constellation-hero {
+    display: flex;
+    flex-direction: column;
+    min-height: 0;
+  }
+
+  .constellation-hero-content {
+    order: 1;
+  }
+
+  /*
+   * Stacked, the socials are a row in the flow — not a floating badge.
+   *
+   * An earlier breakpoint pins them to the hero's bottom-left corner, which in a column
+   * layout put them on top of the last two lines of the paragraph. Everything the
+   * absolute placement set has to be undone here, or the parts that are not overridden
+   * keep applying and the row lands somewhere neither rule intended.
+   */
+  .constellation {
+    order: 3;
+  }
+
+  .constellation-hero-content {
+    /*
+     * Size to the content, and stack from the top.
+     *
+     * The column centres its rows for the desktop layout, where it is as tall as the
+     * hero. Stacked, it is a flex item that shrinks — and a grid whose box is smaller
+     * than its rows draws them outside the box, which is why the socials appeared on top
+     * of the first card no matter how much padding was added below them.
+     */
+    align-content: start;
+    flex: 0 0 auto;
+    border-right: 0;
+    grid-column: 1;
+    grid-row: auto;
+    /* Clear the fixed header, which the removed offsets used to do by accident. */
+    margin-top: 72px;
+    /*
+     * The bottom padding has to clear the socials row that now lives in this column,
+     * or the first card starts on top of it — which is what happened when the row moved
+     * in here and the spacing did not move with it.
+     */
+    padding: 88px 20px 8px;
+  }
+
+  .constellation-hero-content h1 {
+    font-size: 2rem;
+  }
+
+  /*
+   * Hide the mesh, not its container.
+   *
+   * The cards live inside the constellation's own root, so hiding that root hid them
+   * too — the probe reported them as `display: grid` while nothing was on the page,
+   * because a visible child of a hidden parent is still not shown. The edges, the nodes
+   * and the hint are the hover surface; the container stays so the cards can be seen.
+   */
+  .constellation-edges,
+  .constellation-nodes,
+  .constellation-hint {
+    display: none;
+  }
+
+  .constellation {
+    grid-column: 1;
+    padding-right: 0;
+  }
+
+  .mission-grid,
+  .profile-grid,
+  .impact-grid,
+  .community-intro {
+    gap: 20px;
+    grid-template-columns: 1fr;
+  }
+
+  .constellation-cards {
+    display: grid;
+    gap: 14px;
+    grid-template-columns: 1fr;
+    padding: 26px 20px 44px;
+  }
+
+  .constellation-card {
+    background: rgba(255, 255, 255, 0.035);
+    border: 1px solid rgba(255, 255, 255, 0.09);
+    border-left: 3px solid var(--popup-color, #19a866);
+    border-radius: 12px;
+    padding: 16px 16px 18px;
+  }
+
+  .constellation-card h3 {
+    color: #fff;
+    font-size: 1.02rem;
+    font-weight: 800;
+    margin: 0 0 4px;
+  }
+
+  .constellation-card-tagline {
+    color: var(--popup-color, #19a866);
+    font-size: 0.78rem;
+    font-weight: 700;
+    letter-spacing: 0.02em;
+    margin: 0 0 8px;
+  }
+
+  .constellation-card-desc {
+    color: rgba(207, 214, 207, 0.82);
+    font-size: 0.88rem;
+    line-height: 1.55;
+    margin: 0;
+  }
+
+  .constellation-card .popup-link {
+    display: inline-block;
+    margin-top: 12px;
+  }
+}
+
+@media (min-width: 901px) and (max-width: 1180px) {
+  .constellation-hero {
+    grid-template-columns: minmax(300px, 34vw) 1fr;
+  }
+
+  .constellation-hero-content {
+    padding: 104px 28px 120px;
+  }
+}
+
+/* ── the header, made less generic ─────────────────────────────────────── */
+
+/*
+ * Every bootstrapped site has this header: bold links, a full-width underline that
+ * appears on hover, an accent underline for the active page. It is legible and it is
+ * anonymous. The changes below are small and all in the same direction — lighter weight,
+ * real letter-spacing, and an indicator that is a short rule under the word rather than a
+ * border on the whole box, which is what makes a nav look drawn rather than defaulted.
+ */
+.site-header {
+  backdrop-filter: saturate(140%) blur(10px);
+  padding: 0 28px;
+}
+
+.nav-links {
+  gap: 2px;
+}
+
+.nav-links a,
+.nav-dropdown > summary {
+  border-bottom: 0;
+  border-radius: 8px;
+  color: rgba(255, 255, 255, 0.72);
+  font-size: 0.86rem;
+  font-weight: 600;
+  letter-spacing: 0.012em;
+  padding: 12px 12px 11px;
+  position: relative;
+  transition: color 0.16s ease, background 0.16s ease;
+}
+
+.nav-links a::after,
+.nav-dropdown > summary::after {
+  background: var(--green);
+  border-radius: 1px;
+  bottom: 8px;
+  content: "";
+  height: 2px;
+  left: 12px;
+  opacity: 0;
+  position: absolute;
+  transform: scaleX(0.4);
+  transform-origin: left;
+  transition: opacity 0.16s ease, transform 0.16s ease;
+  width: calc(100% - 24px);
+}
+
+.nav-links a:hover,
+.nav-dropdown > summary:hover {
+  background: rgba(255, 255, 255, 0.06);
+  border-color: transparent;
+  color: #ffffff;
+}
+
+.nav-links a:hover::after {
+  opacity: 0.45;
+  transform: scaleX(1);
+}
+
+.nav-links a.active {
+  border-color: transparent;
+  color: #ffffff;
+}
+
+.nav-links a.active::after {
+  opacity: 1;
+  transform: scaleX(1);
+}
+
+/* ── content width ─────────────────────────────────────────────────────── */
+
+/*
+ * 1180px was set when the pages were mostly prose. Several are now grids of cards, and at
+ * that width a three-column grid on a 1600px display leaves a third of the screen empty
+ * on each side while the cards themselves are cramped — which is what reads as a
+ * half-width panel. Prose still wants a measure, so the copy blocks keep theirs.
+ */
+.section-inner {
+  max-width: 1320px;
+}
+
+.mission-grid p,
+.community-copy,
+.constellation-hero-copy {
+  max-width: 62ch;
+}
+
+@media (max-width: 900px) {
+  .section-inner {
+    padding: 52px 20px;
   }
 }

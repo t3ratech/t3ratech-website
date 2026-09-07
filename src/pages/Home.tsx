@@ -1,4 +1,4 @@
-import { useEffect } from "react";
+import { useEffect, useState } from "react";
 import { Link } from "react-router-dom";
 import { ArrowUpRight } from "lucide-react";
 import {
@@ -7,27 +7,68 @@ import {
   technologyCards,
   technologyHighlights,
   values,
+  socialLinks,
 } from "../data";
+import { Constellation } from "../components/Constellation";
+import { RobotSentinel, type RobotTarget } from "../components/RobotSentinel";
 
 export function Home() {
   useEffect(() => {
     document.title = "T3raTech Solutions | African Software Systems";
   }, []);
 
+  const [robotTarget, setRobotTarget] = useState<RobotTarget>(null);
+
   return (
     <>
-      <section className="hero" aria-labelledby="hero-title">
-        <div className="hero-overlay" />
-        <div className="hero-content">
+      {/* ── Constellation hero ─────────────────────────────────────────── */}
+      <section className="constellation-hero" aria-label="T3raTech product constellation">
+        <div className="constellation-hero-overlay" />
+        <Constellation onHoverChange={setRobotTarget} />
+
+        {/* Top-left compact brand panel — pointer-events:none so it never blocks nodes */}
+        <div className="constellation-hero-content">
           <p className="kicker">Build in Africa, for Africa</p>
-          <h1 id="hero-title">T3raTech Solutions</h1>
-          <p className="hero-copy">
-            A proudly Zimbabwean and African software company building digital systems for civic voice,
-            inclusive commerce, agentic software delivery, and connected technology communities.
+          <h1>T3raTech Solutions</h1>
+          <p className="constellation-hero-copy">
+            A proudly Zimbabwean and African software company building digital systems for civic
+            voice, inclusive commerce, agentic software delivery, and connected technology
+            communities.
           </p>
+
+          {/*
+            The socials belong to the column the words are in.
+
+            They were a sibling of the brand block, pinned to the hero's bottom-left
+            corner. In the stacked layout that put them on top of the last lines of the
+            paragraph, and every attempt to unpin them fought a rule from another
+            breakpoint. Nested here they follow the copy in both layouts by construction,
+            with no positioning to undo.
+          */}
+          <div className="constellation-socials">
+            {socialLinks.map((social) => {
+              const Icon = social.icon;
+              return (
+                <a
+                  key={social.name}
+                  href={social.url}
+                  target="_blank"
+                  rel="noreferrer"
+                  aria-label={social.name}
+                  title={social.name}
+                >
+                  <Icon size={18} strokeWidth={2} />
+                </a>
+              );
+            })}
+          </div>
         </div>
+
+        <p className="constellation-hint">Hover any node to explore</p>
+        <RobotSentinel target={robotTarget} />
       </section>
 
+      {/* ── Existing sections (unchanged, current localhost style) ─────── */}
       <section className="mission-strip" aria-label="Company mission">
         <div className="section-inner mission-grid">
           <div>

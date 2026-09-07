@@ -1,0 +1,76 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1280 820" font-family="Inter, system-ui, sans-serif">
+  <title>Concept 5 — Data Stream Through T3rnel</title>
+  <desc>A fixed background of flowing particles (data/agents moving through pipelines) that bend toward the cursor. Particle color shifts per section; on the hero they briefly form the T3raTech mark.</desc>
+  <defs>
+    <radialGradient id="bgG5" cx="50%" cy="40%" r="80%">
+      <stop offset="0%" stop-color="#0a1410"/><stop offset="100%" stop-color="#050807"/>
+    </radialGradient>
+  </defs>
+
+  <rect width="1280" height="820" fill="#0a0d0b"/>
+  <rect x="0" y="0" width="1280" height="34" fill="#1b201d"/>
+  <circle cx="20" cy="17" r="5" fill="#ff5f57"/><circle cx="40" cy="17" r="5" fill="#febc2e"/><circle cx="60" cy="17" r="5" fill="#28c840"/>
+  <rect x="120" y="9" width="1040" height="16" rx="8" fill="#0a0d0b"/>
+  <text x="640" y="21" fill="#6b756e" font-size="10" text-anchor="middle">t3ratech.co.zw  ·  section: Technology (blue particles)</text>
+
+  <rect x="0" y="34" width="1280" height="786" fill="url(#bgG5)"/>
+
+  <!-- flow lines (pipelines) bending toward cursor at 700,360 -->
+  <g fill="none" stroke-width="2" stroke-linecap="round">
+    <path d="M0 180 C 300 180, 500 300, 700 360 S 1000 420, 1280 360" stroke="#19a866" stroke-opacity="0.5"/>
+    <path d="M0 240 C 320 240, 520 320, 700 360 S 1020 380, 1280 320" stroke="#19a866" stroke-opacity="0.35"/>
+    <path d="M0 120 C 280 120, 480 280, 700 360 S 980 460, 1280 420" stroke="#1d6f9f" stroke-opacity="0.4"/>
+    <path d="M0 300 C 340 300, 540 340, 700 360 S 1040 340, 1280 280" stroke="#19a866" stroke-opacity="0.3"/>
+    <path d="M0 480 C 300 480, 520 420, 700 360 S 1000 300, 1280 240" stroke="#d49a18" stroke-opacity="0.35"/>
+    <path d="M0 540 C 320 540, 540 440, 700 360 S 1020 260, 1280 200" stroke="#19a866" stroke-opacity="0.25"/>
+    <path d="M0 600 C 300 600, 540 480, 700 360 S 1000 240, 1280 180" stroke="#1d6f9f" stroke-opacity="0.3"/>
+  </g>
+
+  <!-- particles riding the flows (color = section: technology = blue/green mix) -->
+  <g>
+    <circle cx="210" cy="186" r="3" fill="#19a866"/><circle cx="360" cy="220" r="3" fill="#19a866"/>
+    <circle cx="510" cy="290" r="4" fill="#9be8c4"/><circle cx="660" cy="348" r="5" fill="#9be8c4"/>
+    <circle cx="820" cy="392" r="4" fill="#54a4cf"/><circle cx="970" cy="412" r="3" fill="#19a866"/>
+    <circle cx="1120" cy="386" r="3" fill="#19a866"/>
+    <circle cx="240" cy="246" r="3" fill="#54a4cf"/><circle cx="430" cy="300" r="3" fill="#19a866"/>
+    <circle cx="760" cy="362" r="4" fill="#9be8c4"/><circle cx="1060" cy="356" r="3" fill="#54a4cf"/>
+    <circle cx="180" cy="124" r="3" fill="#1d6f9f"/><circle cx="400" cy="240" r="3" fill="#19a866"/>
+    <circle cx="880" cy="440" r="3" fill="#19a866"/><circle cx="1150" cy="430" r="3" fill="#1d6f9f"/>
+    <circle cx="300" cy="486" r="3" fill="#d49a18"/><circle cx="560" cy="430" r="4" fill="#ffc247"/>
+    <circle cx="840" cy="316" r="3" fill="#19a866"/><circle cx="1080" cy="252" r="3" fill="#d49a18"/>
+  </g>
+  <!-- particles converging at cursor (the attractor) -->
+  <g fill="#9be8c4">
+    <circle cx="640" cy="300" r="2.5"/><circle cx="760" cy="320" r="2.5"/><circle cx="660" cy="420" r="2.5"/>
+    <circle cx="750" cy="410" r="2.5"/><circle cx="690" cy="330" r="2"/><circle cx="720" cy="395" r="2"/>
+  </g>
+
+  <!-- header -->
+  <rect x="0" y="34" width="1280" height="56" fill="#050505" fill-opacity="0.7"/>
+  <rect x="32" y="48" width="28" height="28" rx="6" fill="#ffffff"/>
+  <text x="46" y="68" fill="#087a48" font-size="16" font-weight="800" text-anchor="middle">T3</text>
+  <text x="70" y="68" fill="#ffffff" font-size="14" font-weight="800">T3raTech</text>
+  <g fill="#cfd6cf" font-size="12"><text x="900" y="68">Products ▾</text><text x="1000" y="68">Skills</text><text x="1060" y="68">NFTs</text></g>
+
+  <!-- hero text -->
+  <text x="80" y="180" fill="#19a866" font-size="12" letter-spacing="3">BUILD IN AFRICA, FOR AFRICA</text>
+  <text x="78" y="232" fill="#ffffff" font-size="40" font-weight="800">T3raTech Solutions</text>
+  <text x="80" y="272" fill="#a7b1aa" font-size="14">Event-driven, agent-native systems. Move your cursor to bend the flow.</text>
+
+  <!-- section color legend (left) -->
+  <g transform="translate(80,560)" font-size="10" fill="#a7b1aa">
+    <text x="0" y="0" fill="#5f655f" letter-spacing="2">PARTICLE COLOR BY SECTION</text>
+    <g transform="translate(0,16)"><circle cx="8" cy="8" r="5" fill="#19a866"/><text x="22" y="12">Community</text></g>
+    <g transform="translate(120,16)"><circle cx="8" cy="8" r="5" fill="#d49a18"/><text x="22" y="12">Products</text></g>
+    <g transform="translate(230,16)"><circle cx="8" cy="8" r="5" fill="#1d6f9f"/><text x="12" y="12">Agent tools</text></g>
+    <g transform="translate(350,16)"><circle cx="8" cy="8" r="5" fill="#cf2630"/><text x="22" y="12">NFTs / Trade</text></g>
+  </g>
+
+  <!-- cursor as attractor -->
+  <circle cx="700" cy="360" r="60" fill="none" stroke="#9be8c4" stroke-opacity="0.3"/>
+  <circle cx="700" cy="360" r="100" fill="none" stroke="#9be8c4" stroke-opacity="0.12"/>
+  <g transform="translate(700,360)"><path d="M0 0 L0 18 L5 13 L9 22 L13 20 L9 11 L16 11 Z" fill="#ffffff" stroke="#0a0d0b" stroke-width="1"/></g>
+
+  <rect x="0" y="794" width="1280" height="26" fill="#111111"/>
+  <text x="640" y="811" fill="#9be8c4" font-size="11" text-anchor="middle">CONCEPT 5 — Data Stream: particles flow through pipelines and bend toward the cursor; color shifts per section</text>
+</svg>

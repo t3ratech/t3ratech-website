@@ -164,7 +164,7 @@ export const technologyCards = [
   },
   {
     title: "MCP servers",
-    body: `MCP Session Bridge exposes 103 browser tools over stdio so ${SUPPORTED_MCP_CLIENTS} can read the page the user is already signed into — with a human approval gate. 14 of them work standalone, before the extension is installed.`,
+    body: `MCP Session Bridge exposes the extension's 102 tools plus its own installer over stdio so ${SUPPORTED_MCP_CLIENTS} can read the page the user is already signed into — with a human approval gate. 14 of them work standalone, before the extension is installed.`,
     icon: Bot,
   },
   {
@@ -394,7 +394,7 @@ export const chromeProduct: ChromeProduct = {
   name: "T3rnel Browser",
   tagline: "DevTools you can talk to, and an agent runway you can trust",
   description:
-    "A browser extension with 102 tools, for Chrome, Brave, Opera, Firefox, Safari, Edge and Chromium: hover-and-copy CSS, full-page screenshots, Markdown viewer, page audit, form filler and one-call form clearing, colour picker, cache tools, React inspector, record/replay with Playwright/Cypress codegen, DOM compression and time-travel, an anti-infinite-scroll guard, light and dark themes, an interface in 24 languages, and the MCP Session Bridge that lets your AI drive the browser you are already signed into — all local. Pro is a one-time purchase via PayNow.",
+    "A browser extension with 102 tools, for Chrome, Brave, Opera, Firefox, Edge and Chromium: hover-and-copy CSS, full-page screenshots, Markdown viewer, page audit, form filler and one-call form clearing, colour picker, cache tools, React inspector, record/replay with Playwright/Cypress codegen, DOM compression and time-travel, an anti-infinite-scroll guard, light and dark themes, an interface in 24 languages, and the MCP Session Bridge that lets your AI drive the browser you are already signed into — all local. Pro is a one-time purchase via PayNow.",
   url: "https://t3ratech.github.io/t3rnel-browser-plugin/",
   icon: Monitor,
 };
