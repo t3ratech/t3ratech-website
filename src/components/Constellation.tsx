@@ -1,5 +1,4 @@
 import { useCallback, useEffect, useMemo, useRef, useState } from "react";
-import { createPortal } from "react-dom";
 import {
   constellationNodes,
   nodeById,
@@ -26,7 +25,6 @@ export function Constellation({
   onHoverChange: (target: RobotTarget) => void;
 }) {
   const [hoveredId, setHoveredId] = useState<string | null>(null);
-  const [tentacleRoot, setTentacleRoot] = useState<HTMLDivElement | null>(null);
   const containerRef = useRef<HTMLDivElement>(null);
 
   const hoveredNode = hoveredId ? nodeById.get(hoveredId) ?? null : null;
@@ -71,21 +69,6 @@ export function Constellation({
     setHoveredId(null);
     onHoverChange(null);
   }, [onHoverChange]);
-
-  // Render active tentacles in an overlay above the mesh and the sentinel so they
-  // are visible no matter where the popup or the robot is positioned.
-  useEffect(() => {
-    const hero = containerRef.current?.closest(".constellation-hero");
-    if (!hero) return;
-    const div = document.createElement("div");
-    div.className = "constellation-tentacles";
-    div.setAttribute("aria-hidden", "true");
-    hero.appendChild(div);
-    setTentacleRoot(div);
-    return () => {
-      div.remove();
-    };
-  }, []);
   const handleNodeClick = useCallback(
     (node: ConstellationNode) => {
       if (hoveredId === node.id) {
@@ -131,6 +114,22 @@ export function Constellation({
             }),
           )}
         </g>
+        {/* active tentacle edges */}
+        {activeEdges.map((edge) => (
+          <line
+            key={`${edge.from.id}-${edge.to.id}`}
+            x1={edge.from.x}
+            y1={edge.from.y}
+            x2={edge.to.x}
+            y2={edge.to.y}
+            stroke={edge.from.color ?? "#19a866"}
+            strokeWidth="2.5"
+            strokeOpacity="0.95"
+            strokeLinecap="round"
+            className="tentacle-edge"
+            vectorEffect="non-scaling-stroke"
+          />
+        ))}
       </svg>
 
       {/* Node layer */}
@@ -193,12 +192,13 @@ export function Constellation({
               {node.hasPopup && node.popup && isHovered && (
                 <div
                   /*
-                   * Popups open to the left of their node by default, which walks a
-                   * popup on a left-hand node straight across the divider and over the
-                   * brand column. A node in the left third opens to its right instead,
-                   * so the panel stays inside the mesh it belongs to.
+                   * Popups open to the left of their node by default so the mesh stays
+                   * readable. Left-side nodes open to the right so the panel does not cross
+                   * the brand column. Top-half nodes open below so the fixed header never
+                   * clips them. Bottom-middle nodes open above the node, centred, to stay
+                   * inside the column without overlapping the robot.
                    */
-                  className={`node-popup ${node.x < 34 ? "opens-right" : ""} ${node.y < 40 ? "opens-below" : ""} ${node.x >= 34 && node.x < 66 ? "centered" : ""}`}
+                  className={`node-popup ${node.y < 40 ? "opens-below" : ""} ${node.x < 34 ? "opens-right" : ""} ${node.y >= 40 && node.x >= 34 && node.x < 66 ? "centered" : ""}`}
                   id={`popup-${node.id}`}
                   role="region"
                   aria-labelledby={`trigger-${node.id}`}
@@ -283,27 +283,6 @@ export function Constellation({
           ))}
       </div>
 
-      {/* Active tentacles drawn on top of everything, including popups and the robot. */}
-      {tentacleRoot &&
-        createPortal(
-          <svg className="constellation-tentacles-svg" viewBox="0 0 100 100" preserveAspectRatio="none">
-            {activeEdges.map((edge) => (
-              <line
-                key={`${edge.from.id}-${edge.to.id}`}
-                x1={edge.from.x}
-                y1={edge.from.y}
-                x2={edge.to.x}
-                y2={edge.to.y}
-                stroke={edge.from.color ?? "#19a866"}
-                strokeWidth="3.5"
-                className="tentacle-edge"
-                style={{ color: edge.from.color ?? "#19a866" } as React.CSSProperties}
-                vectorEffect="non-scaling-stroke"
-              />
-            ))}
-          </svg>,
-          tentacleRoot,
-        )}
     </div>
   );
 }
