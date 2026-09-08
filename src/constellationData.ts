@@ -307,12 +307,17 @@ const scatteredKeywords: ConstellationNode[] = extraTechKeywords.map((kw, i) => 
 
 /* ── export ────────────────────────────────────────────────────────────── */
 
+export const primaryNodeIds = primaryNodes.map((n) => n.id);
+
+// Extra tech keywords must not reuse primary node ids or existing keyword ids,
+// otherwise they overwrite real product nodes in the id lookup map.
+const reservedKeywordIds = new Set<string>([...primaryNodeIds, ...positionedKeywords.map((n) => n.id)]);
+const dedupedScatteredKeywords = scatteredKeywords.filter((n) => !reservedKeywordIds.has(n.id));
+
 export const constellationNodes: ConstellationNode[] = [
   ...primaryNodes,
   ...positionedKeywords,
-  ...scatteredKeywords,
+  ...dedupedScatteredKeywords,
 ];
 
 export const nodeById = new Map(constellationNodes.map((n) => [n.id, n]));
-
-export const primaryNodeIds = primaryNodes.map((n) => n.id);
