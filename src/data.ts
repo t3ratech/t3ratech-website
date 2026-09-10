@@ -1,30 +1,5 @@
 import React from "react";
-import {
-  ArrowDown,
-  ArrowUpRight,
-  Bot,
-  BrainCircuit,
-  Facebook,
-  Github,
-  Globe2,
-  Languages,
-  Linkedin,
-  Menu,
-  MessageSquareText,
-  Monitor,
-  Moon,
-  Palette,
-  Search,
-  ShieldCheck,
-  ShoppingBag,
-  Sun,
-  Target,
-  Twitter,
-  UsersRound,
-  Workflow,
-  X,
-  FileText,
-} from "lucide-react";
+import { ArrowDown, ArrowUpRight, Bot, BrainCircuit, Facebook, FileText, Github, Globe2, Languages, Linkedin, Menu, MessageSquareText, Monitor, Moon, Palette, Receipt, Search, ShieldCheck, ShoppingBag, Sun, Target, Twitter, UsersRound, Workflow, X } from "lucide-react";
 import gumroadProductsJson from "./data/gumroadProducts.json";
 import nftsJson from "./data/nfts.json";
 
@@ -486,6 +461,37 @@ export const t3rnelDocumentIntelligenceProduct: McpProduct = {
   icon: FileText,
 };
 
+/**
+ * T3rnel Business Intelligence.
+ *
+ * Deliberately described as "in development" rather than launched. The product
+ * is real and building, but claiming availability before it ships is the kind of
+ * copy that costs trust with exactly the accountants and fleet owners this
+ * depends on. No fiscalisation claim appears here either: ZIMRA validation is
+ * an external approval, and "ZIMRA compliant" is not ours to say until it lands.
+ */
+export const t3rnelBusinessIntelligenceProduct: McpProduct = {
+  name: "T3rnel Business Intelligence",
+  tagline: "Invoicing, receipts and expenses for Zimbabwean businesses and drivers.",
+  description:
+    "One ledger for gig drivers, fleet owners and small businesses. Scan a receipt, capture an EcoCash SMS, issue an invoice, and export records an accountant accepts \u2014 in USD and ZiG, working offline, delivered over WhatsApp.",
+  url: "",
+  sourceUrl: "https://github.com/t3ratech/t3rnel/tree/main/products/apps/t3rnel-business-intelligence",
+  skill: {
+    name: "t3rnel-business-intelligence",
+    url: "https://github.com/t3ratech/t3rnel/tree/main/products/apps/t3rnel-business-intelligence",
+    registryUrl: "",
+    summary:
+      "Money is integer minor units. Every entry keeps the rate, its source and its date.",
+  },
+  listings: [
+    { label: "Source", url: "https://github.com/t3ratech/t3rnel/tree/main/products/apps/t3rnel-business-intelligence" },
+    { label: "Design", url: "https://github.com/t3ratech/t3rnel/blob/main/docs/ideas/zimbabwe-invoice-receipt-system.md" },
+  ],
+  installCommand: "",
+  icon: Receipt,
+};
+
 export type NavItem = {
   path: string;
   label: string;
@@ -533,6 +539,7 @@ export const navItems: NavItem[] = [
   { path: "/mcp", label: "MCP Bridge", group: "Products" },
   { path: "/t3rnel-intelligence", label: "T3rnel Intelligence", group: "Products" },
   { path: "/document-intelligence", label: "Document Intelligence", group: "Products" },
+  { path: "/business-intelligence", label: "Business Intelligence", group: "Products" },
   { path: "/skills", label: "Agent Skills" },
   { path: "/nfts", label: "NFTs" },
   { path: "/gumroad", label: "Gumroad" },
@@ -554,4 +561,5 @@ export const exploreLinks: PageLink[] = [
   { path: "/mcp", label: "MCP", description: "MCP Session Bridge for AI coding assistants.", icon: Bot },
   { path: "/t3rnel-intelligence", label: "T3rnel Intelligence", description: "Evidence-backed lead research and scoring.", icon: Target },
   { path: "/document-intelligence", label: "T3rnel Document Intelligence", description: "Evidence-backed receipt and invoice extraction.", icon: FileText },
+  { path: "/business-intelligence", label: "T3rnel Business Intelligence", description: "Invoicing, receipts and expenses for Zimbabwean businesses and drivers.", icon: Receipt },
 ];
