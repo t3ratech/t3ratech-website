@@ -42,7 +42,7 @@ export function Mcp() {
           <ul className="chrome-feature-list">
             <li>
               <ShieldCheck size={18} strokeWidth={2.2} />
-              <strong>Extension mode</strong> — forwards calls over a local, owner-only relay socket to a native messaging host the browser spawns, then to the T3rnel Browser extension, which executes them against your real logged-in tabs. The bridge itself is free; the Pro tools it can reach are gated by the extension's own licence.
+              <strong>Extension mode</strong> — the bridge serves a loopback WebSocket that the T3rnel Browser extension dials out to, then executes calls against your real logged-in tabs. Pairing is a single &ldquo;Approve connection&rdquo; card in the extension's side panel on first connect, and it covers every MCP action permanently. The bridge itself is free; the Pro tools it can reach are gated by the extension's own licence. On extension or bridge builds older than 1.3.0 it still works through the legacy native-messaging host.
             </li>
             <li>
               <Globe2 size={18} strokeWidth={2.2} />
@@ -51,11 +51,18 @@ export function Mcp() {
           </ul>
 
           <h3>Install</h3>
+          <p className="chrome-description">
+            There is nothing to install — bridge 1.3.0 runs through npx. Point your MCP client at:
+          </p>
           <pre className="mcp-install">
             <code>{mcpProduct.installCommand}</code>
           </pre>
           <p className="chrome-description">
-            Then run <code className="mcp-install-cmd">mcp-session-bridge --install</code> to register the native-messaging host for Chrome, Chromium, Brave, and Edge.
+            With AI/MCP automation allowed — the extension's default — the first connection is approved automatically:
+            no pairing prompt, and no per-action prompts ever. Arming the approval gate in the extension's Settings is
+            what brings back a one-time &ldquo;Approve connection&rdquo; card for new bridges. The old{" "}
+            <code className="mcp-install-cmd">mcp-session-bridge --install</code> native-messaging flow remains only
+            as a legacy fallback for extensions and bridges older than 1.3.0.
           </p>
 
           <h3>Configure</h3>
@@ -66,7 +73,8 @@ export function Mcp() {
             <code>{`{
   "mcpServers": {
     "t3rnel-session": {
-      "command": "mcp-session-bridge",
+      "command": "npx",
+      "args": ["-y", "@t3ratech/mcp-session-bridge"],
       "env": { "T3RNEL_SESSION_MODE": "auto" }
     }
   }
@@ -74,6 +82,11 @@ export function Mcp() {
           </pre>
 
           <h3>Tools included</h3>
+          <p className="chrome-description">
+            The listing exposes 95 tools: 94 of the extension's 97 browser tools — three licence-maintenance tools
+            stay panel-only — plus <code className="mcp-install-cmd">session_install</code>, the bridge's own setup
+            tool. 14 of them also run in standalone mode, before the extension is installed.
+          </p>
           <ul className="chrome-feature-list">
             <li><Check size={16} strokeWidth={2.2} /> session_health — extension health and available browser APIs</li>
             <li><Check size={16} strokeWidth={2.2} /> session_list_tabs — open tabs with ids, titles, URLs</li>

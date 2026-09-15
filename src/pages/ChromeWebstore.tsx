@@ -30,7 +30,7 @@ export function ChromeWebstore() {
 
           <h3>What you get</h3>
           <p className="chrome-description">
-            T3rnel Browser is a browser extension with 102 tools and no backend servers. It installs on Chrome, Brave, Edge and Chromium from one package; Firefox and Opera are partly supported. It gives you developer tools
+            T3rnel Browser 1.3.0 is a browser extension with 97 tools and no backend servers. It installs on Chrome, Brave, Edge and Chromium from one package; Firefox and Opera are partly supported. It gives you developer tools
             you can talk to, and an agent runway you can trust. Pair it with the{" "}
             <a href={mcpProduct.url} target="_blank" rel="noreferrer">
               free MCP Session Bridge
@@ -77,11 +77,39 @@ export function ChromeWebstore() {
             </li>
             <li>
               <Check size={18} strokeWidth={2.2} />
-              <strong>Agent safety</strong> — a valve between a language model and your logged-in browser: credentials redacted, high-risk actions ask first, and a timeline you can scrub backwards.
+              <strong>Agent safety</strong> — a valve between a language model and your logged-in browser: credentials redacted, an approval gate in Settings that can ask before page-changing actions or before everything, and a timeline you can scrub backwards.
             </li>
             <li>
               <Check size={18} strokeWidth={2.2} />
               <strong>Encrypted identity vault</strong> — per-site credentials, encrypted on your device, never written in the clear.
+            </li>
+          </ul>
+
+          <h3>New in 1.3.0</h3>
+          <ul className="chrome-feature-list">
+            <li>
+              <Check size={18} strokeWidth={2.2} />
+              <strong>Zero-install, zero-prompt bridge</strong> — point your MCP client at{" "}
+              <code className="mcp-install-cmd">npx -y @t3ratech/mcp-session-bridge</code> and the extension dials out
+              to the bridge's loopback socket. With AI/MCP automation allowed — the default — the first connection is
+              approved automatically and every tool just works.
+            </li>
+            <li>
+              <Check size={18} strokeWidth={2.2} />
+              <strong>Consent up front, prompts on demand</strong> — installing is consent, so the approval gate now
+              ships off. Arm it in Settings and new bridges get a one-time pairing card while page-changing actions
+              stop and ask.
+            </li>
+            <li>
+              <Check size={18} strokeWidth={2.2} />
+              <strong>Honest onboarding</strong> — the install screen puts Free and Pro side by side and expands only
+              what a choice needs: Free hides the optional permissions entirely; Pro reveals them ticked plus an
+              Activate card that takes a licence key without leaving setup.
+            </li>
+            <li>
+              <Check size={18} strokeWidth={2.2} />
+              <strong>Fixed</strong> — the Markdown auto-viewer, a toolbar icon that went illegible on light themes,
+              and an upgrade path that left the bridge without host access.
             </li>
           </ul>
 
@@ -106,11 +134,23 @@ export function ChromeWebstore() {
               <p className="chrome-description">Three activations. Licensed forever, no subscription. Every tool is in the shipped build.</p>
             </div>
           </div>
+          <p className="chrome-description">
+            Launch pricing: Pro is <strong>$5.00 until 31 December 2026</strong> with a promo code. To get it, share
+            T3rnel with 3 friends, rate &amp; comment on the store listing, or join the mailing list — then email{" "}
+            <a href="mailto:t3ratech.dev@gmail.com?subject=T3rnel%20launch%20code">t3ratech.dev@gmail.com</a> and we
+            send it back. If you would rather just support the work, there is{" "}
+            <a href="https://paypal.me/tkaviya" target="_blank" rel="noreferrer">
+              PayPal
+            </a>
+            , and the extension's About panel carries a newsletter signup.
+          </p>
 
           <h3>Privacy</h3>
           <p className="chrome-description">
-            The extension collects nothing: no account, no analytics, no telemetry, no error reporting, no tracking.
-            Everything it saves is stored locally in your browser. Payment goes through PayNow — Visa, Mastercard, ZimSwitch, EcoCash, OneMoney, Telecash, InnBucks and O’mari — handled by T3rnel WavePay, our own gateway; we never see payment details.
+            The extension still collects nothing by default: no account, no tracking, no error reporting. One thing
+            sits behind a switch — an opt-in anonymous per-tool usage counter that reports which tools ran to
+            T3raTech's own service and Google Analytics 4. It sends no page content, URLs, arguments, or identity,
+            and stays off until you turn it on. Everything it saves is stored locally in your browser. Payment goes through PayNow — Visa, Mastercard, ZimSwitch, EcoCash, OneMoney, Telecash, InnBucks and O’mari — handled by T3rnel WavePay, our own gateway; we never see payment details.
           </p>
 
           <div className="chrome-actions">

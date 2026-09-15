@@ -10,6 +10,7 @@ import {
   Target,
   Github,
   Globe2,
+  Heart,
   Linkedin,
   Menu,
   MessageSquareText,
@@ -340,6 +341,10 @@ export function Layout() {
             <a href="https://opensea.io/collection/t3rnel-genesis" target="_blank" rel="noreferrer">
               <Palette size={16} strokeWidth={2.1} />
               OpenSea NFT Collection
+            </a>
+            <a href="https://paypal.me/tkaviya" target="_blank" rel="noreferrer">
+              <Heart size={16} strokeWidth={2.1} />
+              Donate via PayPal
             </a>
           </div>
         </div>

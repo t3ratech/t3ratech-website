@@ -148,7 +148,7 @@ export const technologyCards = [
   },
   {
     title: "MCP servers",
-    body: `MCP Session Bridge exposes the extension's 102 tools plus its own installer over stdio so ${SUPPORTED_MCP_CLIENTS} can read the page the user is already signed into — with a human approval gate. 14 of them work standalone, before the extension is installed.`,
+    body: `MCP Session Bridge exposes 94 of the extension's 97 browser tools plus its own session_install setup tool — 95 in the listing — over stdio so ${SUPPORTED_MCP_CLIENTS} can read the page the user is already signed into, with an optional human approval gate. 14 of them work standalone, before the extension is installed.`,
     icon: Bot,
   },
   {
@@ -378,7 +378,7 @@ export const chromeProduct: ChromeProduct = {
   name: "T3rnel Browser",
   tagline: "DevTools you can talk to, and an agent runway you can trust",
   description:
-    "A browser extension with 102 tools, for Chrome, Brave, Opera, Firefox, Edge and Chromium: hover-and-copy CSS, full-page screenshots, Markdown viewer, page audit, form filler and one-call form clearing, colour picker, cache tools, React inspector, record/replay with Playwright/Cypress codegen, DOM compression and time-travel, an anti-infinite-scroll guard, light and dark themes, an interface in 24 languages, and the MCP Session Bridge that lets your AI drive the browser you are already signed into — all local. Pro is a one-time purchase via PayNow.",
+    "A browser extension with 97 tools, for Chrome, Brave, Opera, Firefox, Edge and Chromium: hover-and-copy CSS, full-page screenshots, Markdown viewer, page audit, form filler and one-call form clearing, colour picker, cache tools, React inspector, record/replay with Playwright/Cypress codegen, DOM compression and time-travel, an anti-infinite-scroll guard, light and dark themes, an interface in 24 languages, and the MCP Session Bridge that lets your AI drive the browser you are already signed into — all local. Pro is a one-time purchase via PayNow.",
   url: "https://t3ratech.github.io/t3rnel-browser-plugin/",
   icon: Monitor,
 };
@@ -401,7 +401,7 @@ export type McpProduct = {
 export const mcpProduct: McpProduct = {
   name: "MCP Session Bridge",
   tagline: "Authenticated browser extraction as an MCP tool. Works from the user's own session.",
-  description: `A free MCP server that exposes authenticated browser-session automation. In extension mode it forwards calls over a local relay to the T3rnel Browser extension, so ${SUPPORTED_MCP_CLIENTS} can read the tab the user is already logged into. In standalone mode it launches its own CDP browser for free local automation.`,
+  description: `A free MCP server that exposes authenticated browser-session automation — run it through npx, nothing to install. In extension mode the bridge serves a loopback WebSocket the T3rnel Browser extension dials out to, so ${SUPPORTED_MCP_CLIENTS} can read the tab the user is already logged into. In standalone mode it launches its own CDP browser for free local automation.`,
   url: "https://www.npmjs.com/package/@t3ratech/mcp-session-bridge",
   sourceUrl: "https://github.com/t3ratech/mcp-session-bridge",
   skill: {
@@ -417,7 +417,7 @@ export const mcpProduct: McpProduct = {
     { label: "Smithery", url: "https://smithery.ai/servers/t3ratech-dev/mcp-session-bridge" },
     { label: "Skill on Smithery", url: "https://smithery.ai/skills/t3ratech-dev/signed-in-browser" },
   ],
-  installCommand: "npm install -g @t3ratech/mcp-session-bridge",
+  installCommand: "npx -y @t3ratech/mcp-session-bridge",
   icon: Bot,
 };
 
