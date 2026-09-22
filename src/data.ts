@@ -1,5 +1,5 @@
 import React from "react";
-import { ArrowDown, ArrowUpRight, Bot, BrainCircuit, Facebook, FileText, Github, Globe2, Languages, Linkedin, Menu, MessageSquareText, Monitor, Moon, Palette, Receipt, Search, ShieldCheck, ShoppingBag, Sun, Target, Twitter, UsersRound, Workflow, X } from "lucide-react";
+import { ArrowDown, ArrowUpRight, Bot, BrainCircuit, Facebook, FileText, Github, Globe2, Languages, Linkedin, Menu, MessageSquareText, Monitor, Moon, Palette, Receipt, Search, ShieldCheck, ShoppingBag, Sun, Radar, Target, Twitter, UsersRound, Workflow, X } from "lucide-react";
 import gumroadProductsJson from "./data/gumroadProducts.json";
 import nftsJson from "./data/nfts.json";
 
@@ -492,6 +492,38 @@ export const t3rnelBusinessIntelligenceProduct: McpProduct = {
   icon: Receipt,
 };
 
+/**
+ * T3rnel Market Pulse — live and public.
+ *
+ * The verified directory for the agent economy: work lanes, tools, MCP servers,
+ * models, skills and platforms, graded on observed evidence rather than claims.
+ * Agent-first: every lane must carry an agent access path to exist in the
+ * directory at all. Served as a Cloudflare Worker with a Streamable HTTP MCP
+ * surface at /mcp and an agent card at /.well-known/agent-card.json.
+ */
+export const t3rnelMarketPulseProduct: McpProduct = {
+  name: "T3rnel Market Pulse",
+  tagline: "The verified directory and yellow pages for the agent economy.",
+  description:
+    "Every work lane, tool, skill, repo, MCP server, model, platform and network an agent might need — one resource model, one verdict pipeline, evidence over claims. Lanes are graded A\u2013F or Unknown from observed evidence; a grade cannot be bought, and Unknown is an honest answer.",
+  url: "https://t3rnel-market-pulse.t3ratech.workers.dev",
+  sourceUrl: "https://github.com/t3ratech/t3rnel/tree/main/products/websites/t3rnel-market-pulse",
+  skill: {
+    name: "t3rnel-market-pulse",
+    url: "https://github.com/t3ratech/t3rnel/tree/main/products/websites/t3rnel-market-pulse",
+    registryUrl: "",
+    summary:
+      "Ask should-i-bid before working a lane; Unknown is a valid answer, evidence is not for sale.",
+  },
+  listings: [
+    { label: "Live directory", url: "https://t3rnel-market-pulse.t3ratech.workers.dev" },
+    { label: "Agent card", url: "https://t3rnel-market-pulse.t3ratech.workers.dev/.well-known/agent-card.json" },
+    { label: "Source", url: "https://github.com/t3ratech/t3rnel/tree/main/products/websites/t3rnel-market-pulse" },
+  ],
+  installCommand: `curl -s "https://t3rnel-market-pulse.t3ratech.workers.dev/.well-known/agent-card.json"`,
+  icon: Radar,
+};
+
 export type NavItem = {
   path: string;
   label: string;
@@ -540,6 +572,7 @@ export const navItems: NavItem[] = [
   { path: "/t3rnel-intelligence", label: "T3rnel Intelligence", group: "Products" },
   { path: "/document-intelligence", label: "Document Intelligence", group: "Products" },
   { path: "/business-intelligence", label: "Business Intelligence", group: "Products" },
+  { path: "/market-pulse", label: "Market Pulse", group: "Products" },
   { path: "/skills", label: "Agent Skills" },
   { path: "/nfts", label: "NFTs" },
   { path: "/gumroad", label: "Gumroad" },

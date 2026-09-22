@@ -9,6 +9,7 @@ import { Mcp } from "./pages/Mcp";
 import { T3rnelIntelligence } from "./pages/T3rnelIntelligence";
 import { DocumentIntelligence } from "./pages/DocumentIntelligence";
 import { BusinessIntelligence } from "./pages/BusinessIntelligence";
+import { MarketPulse } from "./pages/MarketPulse";
 import { AgentSkills } from "./pages/AgentSkills";
 import "./styles.css";
 
@@ -28,6 +29,7 @@ export function App() {
           <Route path="t3rnel-intelligence" element={<T3rnelIntelligence />} />
           <Route path="document-intelligence" element={<DocumentIntelligence />} />
           <Route path="business-intelligence" element={<BusinessIntelligence />} />
+          <Route path="market-pulse" element={<MarketPulse />} />
           <Route path="skills" element={<AgentSkills />} />
           <Route path="*" element={<Navigate to="/" replace />} />
         </Route>
