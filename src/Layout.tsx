@@ -196,6 +196,7 @@ export function Layout() {
   return (
     <>
       <ScrollToTop />
+      <a className="skip-link" href="#main-content">Skip to main content</a>
       <header ref={headerRef} className={`site-header ${isMobileMenuOpen ? "menu-open" : ""}`} aria-label="Primary">
         <Link className="brand" to="/" aria-label="T3raTech home" onClick={closeNavigation} aria-current={pathname === "/" ? "page" : undefined}>
           <span className="brand-mark" aria-hidden="true">
@@ -292,7 +293,7 @@ export function Layout() {
         </div>
       </header>
 
-      <main ref={mainRef}>
+      <main ref={mainRef} id="main-content">
         <Outlet />
       </main>
 

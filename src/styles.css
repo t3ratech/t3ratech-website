@@ -83,6 +83,26 @@ img {
   max-width: 100%;
 }
 
+/* First in tab order, invisible until focused — the way past the header for
+   anyone who does not use a pointer. Sits above the fixed header. */
+.skip-link {
+  background: var(--green);
+  border-radius: 8px;
+  color: #ffffff;
+  font-weight: 600;
+  left: -9999px;
+  padding: 10px 18px;
+  position: fixed;
+  text-decoration: none;
+  top: -9999px;
+  z-index: 100;
+}
+.skip-link:focus,
+.skip-link:focus-visible {
+  left: 12px;
+  top: 12px;
+}
+
 .site-header {
   align-items: center;
   background: var(--header-bg);
