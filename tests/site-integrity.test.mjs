@@ -188,3 +188,43 @@ describe("the navigation matches the router", () => {
     assert.ok(labels.some((l) => /skill/i.test(l)), "nothing in the menu leads to the agent skills");
   });
 });
+
+describe("every external link a visitor opens in a new tab is reverse-tabnabbing safe", () => {
+  test("no target=\"_blank\" without noopener/noreferrer — anywhere in src", () => {
+    const unsafe = [];
+    for (const file of sourceFiles()) {
+      const src = readFileSync(file, "utf8");
+      for (const m of src.matchAll(/<a\b[^>]*target="_blank"[^>]*>/g)) {
+        if (!/rel="[^"]*(noopener|noreferrer)[^"]*"/.test(m[0])) {
+          unsafe.push(`${path.relative(root, file)}:${src.slice(0, m.index).split("\n").length}`);
+        }
+      }
+    }
+    assert.deepEqual(unsafe, [], "external links that can hijack the opener tab");
+  });
+
+  test("every external href is https — a plaintext link leaks the referer", () => {
+    const plain = [];
+    for (const file of sourceFiles()) {
+      const src = readFileSync(file, "utf8");
+      for (const m of src.matchAll(/href="(http:[^"]+)"/g)) {
+        // localhost is fine — a dev target.
+        if (!m[1].startsWith("http://localhost") && !m[1].startsWith("http://127.")) {
+          plain.push(`${path.relative(root, file)} -> ${m[1]}`);
+        }
+      }
+    }
+    assert.deepEqual(plain, [], "http:// links to the open internet");
+  });
+});
+
+describe("the theme control is the triad, and resolves every state", () => {
+  test("light, dark and auto are all offered — a two-way toggle strands a user", () => {
+    const data = readFileSync(path.join(srcDir, "data.ts"), "utf8");
+    for (const v of ["light", "dark", "auto"]) {
+      assert.ok(data.includes(`value: "${v}"`), `theme option ${v} missing — the toggle lost a state`);
+    }
+    // auto resolves against the OS rather than silently picking one.
+    assert.match(data, /resolveTheme[\s\S]*preference === "auto"[\s\S]*mediaQuery\.matches/, "auto does not read the OS preference");
+  });
+});
