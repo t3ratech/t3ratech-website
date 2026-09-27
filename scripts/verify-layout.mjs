@@ -140,13 +140,15 @@ try {
       return { separate: innerWidth > 900 ? copy.right <= mesh.left + 1 : copy.bottom <= mesh.top + 1,
         socialsClear: socials.top >= paragraph.bottom, contained: hero.bottom >= mesh.bottom,
         cardsVisible: cards.height > 0, cardCount: document.querySelectorAll('.constellation-card').length,
+        // Derived, not hard-coded: adding a product node must not be a verifier edit.
+        nodeCount: document.querySelectorAll('.constellation-node:not(.keyword)').length,
         menuVisible: r('.menu-toggle').width > 0,
         headerFits: r('.brand').right < r('.header-actions').left,
         headerClear: r('.constellation-hero-content .kicker').top >= r('.site-header').bottom };
     })()`);
     assert.ok(layout.separate && layout.socialsClear && layout.contained && layout.headerFits && layout.headerClear, `${name}: ${JSON.stringify(layout)}`);
     assert.equal(layout.cardsVisible, width <= 900, `${name}: wrong constellation mode`);
-    assert.equal(layout.cardCount, 6);
+    assert.equal(layout.cardCount, layout.nodeCount, `${name}: mobile cards must cover every primary node`);
     assert.equal(layout.menuVisible, width < 1080, `${name}: wrong navigation mode`);
     await shot(name);
     if (name === "desktop" || name === "mobile") await shot(`${name}-full`, true);
@@ -200,7 +202,8 @@ try {
       assert.equal(await evaluate("document.querySelector('#popup-t3rnel-browser') !== null"), true, "hover popup remains reachable");
       await page.send("Input.dispatchMouseEvent", { type: "mouseMoved", x: 100, y: 100 });
       await waitFor("document.querySelector('.node-popup') === null");
-      for (const id of ["t3rnel-browser", "mcp-bridge", "document-intelligence", "whatsapp", "gumroad", "nfts"]) {
+      const primaryIds = JSON.parse(await evaluate("JSON.stringify([...document.querySelectorAll('.node-trigger')].map(b => b.id.slice('trigger-'.length)))"));
+      for (const id of primaryIds) {
         await evaluate(`document.querySelector('#trigger-${id}').focus()`);
         await key("Enter");
         assert.equal(await evaluate(`document.querySelector('#trigger-${id}').getAttribute('aria-expanded')`), "true");

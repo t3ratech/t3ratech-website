@@ -14,6 +14,10 @@ import {
   chromeProduct,
   mcpProduct,
   t3rnelDocumentIntelligenceProduct,
+  wavepayProduct,
+  t3rnelIntelligenceProduct,
+  t3rnelBusinessIntelligenceProduct,
+  t3rnelMarketPulseProduct,
   scitechCommunityUrl,
   gumroadProducts,
   nftSeriesList,
@@ -60,6 +64,10 @@ export const NODE_COLORS = {
   whatsapp: "#19a866",
   gumroad: "#cf2630",
   nfts: "#9d4edd",
+  wavepay: "#2dd4bf",
+  t3rnelIntelligence: "#818cf8",
+  businessIntelligence: "#4da3ff",
+  marketPulse: "#f5a623",
 } as const;
 
 /* ── primary nodes ─────────────────────────────────────────────────────── */
@@ -200,6 +208,84 @@ const primaryNodes: ConstellationNode[] = [
       "agent-generated", "knowledge-graphs",
     ],
   },
+  {
+    id: "wavepay",
+    label: "WavePay",
+    x: 68,
+    y: 50,
+    kind: "product",
+    color: NODE_COLORS.wavepay,
+    hasPopup: true,
+    popup: {
+      title: wavepayProduct.name,
+      tagline: wavepayProduct.tagline,
+      description: wavepayProduct.description,
+      link: { label: "Open WavePay", url: wavepayProduct.url },
+      links: wavepayProduct.listings.filter((l) => l.label !== "Live site"),
+    },
+    connections: [
+      "mcp-bridge", "secure-apis", "merchant-portal",
+      "paynow-rails", "paypal-rails", "webhooks",
+    ],
+  },
+  {
+    id: "t3rnel-intelligence",
+    label: "T3rnel Intelligence",
+    x: 36,
+    y: 62,
+    kind: "product",
+    color: NODE_COLORS.t3rnelIntelligence,
+    hasPopup: true,
+    popup: {
+      title: t3rnelIntelligenceProduct.name,
+      tagline: t3rnelIntelligenceProduct.tagline,
+      description: t3rnelIntelligenceProduct.description,
+      link: { label: "Product page", url: "/t3rnel-intelligence" },
+    },
+    connections: [
+      "lead-research", "evidence-backed", "agent-skills",
+      "prospect-scoring", "icp-matching",
+    ],
+  },
+  {
+    id: "business-intelligence",
+    label: "Business Intelligence",
+    x: 64,
+    y: 64,
+    kind: "product",
+    color: NODE_COLORS.businessIntelligence,
+    hasPopup: true,
+    popup: {
+      title: t3rnelBusinessIntelligenceProduct.name,
+      tagline: t3rnelBusinessIntelligenceProduct.tagline,
+      description: t3rnelBusinessIntelligenceProduct.description,
+      link: { label: "Product page", url: "/business-intelligence" },
+      links: t3rnelBusinessIntelligenceProduct.listings,
+    },
+    connections: [
+      "sqlite", "audit-chains", "invoicing",
+      "expense-tracking", "fiscal-receipts",
+    ],
+  },
+  {
+    id: "market-pulse",
+    label: "Market Pulse",
+    x: 90,
+    y: 50,
+    kind: "product",
+    color: NODE_COLORS.marketPulse,
+    hasPopup: true,
+    popup: {
+      title: t3rnelMarketPulseProduct.name,
+      tagline: t3rnelMarketPulseProduct.tagline,
+      description: t3rnelMarketPulseProduct.description,
+      link: { label: "Product page", url: "/market-pulse" },
+    },
+    connections: [
+      "seo", "reports", "verified-directory",
+      "agent-discovery", "evidence-backed",
+    ],
+  },
 ];
 
 /* ── keyword nodes ─────────────────────────────────────────────────────── */
@@ -260,6 +346,25 @@ const positionedKeywords: ConstellationNode[] = [
   { id: "lead-research", label: "Lead research", x: 56, y: 78, kind: "keyword", hasPopup: false, connections: [] },
   { id: "test-automation", label: "Test automation", x: 42, y: 80, kind: "keyword", hasPopup: false, connections: [] },
   { id: "seo", label: "SEO metadata", x: 54, y: 88, kind: "keyword", hasPopup: false, connections: [] },
+
+  // WavePay cluster (center)
+  { id: "merchant-portal", label: "Merchant portal", x: 60, y: 42, kind: "keyword", hasPopup: false, connections: [] },
+  { id: "paynow-rails", label: "PayNow rails", x: 76, y: 42, kind: "keyword", hasPopup: false, connections: [] },
+  { id: "paypal-rails", label: "PayPal rails", x: 78, y: 58, kind: "keyword", hasPopup: false, connections: [] },
+  { id: "webhooks", label: "Signed webhooks", x: 58, y: 58, kind: "keyword", hasPopup: false, connections: [] },
+
+  // T3rnel Intelligence cluster (center-left, below the browser cluster)
+  { id: "prospect-scoring", label: "Prospect scoring", x: 30, y: 66, kind: "keyword", hasPopup: false, connections: [] },
+  { id: "icp-matching", label: "ICP matching", x: 42, y: 70, kind: "keyword", hasPopup: false, connections: [] },
+
+  // Business Intelligence cluster (bottom-center-right)
+  { id: "invoicing", label: "Invoicing", x: 58, y: 72, kind: "keyword", hasPopup: false, connections: [] },
+  { id: "expense-tracking", label: "Expense tracking", x: 70, y: 60, kind: "keyword", hasPopup: false, connections: [] },
+  { id: "fiscal-receipts", label: "Fiscal receipts", x: 66, y: 76, kind: "keyword", hasPopup: false, connections: [] },
+
+  // Market Pulse cluster (right edge)
+  { id: "verified-directory", label: "Verified directory", x: 84, y: 56, kind: "keyword", hasPopup: false, connections: [] },
+  { id: "agent-discovery", label: "Agent discovery", x: 94, y: 44, kind: "keyword", hasPopup: false, connections: [] },
 
   // NFTs cluster (bottom-right)
   { id: "opensea", label: "OpenSea", x: 88, y: 58, kind: "keyword", hasPopup: false, connections: [] },

@@ -15,11 +15,14 @@ import {
   Menu,
   MessageSquareText,
   Palette,
+  Receipt,
   ShoppingBag,
   Sun,
   Moon,
   Monitor,
+  TrendingUp,
   Twitter,
+  Waves,
   X,
 } from "lucide-react";
 import {
@@ -36,6 +39,9 @@ const productIcons: Record<string, LucideIcon> = {
   "/mcp": Bot,
   "/t3rnel-intelligence": Target,
   "/document-intelligence": FileText,
+  "/business-intelligence": Receipt,
+  "/market-pulse": TrendingUp,
+  "/wavepay": Waves,
 };
 
 type NavGroup =

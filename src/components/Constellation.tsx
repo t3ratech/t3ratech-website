@@ -29,6 +29,42 @@ export function Constellation({
 
   const hoveredNode = hoveredId ? nodeById.get(hoveredId) ?? null : null;
 
+  /*
+   * Tentacle endpoints must land on the dot, not the node's data point.
+   * Primary nodes are pills — dot first, label inline — so the dot's centre
+   * is `padding + dot/2` inside the pill, not at the pill's centre. Keyword
+   * nodes stack dot-over-label, so their point is the column's midpoint, a few
+   * pixels below the dot. Rather than hard-code either offset (they drift with
+   * padding breakpoints and label widths), measure the real dot centres and
+   * fall back to the data point before the first measurement lands.
+   */
+  const [anchors, setAnchors] = useState<Map<string, { x: number; y: number }>>(new Map());
+  const measureDots = useCallback(() => {
+    const container = containerRef.current;
+    if (!container) return;
+    const box = container.getBoundingClientRect();
+    if (box.width === 0 || box.height === 0) return;
+    const next = new Map<string, { x: number; y: number }>();
+    for (const node of constellationNodes) {
+      const dot = document.getElementById(`node-${node.id}`)?.querySelector(".node-dot");
+      if (!dot) continue;
+      const r = dot.getBoundingClientRect();
+      next.set(node.id, {
+        x: ((r.left + r.width / 2 - box.left) / box.width) * 100,
+        y: ((r.top + r.height / 2 - box.top) / box.height) * 100,
+      });
+    }
+    setAnchors(next);
+  }, []);
+
+  useEffect(() => {
+    measureDots();
+    const container = containerRef.current;
+    const ro = new ResizeObserver(measureDots);
+    if (container) ro.observe(container);
+    return () => ro.disconnect();
+  }, [measureDots]);
+
   // Set of node ids that are connected to the hovered node (for highlighting)
   const connectedIds = useMemo(() => {
     if (!hoveredNode) return new Set<string>();
@@ -103,10 +139,12 @@ export function Constellation({
               const a = nodeById.get(id);
               const b = nodeById.get(id2);
               if (!a || !b) return null;
+              const pa = anchors.get(id) ?? a;
+              const pb = anchors.get(id2) ?? b;
               return (
                 <line
                   key={`${id}-${id2}`}
-                  x1={a.x} y1={a.y} x2={b.x} y2={b.y}
+                  x1={pa.x} y1={pa.y} x2={pb.x} y2={pb.y}
                   strokeWidth="1"
                   vectorEffect="non-scaling-stroke"
                 />
@@ -114,14 +152,17 @@ export function Constellation({
             }),
           )}
         </g>
-        {/* active tentacle edges */}
-        {activeEdges.map((edge) => (
+        {/* active tentacle edges — endpoints are the measured dot centres */}
+        {activeEdges.map((edge) => {
+          const from = anchors.get(edge.from.id) ?? edge.from;
+          const to = anchors.get(edge.to.id) ?? edge.to;
+          return (
           <line
             key={`${edge.from.id}-${edge.to.id}`}
-            x1={edge.from.x}
-            y1={edge.from.y}
-            x2={edge.to.x}
-            y2={edge.to.y}
+            x1={from.x}
+            y1={from.y}
+            x2={to.x}
+            y2={to.y}
             stroke={edge.from.color ?? "#19a866"}
             strokeWidth="2.5"
             strokeOpacity="0.95"
@@ -129,7 +170,8 @@ export function Constellation({
             className="tentacle-edge"
             vectorEffect="non-scaling-stroke"
           />
-        ))}
+          );
+        })}
       </svg>
 
       {/* Node layer */}

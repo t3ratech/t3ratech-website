@@ -1,5 +1,5 @@
 import React from "react";
-import { ArrowDown, ArrowUpRight, Bot, BrainCircuit, Facebook, FileText, Github, Globe2, Languages, Linkedin, Menu, MessageSquareText, Monitor, Moon, Palette, Receipt, Search, ShieldCheck, ShoppingBag, Sun, Radar, Target, Waves, Twitter, UsersRound, Workflow, X } from "lucide-react";
+import { ArrowDown, ArrowUpRight, Bot, BrainCircuit, Facebook, FileText, Github, Globe2, Languages, Linkedin, Menu, MessageSquareText, Monitor, Moon, Palette, Receipt, Search, ShieldCheck, ShoppingBag, Sun, Radar, Target, TrendingUp, Waves, Twitter, UsersRound, Workflow, X } from "lucide-react";
 import gumroadProductsJson from "./data/gumroadProducts.json";
 import nftsJson from "./data/nfts.json";
 
@@ -431,7 +431,7 @@ export const mcpProduct: McpProduct = {
  */
 export const wavepayProduct: McpProduct = {
   name: "WavePay",
-  tagline: "Merchant payments for Zimbabwean apps, extensions, games and agents.",
+  tagline: "Merchant payments for apps, extensions, games and agents — built in Zimbabwe, open to the world.",
   description:
     "Register, mint a key, and take payment on PayNow mobile money or PayPal. A merchant portal for keys, sites, webhooks, payout wallets and usage; an owner console for plans and audits; and a Streamable HTTP MCP surface so an agent can register and settle without a browser.",
   url: "https://wavepay.t3ratech.co.zw",
@@ -629,4 +629,6 @@ export const exploreLinks: PageLink[] = [
   { path: "/document-intelligence", label: "T3rnel Document Intelligence", description: "Evidence-backed receipt and invoice extraction.", icon: FileText },
   { path: "/business-intelligence", label: "T3rnel Business Intelligence", description: "Invoicing, receipts and expenses for Zimbabwean businesses and drivers.", icon: Receipt },
   { path: "/wavepay", label: "WavePay", description: "Merchant payments on PayNow and PayPal — for apps, extensions, games and agents.", icon: Waves },
+  { path: "/market-pulse", label: "Market Pulse", description: "The verified directory and yellow pages for the agent economy.", icon: TrendingUp },
+  { path: "/skills", label: "Agent Skills", description: "Battle-tested skills that teach agents how to use our products.", icon: BrainCircuit },
 ];
