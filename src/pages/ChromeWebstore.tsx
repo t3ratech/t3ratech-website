@@ -2,6 +2,7 @@ import { useEffect } from "react";
 import { Link } from "react-router-dom";
 import { ArrowUpRight, BookOpen, Bot, Check } from "lucide-react";
 import { chromeProduct, mcpProduct } from "../data";
+import { usePricing } from "../hooks/usePricing";
 
 export function ChromeWebstore() {
   useEffect(() => {
@@ -9,6 +10,7 @@ export function ChromeWebstore() {
   }, []);
 
   const Icon = chromeProduct.icon;
+  const pricing = usePricing("t3rnel-browser", "pro");
 
   return (
     <section className="store-section page-section chrome-section" aria-labelledby="chrome-title">
@@ -125,20 +127,23 @@ export function ChromeWebstore() {
           <div className="chrome-pricing-row">
             <div className="chrome-pricing-tier">
               <h4>Free</h4>
-              <p className="chrome-price">$0</p>
+              <p className="chrome-price">Free</p>
               <p className="chrome-description">No account, no time limit, no nag. Genuinely useful forever.</p>
             </div>
             <div className="chrome-pricing-tier chrome-pricing-pro">
               <h4>Pro</h4>
-              <p className="chrome-price">$29.99 once</p>
+              <p className="chrome-price">{pricing ? `${pricing.price} once` : "One-time"}</p>
               <p className="chrome-description">Three activations. Licensed forever, no subscription. Every tool is in the shipped build.</p>
             </div>
           </div>
           <p className="chrome-description">
-            Launch pricing: Pro is <strong>$5.00 until 31 December 2026</strong> with a promo code. To get it, share
-            T3rnel with 3 friends, rate &amp; comment on the store listing, or join the mailing list — then email{" "}
-            <a href="mailto:t3ratech.dev@gmail.com?subject=T3rnel%20launch%20code">t3ratech.dev@gmail.com</a> and we
-            send it back. If you would rather just support the work, there is{" "}
+            {pricing?.promotion ? (
+              <>
+                Launch pricing: Pro is <strong>{pricing.promotion.price} until {pricing.promotion.ends}</strong>
+                {pricing.promotion.requiresCode ? " with a promo code" : ""}.{" "}
+              </>
+            ) : null}
+            If you would rather just support the work, there is{" "}
             <a href="https://paypal.me/tkaviya" target="_blank" rel="noreferrer">
               PayPal
             </a>

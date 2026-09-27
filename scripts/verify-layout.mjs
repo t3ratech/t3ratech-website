@@ -120,7 +120,7 @@ try {
     await sleep(80);
   };
   const overflow = () => evaluate("document.documentElement.scrollWidth > innerWidth + 1");
-  const routes = ["/extensions", "/mcp", "/t3rnel-intelligence", "/document-intelligence", "/market-pulse", "/skills", "/nfts", "/gumroad", "/whatsapp-groups"];
+  const routes = ["/extensions", "/mcp", "/t3rnel-intelligence", "/document-intelligence", "/market-pulse", "/wavepay", "/skills", "/nfts", "/gumroad", "/whatsapp-groups"];
 
   for (const [name, width, height] of [
     ["desktop", 1440, 900], ["laptop", 1180, 800], ["tablet-landscape", 1024, 768],

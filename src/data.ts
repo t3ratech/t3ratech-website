@@ -1,5 +1,5 @@
 import React from "react";
-import { ArrowDown, ArrowUpRight, Bot, BrainCircuit, Facebook, FileText, Github, Globe2, Languages, Linkedin, Menu, MessageSquareText, Monitor, Moon, Palette, Receipt, Search, ShieldCheck, ShoppingBag, Sun, Radar, Target, Twitter, UsersRound, Workflow, X } from "lucide-react";
+import { ArrowDown, ArrowUpRight, Bot, BrainCircuit, Facebook, FileText, Github, Globe2, Languages, Linkedin, Menu, MessageSquareText, Monitor, Moon, Palette, Receipt, Search, ShieldCheck, ShoppingBag, Sun, Radar, Target, Waves, Twitter, UsersRound, Workflow, X } from "lucide-react";
 import gumroadProductsJson from "./data/gumroadProducts.json";
 import nftsJson from "./data/nfts.json";
 
@@ -421,6 +421,38 @@ export const mcpProduct: McpProduct = {
   icon: Bot,
 };
 
+
+/**
+ * WavePay — the payment gateway behind every T3rnel checkout.
+ *
+ * PayNow local rails (EcoCash, OneMoney, InnBucks, ZimSwitch, cards) and PayPal in one
+ * integration, with merchant tiers, webhooks and an agent-readable MCP surface. Built for
+ * Zimbabwe and priced for indie developers; live at wavepay.t3ratech.co.zw.
+ */
+export const wavepayProduct: McpProduct = {
+  name: "WavePay",
+  tagline: "Merchant payments for Zimbabwean apps, extensions, games and agents.",
+  description:
+    "Register, mint a key, and take payment on PayNow mobile money or PayPal. A merchant portal for keys, sites, webhooks, payout wallets and usage; an owner console for plans and audits; and a Streamable HTTP MCP surface so an agent can register and settle without a browser.",
+  url: "https://wavepay.t3ratech.co.zw",
+  sourceUrl: "https://github.com/t3ratech/wavepay",
+  skill: {
+    name: "wavepay",
+    url: "https://wavepay.t3ratech.co.zw/skill.md",
+    registryUrl: "https://registry.modelcontextprotocol.io",
+    summary:
+      "Register a merchant, mint a key, create a checkout, poll to settlement — all callable as MCP tools.",
+  },
+  listings: [
+    { label: "Live site", url: "https://wavepay.t3ratech.co.zw" },
+    { label: "Pricing", url: "https://wavepay.t3ratech.co.zw/pricing.html" },
+    { label: "Docs", url: "https://wavepay.t3ratech.co.zw/docs.html" },
+    { label: "Skill", url: "https://wavepay.t3ratech.co.zw/skill.md" },
+  ],
+  installCommand: `curl -s "https://wavepay.t3ratech.co.zw/skill.md" | head -40`,
+  icon: Waves,
+};
+
 export const t3rnelIntelligenceProduct: McpProduct = {
   name: "T3rnel Intelligence MCP",
   tagline: "Evidence-backed lead research, scoring, and reporting through an MCP server.",
@@ -573,6 +605,7 @@ export const navItems: NavItem[] = [
   { path: "/document-intelligence", label: "Document Intelligence", group: "Products" },
   { path: "/business-intelligence", label: "Business Intelligence", group: "Products" },
   { path: "/market-pulse", label: "Market Pulse", group: "Products" },
+  { path: "/wavepay", label: "WavePay", group: "Products" },
   { path: "/skills", label: "Agent Skills" },
   { path: "/nfts", label: "NFTs" },
   { path: "/gumroad", label: "Gumroad" },
@@ -595,4 +628,5 @@ export const exploreLinks: PageLink[] = [
   { path: "/t3rnel-intelligence", label: "T3rnel Intelligence", description: "Evidence-backed lead research and scoring.", icon: Target },
   { path: "/document-intelligence", label: "T3rnel Document Intelligence", description: "Evidence-backed receipt and invoice extraction.", icon: FileText },
   { path: "/business-intelligence", label: "T3rnel Business Intelligence", description: "Invoicing, receipts and expenses for Zimbabwean businesses and drivers.", icon: Receipt },
+  { path: "/wavepay", label: "WavePay", description: "Merchant payments on PayNow and PayPal — for apps, extensions, games and agents.", icon: Waves },
 ];
