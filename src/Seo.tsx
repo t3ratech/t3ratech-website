@@ -95,12 +95,24 @@ export function ShareBar() {
     }
   };
 
+  const shareNative = async () => {
+    if (typeof navigator.share === "function") {
+      try {
+        await navigator.share({ title: meta.title, url });
+        return;
+      } catch {
+        /* dismissed — fall through to copy */
+      }
+    }
+    await copy();
+  };
+
   return (
     <div className="share-bar" aria-label="Share this page">
-      <span className="share-bar-label">
+      <button type="button" className="share-bar-label" onClick={shareNative} aria-label="Share this page" title="Share this page">
         <Share2 size={15} strokeWidth={2.2} aria-hidden="true" />
         Share this page
-      </span>
+      </button>
       {targets.map(({ label, href, Icon }) => (
         <a key={label} href={href} target="_blank" rel="noreferrer" aria-label={label} title={label}>
           <Icon size={16} strokeWidth={2.1} />
