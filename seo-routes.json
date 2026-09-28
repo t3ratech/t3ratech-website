@@ -1,0 +1,62 @@
+{
+  "/": {
+    "title": "T3raTech Solutions | African Software Systems",
+    "description": "Zimbabwean software company building T3rnel Browser (97 MCP tools), WavePay payments, Market Pulse agent-economy data, and the SciTech Zimbabwe community.",
+    "keywords": "T3raTech, Zimbabwe software company, African software development, T3rnel Browser, WavePay, Market Pulse, MCP tools, SciTech Zimbabwe"
+  },
+  "/extensions": {
+    "title": "T3rnel Browser Extension | 97 MCP Tools in Your Real Session",
+    "description": "Install T3rnel Browser: 97 automation tools over MCP in the browser you're already signed into. Chrome, Brave, Edge, Opera, Firefox. Free tier, one-time Pro.",
+    "keywords": "browser extension, MCP tools, browser automation, Chrome extension, AI agent browser, signed-in session automation, T3rnel Browser"
+  },
+  "/mcp": {
+    "title": "MCP Session Bridge | Drive Your Signed-In Browser from Any AI",
+    "description": "Free MCP server that lets Claude, Cursor, VS Code, Windsurf and any MCP client drive your real authenticated browser session — local, no cloud.",
+    "keywords": "MCP server, Model Context Protocol, browser automation, Claude Code, Cursor, Windsurf, MCP session bridge, AI agent tools"
+  },
+  "/wavepay": {
+    "title": "WavePay | Payments & Licensing for Software — Zimbabwe Rails + Global API",
+    "description": "Charge for apps, extensions, games and APIs in two POSTs. EcoCash, InnBucks, ZimSwitch, Visa, Mastercard, PayPal — checkout, licensing and settlement in one API.",
+    "keywords": "Zimbabwe payments, EcoCash API, InnBucks payments, ZimSwitch, software licensing API, merchant payments Zimbabwe, PayPal Zimbabwe, payment gateway"
+  },
+  "/market-pulse": {
+    "title": "T3rnel Market Pulse | Evidence-Graded Agent Work Lanes",
+    "description": "The yellow pages of the agent economy: which autonomous-work lanes are live, which reply, and which have actually paid out — every claim SHA-256 evidence-chained.",
+    "keywords": "agent economy, AI agents market data, agent work lanes, bounty hunting platforms, autonomous agents, market research, liveness index"
+  },
+  "/t3rnel-intelligence": {
+    "title": "T3rnel Intelligence MCP | Scored B2B Lead Research",
+    "description": "An MCP server that turns an ideal-customer profile into scored company leads with source links, confidence and outreach angles — for Claude and any MCP client.",
+    "keywords": "lead research MCP, B2B leads, ideal customer profile, sales intelligence, MCP lead generation, prospecting AI"
+  },
+  "/document-intelligence": {
+    "title": "T3rnel Document Intelligence | Document Q&A over MCP",
+    "description": "Ask questions of your documents from any MCP client — extract, summarise and query files with the T3rnel Document Intelligence server.",
+    "keywords": "document intelligence, document Q&A, MCP document server, AI document analysis, PDF query AI"
+  },
+  "/business-intelligence": {
+    "title": "T3rnel Business Intelligence | Ops Dashboard & Analytics",
+    "description": "T3rnel Business Intelligence: revenue, products, payments and usage analytics for T3rnel products — one operations dashboard.",
+    "keywords": "business intelligence dashboard, product analytics, revenue dashboard, T3rnel BI, operations analytics"
+  },
+  "/skills": {
+    "title": "Agent Skills | T3rnel Skill Packs for AI Coding Agents",
+    "description": "Installable SKILL.md packs that teach AI agents T3rnel workflows — browser automation, payments, testing and release playbooks.",
+    "keywords": "agent skills, SKILL.md, Claude skills, AI agent playbooks, coding agent extensions"
+  },
+  "/nfts": {
+    "title": "T3rnel Genesis NFTs | T3raTech on OpenSea",
+    "description": "The T3rnel Genesis NFT collection on OpenSea — the digital identity series from T3raTech Solutions.",
+    "keywords": "T3rnel Genesis, OpenSea NFT, Zimbabwe NFT collection, T3raTech NFTs"
+  },
+  "/gumroad": {
+    "title": "Gumroad Products | T3raTech Reports, Datasets & Courses",
+    "description": "Reports, datasets, documentation packs and courses published by T3raTech Solutions on Gumroad.",
+    "keywords": "Gumroad, datasets, reports, courses, T3raTech digital products"
+  },
+  "/whatsapp-groups": {
+    "title": "SciTech Zimbabwe WhatsApp Groups | T3raTech Community",
+    "description": "Join the SciTech Zimbabwe community network — developer, jobs, business, events, gaming, property and motoring WhatsApp groups curated by T3raTech.",
+    "keywords": "SciTech Zimbabwe, WhatsApp groups Zimbabwe, Zim developers, Zimbabwe tech community, Zim jobs groups"
+  }
+}

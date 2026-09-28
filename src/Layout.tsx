@@ -32,6 +32,7 @@ import {
   themeOptions,
 } from "./data";
 import { useTheme } from "./hooks/useTheme";
+import { SeoManager, ShareBar } from "./Seo";
 
 const desktopQuery = "(min-width: 1080px)";
 const productIcons: Record<string, LucideIcon> = {
@@ -201,6 +202,7 @@ export function Layout() {
 
   return (
     <>
+      <SeoManager />
       <ScrollToTop />
       <a className="skip-link" href="#main-content">Skip to main content</a>
       <header ref={headerRef} className={`site-header ${isMobileMenuOpen ? "menu-open" : ""}`} aria-label="Primary">
@@ -304,6 +306,9 @@ export function Layout() {
       </main>
 
       <footer className="site-footer" ref={footerRef}>
+        <div className="section-inner">
+          <ShareBar />
+        </div>
         <div className="section-inner footer-grid">
           <div>
             <Link className="brand footer-brand" to="/" aria-label="T3raTech home">

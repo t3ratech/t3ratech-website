@@ -3177,3 +3177,45 @@ h2 {
     display: none;
   }
 }
+
+.share-bar {
+  align-items: center;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 10px;
+  padding: 14px 0 26px;
+}
+
+.share-bar-label {
+  align-items: center;
+  color: rgba(255, 255, 255, 0.7);
+  display: inline-flex;
+  font-size: 0.82rem;
+  gap: 8px;
+  margin-right: 6px;
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
+}
+
+.share-bar a,
+.share-bar button {
+  align-items: center;
+  background: transparent;
+  border: 1px solid rgba(255, 255, 255, 0.22);
+  border-radius: 999px;
+  color: rgba(255, 255, 255, 0.82);
+  cursor: pointer;
+  display: inline-flex;
+  font-family: inherit;
+  font-size: 0.8rem;
+  gap: 7px;
+  min-height: 36px;
+  padding: 6px 14px;
+  text-decoration: none;
+}
+
+.share-bar a:hover,
+.share-bar button:hover {
+  border-color: rgba(255, 255, 255, 0.55);
+  color: #ffffff;
+}
