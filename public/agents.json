@@ -1,0 +1,12 @@
+{
+  "name": "T3raTech Solutions",
+  "description": "Company hub for the T3rnel agent stack. Agent-callable surfaces live on the product origins — this file is the map.",
+  "homepage": "https://t3ratech.co.zw/",
+  "products": [
+    { "name": "Market Pulse", "origin": "https://market-pulse.t3ratech.co.zw", "mcp": "https://market-pulse.t3ratech.co.zw/mcp", "openapi": "https://market-pulse.t3ratech.co.zw/openapi.json", "register": "POST /api/v1/agents/register (unsigned)" },
+    { "name": "WavePay", "origin": "https://wavepay.t3ratech.co.zw", "mcp": "https://t3rnel-wavepay-production.t3ratech.workers.dev/mcp", "openapi": "https://wavepay.t3ratech.co.zw/openapi.json", "register": "POST /v2/register (unsigned)" },
+    { "name": "T3rnel Browser", "origin": "https://browser.t3ratech.co.zw", "mcp": "stdio: npx -y @t3ratech/mcp-session-bridge", "openapi": "https://browser.t3ratech.co.zw/openapi.json" },
+    { "name": "Business Intelligence", "origin": "https://bi.t3ratech.co.zw", "openapi": "https://bi.t3ratech.co.zw/openapi.json", "auth": "google-oauth session — tenant-bound, no anonymous tier" }
+  ],
+  "contact": "t3ratech.dev@gmail.com"
+}

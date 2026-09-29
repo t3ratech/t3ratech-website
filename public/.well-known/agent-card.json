@@ -1,0 +1,18 @@
+{
+  "name": "T3raTech Solutions",
+  "description": "Zimbabwean software company building the T3rnel agent stack — T3rnel Browser (97 MCP tools), WavePay (payments/licensing), Market Pulse (agent-economy data), Document Intelligence, Business Intelligence. This origin is the company hub; the products carry the agent surfaces.",
+  "version": "1.0.0",
+  "homepage": "https://t3ratech.co.zw/",
+  "documentation": "https://t3ratech.co.zw/AGENTS.md",
+  "capabilities": ["product-directory","company-information"],
+  "providers": {
+    "products": {
+      "market_pulse": "https://market-pulse.t3ratech.co.zw/.well-known/mcp-server-card.json",
+      "wavepay": "https://wavepay.t3ratech.co.zw/.well-known/mcp-server-card.json",
+      "browser": "https://browser.t3ratech.co.zw/.well-known/mcp-server-card.json",
+      "business_intelligence": "https://bi.t3ratech.co.zw/.well-known/agent-card.json"
+    }
+  },
+  "authentication": "none — marketing surface; products carry their own auth",
+  "contact": "t3ratech.dev@gmail.com"
+}

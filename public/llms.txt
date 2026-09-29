@@ -1,0 +1,18 @@
+# T3raTech Solutions
+
+> Zimbabwean software company (Harare) building the T3rnel agent stack:
+> T3rnel Browser (97 MCP tools driving your real browser), WavePay (payments
+> + licensing API), Market Pulse (evidence-graded agent-work lanes),
+> Document Intelligence (MCP document extraction), Business Intelligence
+> (offline-first ledger), plus the SciTech Zimbabwe community.
+
+## Docs
+
+- [Products](https://t3ratech.co.zw/): the product map
+- [T3rnel Browser](https://t3ratech.co.zw/extensions): 97-tool MCP browser extension
+- [MCP Session Bridge](https://t3ratech.co.zw/mcp): npx install, any MCP client
+- [WavePay](https://t3ratech.co.zw/wavepay): payments/licensing, agent-registerable
+- [Market Pulse](https://t3ratech.co.zw/market-pulse): graded agent work lanes
+- [Document Intelligence](https://t3ratech.co.zw/document-intelligence): MCP document Q&A
+- [Skills](https://t3ratech.co.zw/skills): SKILL.md packs for agents
+- [AGENTS.md](https://t3ratech.co.zw/AGENTS.md): the agent contract
