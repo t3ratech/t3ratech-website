@@ -1,5 +1,14 @@
 # T3raTech Website Deployment System
 
+> **Current state (checked 2026-10-19): production is GitHub Pages, not Cloud Run.**
+> `t3ratech.co.zw` is served by GitHub (`server: GitHub.com`); pushing to `main` runs the
+> `Deploy to GitHub Pages` and `Deploy T3raTech Website to GitHub Pages` workflows, and the
+> change is live about a minute later. The Google Cloud project `t3ratech-solutions` is
+> suspended: its billing account `0195A1-FEEB79-FF29FC` is closed, so
+> `scripts/deploy-website-terraform.sh` fails at the Terraform state bucket with
+> `403: There is an account problem for the requested project`. Everything below describes
+> the Cloud Run stack as it was built; do not use it unless billing is restored.
+
 The website is deployed with Terraform-managed Google Cloud resources and a small Docker image build script.
 
 ## Current Architecture
