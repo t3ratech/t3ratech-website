@@ -228,3 +228,27 @@ describe("the theme control is the triad, and resolves every state", () => {
     assert.match(data, /resolveTheme[\s\S]*preference === "auto"[\s\S]*mediaQuery\.matches/, "auto does not read the OS preference");
   });
 });
+
+test("the homepage constellation lists every product, Sitesmith included, with real connections", () => {
+  const data = readFileSync(path.join(root, "src/constellationData.ts"), "utf8");
+  for (const id of ["t3rnel-browser", "mcp-bridge", "document-intelligence", "wavepay", "t3rnel-intelligence", "business-intelligence", "market-pulse", "sitesmith"]) {
+    assert.match(data, new RegExp(`id: "${id}"`), `${id} is on the constellation`);
+  }
+  const block = data.slice(data.indexOf('id: "sitesmith"'));
+  const connections = [...block.slice(block.indexOf("connections: [")).split("]")[0].matchAll(/"([a-z0-9-]+)"/g)].map((m) => m[1]);
+  assert.ok(connections.length >= 4);
+  for (const id of connections) assert.match(data, new RegExp(`id: "${id}"`), `Sitesmith connects to ${id}, which exists`);
+});
+
+test("tentacle endpoints are measured against the edge layer, not the outer container", () => {
+  const source = readFileSync(path.join(root, "src/components/Constellation.tsx"), "utf8");
+  assert.match(source, /const layer = edgesRef\.current/, "the edge layer is the measuring box");
+  assert.doesNotMatch(source, /const box = container\.getBoundingClientRect\(\)/, "the outer container's box is inset from the SVG and misplaces every line");
+});
+
+test("the constellation panel has a light theme: it does not stay black on the light page", () => {
+  const css = readFileSync(path.join(root, "src/styles.css"), "utf8");
+  for (const selector of [".constellation-hero {", ".constellation-hero-content h1", ".node-trigger {", ".node-popup {", ".tentacle-edge", ".base-edges", ".constellation-card {"]) {
+    assert.ok(css.includes(`:root[data-theme="light"] ${selector}`), `light mode restyles ${selector.trim()}`);
+  }
+});

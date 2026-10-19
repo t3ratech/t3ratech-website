@@ -36,6 +36,8 @@ export type ConstellationNode = {
   /** color for primary nodes; keywords are always green */
   color?: string;
   hasPopup: boolean;
+  /** Open the popup beside the node, to its right. For nodes in the middle band: above them the fixed header clips it, below-left it runs into the copy column. */
+  popupSide?: "right";
   popup?: {
     title: string;
     tagline: string;
@@ -68,6 +70,7 @@ export const NODE_COLORS = {
   t3rnelIntelligence: "#818cf8",
   businessIntelligence: "#4da3ff",
   marketPulse: "#f5a623",
+  sitesmith: "#ec6aa6",
 } as const;
 
 /* ── primary nodes ─────────────────────────────────────────────────────── */
@@ -286,6 +289,30 @@ const primaryNodes: ConstellationNode[] = [
       "agent-discovery", "evidence-backed",
     ],
   },
+  {
+    id: "sitesmith",
+    label: "Sitesmith",
+    x: 38,
+    y: 48,
+    kind: "product",
+    color: NODE_COLORS.sitesmith,
+    hasPopup: true,
+    popupSide: "right",
+    popup: {
+      title: "T3rnel Sitesmith",
+      tagline: "Your new website, built before you pay a cent.",
+      description:
+        "We rebuild a business's website from its own facts and show it privately. Pay only if you like it.",
+      link: { label: "Product page", url: "/sitesmith" },
+      links: [
+        { label: "Public site", url: "https://sitesmith.t3ratech.co.zw" },
+        { label: "Request a preview", url: "https://sitesmith.t3ratech.co.zw/request-preview/" },
+      ],
+    },
+    connections: [
+      "preview-sites", "local-seo", "ai-answers", "seo", "wavepay", "lead-research",
+    ],
+  },
 ];
 
 /* ── keyword nodes ─────────────────────────────────────────────────────── */
@@ -361,6 +388,11 @@ const positionedKeywords: ConstellationNode[] = [
   { id: "invoicing", label: "Invoicing", x: 58, y: 72, kind: "keyword", hasPopup: false, connections: [] },
   { id: "expense-tracking", label: "Expense tracking", x: 70, y: 60, kind: "keyword", hasPopup: false, connections: [] },
   { id: "fiscal-receipts", label: "Fiscal receipts", x: 66, y: 76, kind: "keyword", hasPopup: false, connections: [] },
+
+  // Sitesmith cluster (centre, between the browser and intelligence clusters)
+  { id: "preview-sites", label: "Preview-first sites", x: 29, y: 54, kind: "keyword", hasPopup: false, connections: [] },
+  { id: "local-seo", label: "Local SEO", x: 45, y: 54, kind: "keyword", hasPopup: false, connections: [] },
+  { id: "ai-answers", label: "AI-answer visibility", x: 38, y: 41, kind: "keyword", hasPopup: false, connections: [] },
 
   // Market Pulse cluster (right edge)
   { id: "verified-directory", label: "Verified directory", x: 84, y: 56, kind: "keyword", hasPopup: false, connections: [] },

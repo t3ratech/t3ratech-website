@@ -26,6 +26,7 @@ export function Constellation({
 }) {
   const [hoveredId, setHoveredId] = useState<string | null>(null);
   const containerRef = useRef<HTMLDivElement>(null);
+  const edgesRef = useRef<SVGSVGElement>(null);
 
   const hoveredNode = hoveredId ? nodeById.get(hoveredId) ?? null : null;
 
@@ -40,9 +41,12 @@ export function Constellation({
    */
   const [anchors, setAnchors] = useState<Map<string, { x: number; y: number }>>(new Map());
   const measureDots = useCallback(() => {
-    const container = containerRef.current;
-    if (!container) return;
-    const box = container.getBoundingClientRect();
+    // The edge layer is inset inside the constellation (the nodes layer shares its box), and the SVG
+    // draws in its own 0-100 space. Measure against that layer, not the outer container, or every
+    // line lands offset from its dot by the inset.
+    const layer = edgesRef.current;
+    if (!layer) return;
+    const box = layer.getBoundingClientRect();
     if (box.width === 0 || box.height === 0) return;
     const next = new Map<string, { x: number; y: number }>();
     for (const node of constellationNodes) {
@@ -62,7 +66,14 @@ export function Constellation({
     const container = containerRef.current;
     const ro = new ResizeObserver(measureDots);
     if (container) ro.observe(container);
-    return () => ro.disconnect();
+    if (edgesRef.current) ro.observe(edgesRef.current);
+    // Label widths (and so each pill's dot offset) change when the web font arrives and when the window moves.
+    void document.fonts?.ready.then(measureDots);
+    window.addEventListener("resize", measureDots);
+    return () => {
+      ro.disconnect();
+      window.removeEventListener("resize", measureDots);
+    };
   }, [measureDots]);
 
   // Set of node ids that are connected to the hovered node (for highlighting)
@@ -131,7 +142,7 @@ export function Constellation({
     <div className="constellation" ref={containerRef}>
       {/* SVG layer for edges — uses vector-effect:non-scaling-stroke so lines
           stay 1.5px regardless of the viewBox stretch */}
-      <svg className="constellation-edges" viewBox="0 0 100 100" preserveAspectRatio="none">
+      <svg className="constellation-edges" ref={edgesRef} viewBox="0 0 100 100" preserveAspectRatio="none">
         {/* faint base edges between primary nodes */}
         <g className="base-edges" stroke="#19a866" strokeOpacity="0.1">
           {primaryNodeIds.map((id, i) =>
@@ -168,6 +179,7 @@ export function Constellation({
             strokeOpacity="0.95"
             strokeLinecap="round"
             className="tentacle-edge"
+            style={{ "--edge-color": edge.from.color ?? "#19a866" } as React.CSSProperties}
             vectorEffect="non-scaling-stroke"
           />
           );
@@ -240,7 +252,7 @@ export function Constellation({
                    * clips them. Bottom-middle nodes open above the node, centred, to stay
                    * inside the column without overlapping the robot.
                    */
-                  className={`node-popup ${node.y < 40 ? "opens-below" : ""} ${node.x < 34 ? "opens-right" : ""} ${node.y >= 40 && node.x >= 34 && node.x < 66 ? "centered" : ""}`}
+                  className={`node-popup ${node.popupSide === "right" ? "opens-right" : `${node.y < 40 ? "opens-below" : ""} ${node.x < 34 ? "opens-right" : ""} ${node.y >= 40 && node.x >= 34 && node.x < 66 ? "centered" : ""}`}`}
                   id={`popup-${node.id}`}
                   role="region"
                   aria-labelledby={`trigger-${node.id}`}
