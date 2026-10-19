@@ -43,6 +43,7 @@ const productIcons: Record<string, LucideIcon> = {
   "/business-intelligence": Receipt,
   "/market-pulse": TrendingUp,
   "/wavepay": Waves,
+  "/sitesmith": Globe2,
 };
 
 type NavGroup =

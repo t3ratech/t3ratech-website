@@ -606,6 +606,7 @@ export const navItems: NavItem[] = [
   { path: "/business-intelligence", label: "Business Intelligence", group: "Products" },
   { path: "/market-pulse", label: "Market Pulse", group: "Products" },
   { path: "/wavepay", label: "WavePay", group: "Products" },
+  { path: "/sitesmith", label: "Sitesmith", group: "Products" },
   { path: "/skills", label: "Agent Skills" },
   { path: "/nfts", label: "NFTs" },
   { path: "/gumroad", label: "Gumroad" },
@@ -629,6 +630,7 @@ export const exploreLinks: PageLink[] = [
   { path: "/document-intelligence", label: "T3rnel Document Intelligence", description: "Evidence-backed receipt and invoice extraction.", icon: FileText },
   { path: "/business-intelligence", label: "T3rnel Business Intelligence", description: "Invoicing, receipts and expenses for Zimbabwean businesses and drivers.", icon: Receipt },
   { path: "/wavepay", label: "WavePay", description: "Merchant payments on PayNow and PayPal — for apps, extensions, games and agents.", icon: Waves },
+  { path: "/sitesmith", label: "Sitesmith", description: "Websites built before you pay, with the work that gets a business found.", icon: Globe2 },
   { path: "/market-pulse", label: "Market Pulse", description: "The verified directory and yellow pages for the agent economy.", icon: TrendingUp },
   { path: "/skills", label: "Agent Skills", description: "Battle-tested skills that teach agents how to use our products.", icon: BrainCircuit },
 ];
