@@ -31,12 +31,20 @@ function upsertLink(rel: string, href: string) {
   el.href = href;
 }
 
+// GitHub Pages serves a route at /route/ (and 301s /route there), so the slash
+// form is the canonical URL; ROUTE_META is keyed without the slash.
+const routeKey = (pathname: string) => pathname.replace(/\/+$/, "") || "/";
+const canonicalUrl = (pathname: string) => {
+  const key = routeKey(pathname);
+  return key === "/" ? `${SITE}/` : `${SITE}${key}/`;
+};
+
 export function SeoManager() {
   const { pathname } = useLocation();
 
   useEffect(() => {
-    const meta = ROUTE_META[pathname] ?? FALLBACK;
-    const url = `${SITE}${pathname === "/" ? "/" : pathname}`;
+    const meta = ROUTE_META[routeKey(pathname)] ?? FALLBACK;
+    const url = canonicalUrl(pathname);
     document.title = meta.title;
     upsertMeta("name", "description", meta.description);
     upsertMeta("name", "keywords", meta.keywords);
@@ -57,8 +65,8 @@ export function SeoManager() {
 export function ShareBar() {
   const { pathname } = useLocation();
   const [copied, setCopied] = useState(false);
-  const meta = ROUTE_META[pathname] ?? FALLBACK;
-  const url = `${SITE}${pathname === "/" ? "/" : pathname}`;
+  const meta = ROUTE_META[routeKey(pathname)] ?? FALLBACK;
+  const url = canonicalUrl(pathname);
   const encodedUrl = encodeURIComponent(url);
   const encodedText = encodeURIComponent(meta.title);
 

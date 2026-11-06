@@ -252,3 +252,23 @@ test("the constellation panel has a light theme: it does not stay black on the l
     assert.ok(css.includes(`:root[data-theme="light"] ${selector}`), `light mode restyles ${selector.trim()}`);
   }
 });
+
+describe("the sitemap advertises the URLs that serve", () => {
+  const routes = Object.keys(JSON.parse(readFileSync(path.join(root, "seo-routes.json"), "utf8")));
+  const locs = [...readFileSync(path.join(root, "public", "sitemap.xml"), "utf8").matchAll(/<loc>([^<]+)<\/loc>/g)].map((m) => m[1]);
+
+  test("every sitemap URL is the slash form GitHub Pages serves, with no redirect to follow", () => {
+    const bare = locs.filter((loc) => !loc.endsWith("/"));
+    assert.deepEqual(bare, [], `these 301 to their slash form and so must not be listed: ${bare.join(", ")}`);
+  });
+
+  test("every sitemap URL is a prerendered route, and every prerendered route is in the sitemap", () => {
+    const fromRoutes = routes.map((route) => `https://t3ratech.co.zw${route === "/" ? "" : route}/`).sort();
+    assert.deepEqual([...locs].sort(), fromRoutes);
+  });
+
+  test("the prerenderer and the client router canonicalise to the same slash form", () => {
+    assert.match(readFileSync(path.join(root, "scripts", "postbuild.js"), "utf8"), /\$\{SITE\}\$\{route\}\//);
+    assert.match(readFileSync(path.join(srcDir, "Seo.tsx"), "utf8"), /\$\{SITE\}\$\{key\}\//);
+  });
+});

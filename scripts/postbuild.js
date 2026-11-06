@@ -32,7 +32,8 @@ const base = readFileSync(index, "utf8");
 let count = 0;
 for (const [route, meta] of Object.entries(routes)) {
   if (route === "/") continue; // dist/index.html already carries home meta
-  const url = `${SITE}${route}`;
+  // GitHub Pages answers /route with a 301 to /route/, so the slash form is the URL that serves.
+  const url = `${SITE}${route}/`;
   let html = base;
   html = html.replace(/<title>[^<]*<\/title>/, `<title>${esc(meta.title)}</title>`);
   html = html.replace(/<link rel="canonical"[^>]*>/, `<link rel="canonical" href="${esc(url)}" />`);
