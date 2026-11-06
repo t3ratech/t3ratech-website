@@ -1,5 +1,5 @@
 import React from "react";
-import { ArrowDown, ArrowUpRight, Bot, BrainCircuit, Facebook, FileText, Github, Globe2, Languages, Linkedin, Menu, MessageSquareText, Monitor, Moon, Palette, Receipt, Search, ShieldCheck, ShoppingBag, Sun, Radar, Target, TrendingUp, Waves, Twitter, UsersRound, Workflow, X } from "lucide-react";
+import { ArrowDown, ArrowUpRight, Bot, BrainCircuit, Facebook, FileText, Github, Globe2, Languages, Linkedin, Menu, MessageSquareText, Monitor, Moon, Palette, Receipt, Search, ShieldCheck, ShoppingBag, Store, Sun, Radar, Target, TrendingUp, Waves, Twitter, UsersRound, Workflow, X } from "lucide-react";
 import gumroadProductsJson from "./data/gumroadProducts.json";
 import nftsJson from "./data/nfts.json";
 
@@ -607,6 +607,7 @@ export const navItems: NavItem[] = [
   { path: "/market-pulse", label: "Market Pulse", group: "Products" },
   { path: "/wavepay", label: "WavePay", group: "Products" },
   { path: "/sitesmith", label: "Sitesmith", group: "Products" },
+  { path: "/konekted", label: "Konekted", group: "Products" },
   { path: "/skills", label: "Agent Skills" },
   { path: "/nfts", label: "NFTs" },
   { path: "/gumroad", label: "Gumroad" },
@@ -631,6 +632,7 @@ export const exploreLinks: PageLink[] = [
   { path: "/business-intelligence", label: "T3rnel Business Intelligence", description: "Invoicing, receipts and expenses for Zimbabwean businesses and drivers.", icon: Receipt },
   { path: "/wavepay", label: "WavePay", description: "Merchant payments on PayNow and PayPal — for apps, extensions, games and agents.", icon: Waves },
   { path: "/sitesmith", label: "Sitesmith", description: "Websites built before you pay, with the work that gets a business found.", icon: Globe2 },
+  { path: "/konekted", label: "Konekted", description: "Zimbabwe's super-app: services with bidding, jobs, property, shop and classifieds.", icon: Store },
   { path: "/market-pulse", label: "Market Pulse", description: "The verified directory and yellow pages for the agent economy.", icon: TrendingUp },
   { path: "/skills", label: "Agent Skills", description: "Battle-tested skills that teach agents how to use our products.", icon: BrainCircuit },
 ];

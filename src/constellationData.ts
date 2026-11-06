@@ -71,6 +71,7 @@ export const NODE_COLORS = {
   businessIntelligence: "#4da3ff",
   marketPulse: "#f5a623",
   sitesmith: "#ec6aa6",
+  konekted: "#7bd88f",
 } as const;
 
 /* ── primary nodes ─────────────────────────────────────────────────────── */
@@ -313,6 +314,24 @@ const primaryNodes: ConstellationNode[] = [
       "preview-sites", "local-seo", "ai-answers", "seo", "wavepay", "lead-research",
     ],
   },
+  {
+    id: "konekted",
+    label: "Konekted",
+    x: 66,
+    y: 20,
+    kind: "product",
+    color: NODE_COLORS.konekted,
+    hasPopup: true,
+    popup: {
+      title: "Konekted",
+      tagline: "Zimbabwe's super-app for services, jobs and listings.",
+      description:
+        "Request a service and compare bids, or browse jobs, property, vehicles, shop products and classifieds on the web, Android, WhatsApp and USSD.",
+      link: { label: "Product page", url: "/konekted" },
+      links: [{ label: "Public site", url: "https://konekted.t3ratech.co.zw" }],
+    },
+    connections: ["service-bidding", "zimbabwe-marketplace", "whatsapp-ordering", "local-listings", "wavepay"],
+  },
 ];
 
 /* ── keyword nodes ─────────────────────────────────────────────────────── */
@@ -393,6 +412,12 @@ const positionedKeywords: ConstellationNode[] = [
   { id: "preview-sites", label: "Preview-first sites", x: 29, y: 54, kind: "keyword", hasPopup: false, connections: [] },
   { id: "local-seo", label: "Local SEO", x: 45, y: 54, kind: "keyword", hasPopup: false, connections: [] },
   { id: "ai-answers", label: "AI-answer visibility", x: 38, y: 41, kind: "keyword", hasPopup: false, connections: [] },
+
+  // Konekted cluster (top, right of centre)
+  { id: "service-bidding", label: "Service bidding", x: 56, y: 12, kind: "keyword", hasPopup: false, connections: [] },
+  { id: "zimbabwe-marketplace", label: "Zimbabwe marketplace", x: 78, y: 12, kind: "keyword", hasPopup: false, connections: [] },
+  { id: "whatsapp-ordering", label: "WhatsApp ordering", x: 78, y: 24, kind: "keyword", hasPopup: false, connections: [] },
+  { id: "local-listings", label: "Local listings", x: 64, y: 34, kind: "keyword", hasPopup: false, connections: [] },
 
   // Market Pulse cluster (right edge)
   { id: "verified-directory", label: "Verified directory", x: 84, y: 56, kind: "keyword", hasPopup: false, connections: [] },

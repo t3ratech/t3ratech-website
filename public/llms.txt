@@ -4,7 +4,7 @@
 > T3rnel Browser (97 MCP tools driving your real browser), WavePay (payments
 > + licensing API), Market Pulse (evidence-graded agent-work lanes),
 > Document Intelligence (MCP document extraction), Business Intelligence
-> (offline-first ledger), plus the SciTech Zimbabwe community.
+> (offline-first ledger), Konekted (Zimbabwe's super-app), plus the SciTech Zimbabwe community.
 
 ## Docs
 
@@ -12,6 +12,7 @@
 - [T3rnel Browser](https://t3ratech.co.zw/extensions): 97-tool MCP browser extension
 - [MCP Session Bridge](https://t3ratech.co.zw/mcp): npx install, any MCP client
 - [Sitesmith](https://t3ratech.co.zw/sitesmith): websites built before the client pays, plus listings and search setup; full site at https://sitesmith.t3ratech.co.zw
+- [Konekted](https://t3ratech.co.zw/konekted): Zimbabwe's super-app for services with bidding, jobs, property, shop and classifieds; full site at https://konekted.t3ratech.co.zw
 - [WavePay](https://t3ratech.co.zw/wavepay): payments/licensing, agent-registerable
 - [Market Pulse](https://t3ratech.co.zw/market-pulse): graded agent work lanes
 - [Document Intelligence](https://t3ratech.co.zw/document-intelligence): MCP document Q&A

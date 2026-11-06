@@ -10,6 +10,7 @@ import {
   Target,
   Github,
   Globe2,
+  Store,
   Heart,
   Linkedin,
   Menu,
@@ -44,6 +45,7 @@ const productIcons: Record<string, LucideIcon> = {
   "/market-pulse": TrendingUp,
   "/wavepay": Waves,
   "/sitesmith": Globe2,
+  "/konekted": Store,
 };
 
 type NavGroup =

@@ -231,7 +231,7 @@ describe("the theme control is the triad, and resolves every state", () => {
 
 test("the homepage constellation lists every product, Sitesmith included, with real connections", () => {
   const data = readFileSync(path.join(root, "src/constellationData.ts"), "utf8");
-  for (const id of ["t3rnel-browser", "mcp-bridge", "document-intelligence", "wavepay", "t3rnel-intelligence", "business-intelligence", "market-pulse", "sitesmith"]) {
+  for (const id of ["t3rnel-browser", "mcp-bridge", "document-intelligence", "wavepay", "t3rnel-intelligence", "business-intelligence", "market-pulse", "sitesmith", "konekted"]) {
     assert.match(data, new RegExp(`id: "${id}"`), `${id} is on the constellation`);
   }
   const block = data.slice(data.indexOf('id: "sitesmith"'));
