@@ -52,7 +52,7 @@ export function Mcp() {
 
           <h3>Install</h3>
           <p className="chrome-description">
-            There is nothing to install — bridge 1.3.0 runs through npx. Point your MCP client at:
+            There is nothing to install — bridge 1.4.1 runs through npx. Point your MCP client at:
           </p>
           <pre className="mcp-install">
             <code>{mcpProduct.installCommand}</code>

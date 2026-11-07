@@ -32,7 +32,7 @@ export function ChromeWebstore() {
 
           <h3>What you get</h3>
           <p className="chrome-description">
-            T3rnel Browser 1.3.0 is a browser extension with 97 tools and no backend servers. It installs on Chrome, Brave, Edge and Chromium from one package; Firefox and Opera are partly supported. It gives you developer tools
+            T3rnel Browser 1.4.0 is a browser extension with 97 tools; your pages never leave your device. It installs on Chrome, Brave, Edge and Chromium from one package; Firefox and Opera are partly supported. It gives you developer tools
             you can talk to, and an agent runway you can trust. Pair it with the{" "}
             <a href={mcpProduct.url} target="_blank" rel="noreferrer">
               free MCP Session Bridge
@@ -87,6 +87,26 @@ export function ChromeWebstore() {
             </li>
           </ul>
 
+          <h3>New in 1.4.0</h3>
+          <ul className="chrome-feature-list">
+            <li>
+              <Check size={18} strokeWidth={2.2} />
+              <strong>One account, five browsers</strong> — sign in with a provider and Pro follows you across up to five
+              browsers, on any machine. Reinstalling no longer loses it, and signing a browser out frees its seat.
+            </li>
+            <li>
+              <Check size={18} strokeWidth={2.2} />
+              <strong>Browser control is never limited</strong> — the tools an AI uses to drive a page (navigate, click,
+              read, type, network and console capture) need no account and have no cap. The extension's own free tools
+              get three uses a month on a free account; the Pro tools stay Pro.
+            </li>
+            <li>
+              <Check size={18} strokeWidth={2.2} />
+              <strong>Several browsers at once</strong> — with Chrome and Brave both carrying the extension, bridge 1.4.1
+              keeps using the browser that can actually see tabs instead of whichever connected first.
+            </li>
+          </ul>
+
           <h3>New in 1.3.0</h3>
           <ul className="chrome-feature-list">
             <li>
@@ -128,12 +148,12 @@ export function ChromeWebstore() {
             <div className="chrome-pricing-tier">
               <h4>Free</h4>
               <p className="chrome-price">Free</p>
-              <p className="chrome-description">No account, no time limit, no nag. Genuinely useful forever.</p>
+              <p className="chrome-description">Browser control for your AI is free and unlimited, no account. The extension's own free tools: three uses a month with a free account, no end date.</p>
             </div>
             <div className="chrome-pricing-tier chrome-pricing-pro">
               <h4>Pro</h4>
               <p className="chrome-price">{pricing ? `${pricing.price} once` : "One-time"}</p>
-              <p className="chrome-description">Three activations. Licensed forever, no subscription. Every tool is in the shipped build.</p>
+              <p className="chrome-description">Up to five signed-in browsers. Licensed forever, no subscription. No monthly limit, and the Pro tools.</p>
             </div>
           </div>
           <p className="chrome-description">
@@ -152,10 +172,10 @@ export function ChromeWebstore() {
 
           <h3>Privacy</h3>
           <p className="chrome-description">
-            The extension still collects nothing by default: no account, no tracking, no error reporting. One thing
-            sits behind a switch — an opt-in anonymous per-tool usage counter that reports which tools ran to
-            T3raTech's own service and Google Analytics 4. It sends no page content, URLs, arguments, or identity,
-            and stays off until you turn it on. Everything it saves is stored locally in your browser. Payment goes through PayNow — Visa, Mastercard, ZimSwitch, EcoCash, OneMoney, Telecash, InnBucks and O’mari — handled by T3rnel WavePay, our own gateway; we never see payment details.
+            The extension never sends your browsing data. Its own tools need an account, and it sends anonymous
+            usage events — which tool or button, where, and how it ended — to T3raTech's own service and Google
+            Analytics 4, never page content, URLs, arguments, typed values or your email. There is no error
+            reporting. Everything it saves is stored locally in your browser. Payment goes through PayNow — Visa, Mastercard, ZimSwitch, EcoCash, OneMoney, Telecash, InnBucks and O’mari — handled by T3rnel WavePay, our own gateway; we never see payment details.
           </p>
 
           <div className="chrome-actions">
